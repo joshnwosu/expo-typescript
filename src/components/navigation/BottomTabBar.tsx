@@ -84,10 +84,7 @@ export default function BottomTabBar({
             onLongPress={onLongPress}
             style={{
               flex: 1,
-              // height: 100,
-              // backgroundColor: "red",
               alignItems: "center",
-              // paddingTop: 16,
             }}
           >
             <Text

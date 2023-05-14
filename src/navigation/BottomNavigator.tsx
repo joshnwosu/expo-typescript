@@ -1,7 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { View, Text, TouchableOpacity } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
 
 // screens
 import Home from "../screens/Home";
@@ -12,7 +10,7 @@ import BottomTabBar from "../components/navigation/BottomTabBar";
 
 const Tab = createBottomTabNavigator();
 
-const BottomNavigator = ({ navigation }: any) => {
+const BottomNavigator = () => {
   return (
     <Tab.Navigator tabBar={(props) => <BottomTabBar {...props} />}>
       <Tab.Screen name="Home" component={Home} />
