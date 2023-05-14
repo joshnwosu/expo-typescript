@@ -8,12 +8,13 @@ import Home from "../screens/Home";
 import Chat from "../screens/Chat";
 import Profile from "../screens/Profile";
 import Setting from "../screens/Setting";
+import BottomTabBar from "../components/navigation/BottomTabBar";
 
 const Tab = createBottomTabNavigator();
 
 const BottomNavigator = ({ navigation }: any) => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator tabBar={(props) => <BottomTabBar {...props} />}>
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Chat" component={Chat} />
       <Tab.Screen name="Profile" component={Profile} />
