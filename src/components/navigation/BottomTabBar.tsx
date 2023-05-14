@@ -89,7 +89,7 @@ export default function BottomTabBar({
           >
             <Text
               style={{
-                color: isFocused ? "white" : "lightgray",
+                color: isFocused ? "#00f" : "#777777",
                 fontWeight: "500",
                 marginTop: 8,
               }}
