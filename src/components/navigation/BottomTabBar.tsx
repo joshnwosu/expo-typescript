@@ -1,4 +1,4 @@
-import { View, Text, Pressable } from "react-native";
+import { View, Text, Pressable, ViewStyle } from "react-native";
 import React from "react";
 import {
   ParamListBase,
@@ -7,6 +7,7 @@ import {
 } from "@react-navigation/native";
 import { BottomTabNavigationEventMap } from "@react-navigation/bottom-tabs";
 import { BottomTabDescriptorMap } from "@react-navigation/bottom-tabs/lib/typescript/src/types";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 interface Props {
   state: TabNavigationState<ParamListBase>;
@@ -22,31 +23,23 @@ interface LabelProps {
     | ((props: { focused: boolean; color: string }) => React.ReactNode);
 }
 
-function Label({ focused, color, children }: LabelProps) {
-  return (
-    <Text
-      style={{
-        color: color,
-        fontWeight: "500",
-        marginTop: 8,
-      }}
-    >
-      {typeof children === "function" ? children({ focused, color }) : children}
-    </Text>
-  );
-}
-
 export default function BottomTabBar({
   state,
   descriptors,
   navigation,
 }: Props) {
+  const insets = useSafeAreaInsets();
+  // Adjust the position of the tab bar to avoid overlapping with the gesture line
+  const tabBarStyle: ViewStyle = { marginBottom: insets.bottom };
+
   return (
     <View
       style={{
-        backgroundColor: "red",
-        borderTopColor: "blue",
+        flexDirection: "row",
+        // backgroundColor: "#000000",
+        borderTopColor: "#444",
         borderTopWidth: 1,
+        ...tabBarStyle,
       }}
     >
       {state.routes.map((route, index) => {
@@ -73,14 +66,39 @@ export default function BottomTabBar({
           }
         };
 
+        const onLongPress = () => {
+          navigation.emit({
+            type: "tabLongPress",
+            target: route.key,
+          });
+        };
+
         return (
-          <Pressable key={index} role="button" onPress={onPress}>
-            <Label
-              focused={isFocused}
-              color={isFocused ? "white" : "lightgray"}
+          <Pressable
+            key={index}
+            accessibilityRole="button"
+            accessibilityState={isFocused ? { selected: true } : {}}
+            accessibilityLabel={label}
+            testID={options.tabBarTestID}
+            onPress={onPress}
+            onLongPress={onLongPress}
+            style={{
+              flex: 1,
+              // height: 100,
+              // backgroundColor: "red",
+              alignItems: "center",
+              // paddingTop: 16,
+            }}
+          >
+            <Text
+              style={{
+                color: isFocused ? "white" : "lightgray",
+                fontWeight: "500",
+                marginTop: 8,
+              }}
             >
               {label}
-            </Label>
+            </Text>
           </Pressable>
         );
       })}
