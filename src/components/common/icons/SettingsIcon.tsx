@@ -3,7 +3,7 @@ import Svg, { SvgProps, Path } from "react-native-svg";
 interface Props extends SvgProps {
   fill?: string | undefined;
 }
-const SettingIcon: React.FC<Props> = ({ fill, ...props }: SvgProps) => (
+const SettingsIcon: React.FC<Props> = ({ fill, ...props }: SvgProps) => (
   <Svg viewBox="0 0 24 24" width={24} height={24} fill="none" {...props}>
     <Path
       fill={fill ?? "#292D32"}
@@ -16,4 +16,4 @@ const SettingIcon: React.FC<Props> = ({ fill, ...props }: SvgProps) => (
     />
   </Svg>
 );
-export default SettingIcon;
+export default SettingsIcon;

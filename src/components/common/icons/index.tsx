@@ -1,10 +1,11 @@
 import HomeIcon from "./HomeIcon";
 import ChatIcon from "./ChatIcon";
 import ProfileIcon from "./ProfileIcon";
-import SettingIcon from "./SettingIcon";
 import LocationIcon from "./LocationIcon";
 import FolderIcon from "./FolderIcon";
 import EditIcon from "./EditIcon";
+import NoteIcon from "./NoteIcon";
+import SettingsIcon from "./SettingsIcon";
 
 interface IconProps {
   icon: string;
@@ -25,9 +26,11 @@ const SvgIcon = ({ icon, ...rest }: IconProps) => {
       return <ChatIcon {...rest} />;
     case "profile":
       return <ProfileIcon {...rest} />;
-    case "setting":
-      return <SettingIcon {...rest} />;
-    case "note":
+    case "settings":
+      return <SettingsIcon {...rest} />;
+    case "notes":
+      return <NoteIcon {...rest} />;
+    case "edit":
       return <EditIcon {...rest} />;
     default:
       return null;

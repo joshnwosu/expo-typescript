@@ -86,12 +86,13 @@ export default function BottomTabBar({
               flex: 1,
               alignItems: "center",
               paddingTop: 10,
+              paddingBottom: 0,
             }}
           >
             <SvgIcon
               icon={label.toLowerCase()}
-              width={24}
-              height={24}
+              width={30}
+              height={30}
               fill={isFocused ? "#9E86FE" : "#6d6f7a"}
             />
             <Text
