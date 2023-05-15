@@ -16,16 +16,20 @@ interface Screen {
 }
 
 const SCREENS: Screen[] = [
+  // {
+  //   name: "Home",
+  //   component: () => <Home />,
+  // },
   {
-    name: "Home",
-    component: () => <Home />,
-  },
-  {
-    name: "Location",
+    name: "Folder",
     component: () => <Home />,
   },
   {
     name: "Chat",
+    component: () => <Chat />,
+  },
+  {
+    name: "Note",
     component: () => <Chat />,
   },
   {
