@@ -7,6 +7,7 @@ import EditIcon from "./EditIcon";
 import NoteIcon from "./NoteIcon";
 import SettingsIcon from "./SettingsIcon";
 import SearchIcon from "./SearchIcon";
+import LibraryIcon from "./LibraryIcon";
 
 interface IconProps {
   icon: string;
@@ -35,6 +36,8 @@ const SvgIcon = ({ icon, ...rest }: IconProps) => {
       return <EditIcon {...rest} />;
     case "search":
       return <SearchIcon {...rest} />;
+    case "library":
+      return <LibraryIcon {...rest} />;
     default:
       return null;
   }

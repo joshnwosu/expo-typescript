@@ -6,6 +6,10 @@ import SettingsScreen from "../screens/SettingsScreen";
 
 export const MAIN_SCREENS: MainScreen[] = [
   {
+    name: "Library",
+    component: HomeScreen,
+  },
+  {
     name: "Notes",
     component: HomeScreen,
   },
