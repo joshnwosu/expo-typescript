@@ -4,7 +4,7 @@ import React from "react";
 export default function HomeScreen() {
   return (
     <View>
-      <Text>Home</Text>
+      <Text style={{ color: "blue" }}>Homesssssss</Text>
     </View>
   );
 }

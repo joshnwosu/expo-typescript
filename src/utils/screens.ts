@@ -1,5 +1,6 @@
 import { MainScreen } from "../types";
 // screens
+import LibraryScreen from "../screens/LibraryScreen";
 import HomeScreen from "../screens/HomeScreen";
 import ChatScreen from "../screens/ChatScreen";
 import SettingsScreen from "../screens/SettingsScreen";
@@ -7,7 +8,7 @@ import SettingsScreen from "../screens/SettingsScreen";
 export const MAIN_SCREENS: MainScreen[] = [
   {
     name: "Library",
-    component: HomeScreen,
+    component: LibraryScreen,
   },
   {
     name: "Notes",

@@ -79,6 +79,7 @@ export default function BottomTabBar({
               flex: 1,
               alignItems: "center",
               paddingTop: 10,
+              paddingBottom: 10,
             }}
           >
             <SvgIcon

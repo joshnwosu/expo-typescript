@@ -7,7 +7,7 @@ export default function App() {
   const scheme = useColorScheme();
   return (
     <View style={styles.container}>
-      <StatusBar hidden />
+      <StatusBar style={scheme === "dark" ? "light" : "dark"} />
       <AppNavigator theme={scheme === "dark" ? DarkTheme : DefaultTheme} />
     </View>
   );
