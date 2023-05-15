@@ -1,12 +1,14 @@
 import { StatusBar } from "expo-status-bar";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, useColorScheme } from "react-native";
 import AppNavigator from "./src/navigation/AppNavigator";
+import { DefaultTheme, DarkTheme } from "@react-navigation/native";
 
 export default function App() {
+  const scheme = useColorScheme();
   return (
     <View style={styles.container}>
       <StatusBar hidden />
-      <AppNavigator />
+      <AppNavigator theme={scheme === "dark" ? DarkTheme : DefaultTheme} />
     </View>
   );
 }

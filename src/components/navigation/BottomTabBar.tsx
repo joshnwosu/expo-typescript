@@ -4,6 +4,7 @@ import {
   ParamListBase,
   TabNavigationState,
   NavigationHelpers,
+  useTheme,
 } from "@react-navigation/native";
 import { BottomTabNavigationEventMap } from "@react-navigation/bottom-tabs";
 import { BottomTabDescriptorMap } from "@react-navigation/bottom-tabs/lib/typescript/src/types";
@@ -24,12 +25,13 @@ export default function BottomTabBar({
   const insets = useSafeAreaInsets();
   // Adjust the position of the tab bar to avoid overlapping with the gesture line
   const tabBarStyle: ViewStyle = { paddingBottom: insets.bottom };
+  const { colors } = useTheme();
 
   return (
     <View
       style={{
         flexDirection: "row",
-        backgroundColor: "#000000",
+        backgroundColor: colors.card,
         ...tabBarStyle,
       }}
     >
@@ -77,7 +79,6 @@ export default function BottomTabBar({
               flex: 1,
               alignItems: "center",
               paddingTop: 10,
-              paddingBottom: 0,
             }}
           >
             <SvgIcon

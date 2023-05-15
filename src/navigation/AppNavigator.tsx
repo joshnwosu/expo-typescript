@@ -2,9 +2,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
 import BottomNavigator from "./BottomNavigator";
 
-const AppNavigator = () => {
+const AppNavigator = ({ theme }: any) => {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={theme}>
       <BottomNavigator />
     </NavigationContainer>
   );
