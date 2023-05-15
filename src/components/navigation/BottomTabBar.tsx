@@ -8,6 +8,8 @@ import {
 import { BottomTabNavigationEventMap } from "@react-navigation/bottom-tabs";
 import { BottomTabDescriptorMap } from "@react-navigation/bottom-tabs/lib/typescript/src/types";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import HomeIcon from "../common/icons/HomeIcon";
+import SvgIcon from "../common/icons";
 
 interface Props {
   state: TabNavigationState<ParamListBase>;
@@ -30,15 +32,13 @@ export default function BottomTabBar({
 }: Props) {
   const insets = useSafeAreaInsets();
   // Adjust the position of the tab bar to avoid overlapping with the gesture line
-  const tabBarStyle: ViewStyle = { marginBottom: insets.bottom };
+  const tabBarStyle: ViewStyle = { paddingBottom: insets.bottom };
 
   return (
     <View
       style={{
         flexDirection: "row",
-        // backgroundColor: "#000000",
-        borderTopColor: "#444",
-        borderTopWidth: 1,
+        backgroundColor: "#000000",
         ...tabBarStyle,
       }}
     >
@@ -85,12 +85,19 @@ export default function BottomTabBar({
             style={{
               flex: 1,
               alignItems: "center",
+              paddingTop: 10,
             }}
           >
+            <SvgIcon
+              icon={label.toLowerCase()}
+              size={30}
+              fill={isFocused ? "#9E86FE" : "#55565B"}
+            />
             <Text
               style={{
-                color: isFocused ? "#00f" : "#777777",
+                color: isFocused ? "#9E86FE" : "#55565B",
                 fontWeight: "500",
+                fontSize: 12,
                 marginTop: 8,
               }}
             >

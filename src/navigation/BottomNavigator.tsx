@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ElementType } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // screens
@@ -7,16 +7,48 @@ import Chat from "../screens/Chat";
 import Profile from "../screens/Profile";
 import Setting from "../screens/Setting";
 import BottomTabBar from "../components/navigation/BottomTabBar";
+import HomeIcon from "../components/common/icons/HomeIcon";
+// import { Element } from "react";
 
 const Tab = createBottomTabNavigator();
+
+interface Screen {
+  name: string;
+  component: React.FC;
+  icon: React.FC;
+}
+
+const SCREENS: Screen[] = [
+  {
+    name: "Home",
+    component: () => <Home />,
+    icon: () => <HomeIcon />,
+  },
+  {
+    name: "Chat",
+    component: () => <Chat />,
+    icon: () => <HomeIcon />,
+  },
+  {
+    name: "Profile",
+    component: () => <Profile />,
+    icon: () => <HomeIcon />,
+  },
+  {
+    name: "Setting",
+    component: () => <Setting />,
+    icon: () => <HomeIcon />,
+  },
+];
 
 const BottomNavigator = () => {
   return (
     <Tab.Navigator tabBar={(props) => <BottomTabBar {...props} />}>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Chat" component={Chat} />
-      <Tab.Screen name="Profile" component={Profile} />
-      <Tab.Screen name="Setting" component={Setting} />
+      {SCREENS.map((item, index) => (
+        <Tab.Screen key={index} name={item.name}>
+          {item.component}
+        </Tab.Screen>
+      ))}
     </Tab.Navigator>
   );
 };
