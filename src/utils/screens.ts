@@ -14,7 +14,7 @@ export const MAIN_SCREENS: MainScreen[] = [
     component: HomeScreen,
   },
   {
-    name: "Chat",
+    name: "Search",
     component: ChatScreen,
   },
   {
