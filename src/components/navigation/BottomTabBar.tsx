@@ -8,21 +8,12 @@ import {
 import { BottomTabNavigationEventMap } from "@react-navigation/bottom-tabs";
 import { BottomTabDescriptorMap } from "@react-navigation/bottom-tabs/lib/typescript/src/types";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import HomeIcon from "../common/icons/HomeIcon";
 import SvgIcon from "../common/icons";
 
 interface Props {
   state: TabNavigationState<ParamListBase>;
   descriptors: BottomTabDescriptorMap;
   navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
-}
-
-interface LabelProps {
-  focused: boolean;
-  color: string;
-  children:
-    | string
-    | ((props: { focused: boolean; color: string }) => React.ReactNode);
 }
 
 export default function BottomTabBar({

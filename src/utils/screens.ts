@@ -1,4 +1,4 @@
-import { MainScreen } from "../types/screen";
+import { MainScreen } from "../types";
 // screens
 import HomeScreen from "../screens/HomeScreen";
 import ChatScreen from "../screens/ChatScreen";
