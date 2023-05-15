@@ -1,4 +1,4 @@
-import React, { ElementType } from "react";
+import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // screens
@@ -7,37 +7,34 @@ import Chat from "../screens/Chat";
 import Profile from "../screens/Profile";
 import Setting from "../screens/Setting";
 import BottomTabBar from "../components/navigation/BottomTabBar";
-import HomeIcon from "../components/common/icons/HomeIcon";
-// import { Element } from "react";
 
 const Tab = createBottomTabNavigator();
 
 interface Screen {
   name: string;
   component: React.FC;
-  icon: React.FC;
 }
 
 const SCREENS: Screen[] = [
   {
     name: "Home",
     component: () => <Home />,
-    icon: () => <HomeIcon />,
+  },
+  {
+    name: "Location",
+    component: () => <Home />,
   },
   {
     name: "Chat",
     component: () => <Chat />,
-    icon: () => <HomeIcon />,
   },
   {
     name: "Profile",
     component: () => <Profile />,
-    icon: () => <HomeIcon />,
   },
   {
     name: "Setting",
     component: () => <Setting />,
-    icon: () => <HomeIcon />,
   },
 ];
 

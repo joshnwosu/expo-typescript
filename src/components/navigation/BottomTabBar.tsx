@@ -91,11 +91,11 @@ export default function BottomTabBar({
             <SvgIcon
               icon={label.toLowerCase()}
               size={30}
-              fill={isFocused ? "#9E86FE" : "#55565B"}
+              fill={isFocused ? "#9E86FE" : "#6d6f7a"}
             />
             <Text
               style={{
-                color: isFocused ? "#9E86FE" : "#55565B",
+                color: isFocused ? "#9E86FE" : "#6d6f7a",
                 fontWeight: "500",
                 fontSize: 12,
                 marginTop: 8,

@@ -2,6 +2,7 @@ import HomeIcon from "./HomeIcon";
 import ChatIcon from "./ChatIcon";
 import ProfileIcon from "./ProfileIcon";
 import SettingIcon from "./SettingIcon";
+import LocationIcon from "./LocationIcon";
 
 interface IconProps {
   icon: string;
@@ -9,16 +10,18 @@ interface IconProps {
   fill: string;
 }
 
-const SvgIcon = ({ icon, size, fill }: IconProps) => {
+const SvgIcon = ({ icon, ...rest }: IconProps) => {
   switch (icon) {
     case "home":
-      return <HomeIcon width={size} height={size} fill={fill} />;
+      return <HomeIcon {...rest} />;
+    case "location":
+      return <LocationIcon {...rest} />;
     case "chat":
-      return <ChatIcon width={size} height={size} fill={fill} />;
+      return <ChatIcon {...rest} />;
     case "profile":
-      return <ProfileIcon width={size} height={size} fill={fill} />;
+      return <ProfileIcon {...rest} />;
     case "setting":
-      return <SettingIcon width={size} height={size} fill={fill} />;
+      return <SettingIcon {...rest} />;
     default:
       return null;
   }
