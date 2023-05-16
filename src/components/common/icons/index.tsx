@@ -8,12 +8,16 @@ import NoteIcon from "./NoteIcon";
 import SettingsIcon from "./SettingsIcon";
 import SearchIcon from "./SearchIcon";
 import LibraryIcon from "./LibraryIcon";
+import StarIcon from "./StarIcon";
+import ArchiveIcon from "./ArchiveIcon";
+import TrashIcon from "./TrashIcon";
+import TagIcon from "./TagIcon";
 
 interface IconProps {
   icon: string;
   width: number;
   height: number;
-  fill: string;
+  fill?: string;
 }
 
 const SvgIcon = ({ icon, ...rest }: IconProps) => {
@@ -38,6 +42,14 @@ const SvgIcon = ({ icon, ...rest }: IconProps) => {
       return <SearchIcon {...rest} />;
     case "library":
       return <LibraryIcon {...rest} />;
+    case "star":
+      return <StarIcon {...rest} />;
+    case "archive":
+      return <ArchiveIcon {...rest} />;
+    case "trash":
+      return <TrashIcon {...rest} />;
+    case "tag":
+      return <TagIcon {...rest} />;
     default:
       return null;
   }
