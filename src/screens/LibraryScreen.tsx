@@ -28,13 +28,9 @@ const NOTES: Props[] = [
 const FOLDERS: Props[] = [
   { name: "Personal", count: 14, icon: "folder" },
   { name: "Work", count: 5, icon: "folder" },
-  { name: "Quotes", count: 2, icon: "folder" },
 ];
 
-const LABELS: Props[] = [
-  { name: "Inspiration", count: 0, icon: "tag" },
-  { name: "Design", count: 0, icon: "tag" },
-];
+const LABELS: Props[] = [{ name: "Inspiration", count: 8, icon: "tag" }];
 
 const Card = ({ title, data, color, onPress }: CardProps) => {
   const { colors } = useTheme();
@@ -75,7 +71,6 @@ const Card = ({ title, data, color, onPress }: CardProps) => {
 
       <View
         style={{
-          minHeight: 100,
           borderRadius: 10,
           backgroundColor: colors.card,
         }}
