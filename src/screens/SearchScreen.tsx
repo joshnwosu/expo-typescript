@@ -43,8 +43,8 @@ export default function SearchScreen() {
           borderRadius: 20,
           height: 40,
           overflow: "hidden",
-          marginBottom: 10,
-          // opacity: 0.6,
+          marginBottom: 20,
+          opacity: 0.6,
         }}
       >
         <TextInput

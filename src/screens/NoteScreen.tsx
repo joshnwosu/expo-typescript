@@ -34,8 +34,6 @@ export default function NoteScreen() {
     navigation.setOptions({
       headerShown: false,
     });
-
-    console.log("Modulous: ", 5 % 3);
   }, []);
 
   const handleIndexChange = (currentIndex) => setIndex(currentIndex);
