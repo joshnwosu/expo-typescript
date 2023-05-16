@@ -40,11 +40,11 @@ export default function SearchScreen() {
     <ScrollView contentContainerStyle={{ padding: 20 }}>
       <View
         style={{
-          borderRadius: 10,
+          borderRadius: 20,
           height: 40,
           overflow: "hidden",
           marginBottom: 10,
-          opacity: 0.9,
+          opacity: 0.6,
         }}
       >
         <TextInput
