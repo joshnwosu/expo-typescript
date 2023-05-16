@@ -9,6 +9,7 @@ import HomeScreen from "../screens/HomeScreen";
 import ChatScreen from "../screens/ChatScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 import SvgIcon from "../components/common/icons";
+import SearchScreen from "../screens/SearchScreen";
 // import { MAIN_SCREENS } from "../utils/screens";
 
 export const MAIN_SCREENS: MainScreen[] = [
@@ -26,7 +27,7 @@ export const MAIN_SCREENS: MainScreen[] = [
   // },
   {
     name: "Search",
-    component: () => <ChatScreen />,
+    component: () => <SearchScreen />,
   },
   {
     name: "Settings",

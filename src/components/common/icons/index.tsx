@@ -14,6 +14,7 @@ import TrashIcon from "./TrashIcon";
 import TagIcon from "./TagIcon";
 import AddIcon from "./AddIcon";
 import NotitficationIcon from "./NotificationIcon";
+import HistoryIcon from "./HistoryIcon";
 
 interface IconProps {
   icon: string;
@@ -56,6 +57,8 @@ const SvgIcon = ({ icon, ...rest }: IconProps) => {
       return <AddIcon {...rest} />;
     case "notification":
       return <NotitficationIcon {...rest} />;
+    case "history":
+      return <HistoryIcon {...rest} />;
     default:
       return null;
   }

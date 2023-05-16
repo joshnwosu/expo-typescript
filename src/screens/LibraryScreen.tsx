@@ -99,8 +99,8 @@ const Card = ({ title, data, color, onPress }: CardProps) => {
               >
                 <SvgIcon
                   icon={item.icon}
-                  width={26}
-                  height={26}
+                  width={30}
+                  height={30}
                   fill={item.color ?? color}
                 />
               </View>

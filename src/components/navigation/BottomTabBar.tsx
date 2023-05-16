@@ -79,18 +79,19 @@ export default function BottomTabBar({
               flex: 1,
               alignItems: "center",
               paddingTop: 10,
-              paddingBottom: 10,
+              paddingBottom: insets.bottom > 0 ? 0 : 10,
             }}
           >
+            {/* #9E86FE */}
             <SvgIcon
               icon={label.toLowerCase()}
-              width={25}
-              height={25}
-              fill={isFocused ? "#9E86FE" : "#6d6f7a"}
+              width={26}
+              height={26}
+              fill={isFocused ? "#5d68f9" : "#6d6f7a"}
             />
             <Text
               style={{
-                color: isFocused ? "#9E86FE" : "#6d6f7a",
+                color: isFocused ? "#5d68f9" : "#6d6f7a",
                 fontWeight: "500",
                 fontSize: 12,
                 marginTop: 8,

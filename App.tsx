@@ -1,5 +1,4 @@
-import "react-native-reanimated";
-// import 'react-native-gesture-handler';
+import "react-native-gesture-handler";
 
 import { StatusBar } from "expo-status-bar";
 import { View, StyleSheet, useColorScheme } from "react-native";
