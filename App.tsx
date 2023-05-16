@@ -23,7 +23,9 @@ export default function App() {
     ...DarkTheme,
     colors: {
       ...DarkTheme.colors,
-      card: "#1F2123",
+      card: DarkTheme.colors.border,
+
+      // card: "#1F2123",
 
       // card: "#262634",
       // background: "#1F1D2C",
