@@ -31,6 +31,10 @@ export const MAIN_SCREENS: MainScreen[] = [
     component: () => <SearchScreen />,
   },
   {
+    name: "Notification",
+    component: () => <HomeScreen />,
+  },
+  {
     name: "Settings",
     component: () => <SettingsScreen />,
   },

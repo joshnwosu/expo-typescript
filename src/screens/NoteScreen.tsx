@@ -9,18 +9,22 @@ import {
 import React, { useLayoutEffect, useState } from "react";
 import { TabView, SceneMap } from "react-native-tab-view";
 import { useNavigation, useTheme } from "@react-navigation/native";
+import FoldersLayout from "../components/layouts/FoldersLayout";
+import MasonryLayout from "../components/layouts/MasonryLayout";
 
-const FirstRoute = () => (
-  <View style={[styles.container, { backgroundColor: "#ff4081" }]} />
-);
-const SecondRoute = () => (
-  <View style={[styles.container, { backgroundColor: "#673ab7" }]} />
-);
+const FirstRoute = () => {
+  return <MasonryLayout />;
+};
+
+const SecondRoute = () => {
+  return <FoldersLayout />;
+};
 
 export default function NoteScreen() {
   const navigation = useNavigation();
   const { colors } = useTheme();
   const [index, setIndex] = useState(0);
+
   const [routes] = useState([
     { key: "first", title: "Notes" },
     { key: "second", title: "Folders" },
@@ -30,6 +34,8 @@ export default function NoteScreen() {
     navigation.setOptions({
       headerShown: false,
     });
+
+    console.log("Modulous: ", 5 % 3);
   }, []);
 
   const handleIndexChange = (currentIndex) => setIndex(currentIndex);
@@ -92,5 +98,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     padding: 16,
+  },
+
+  item: {
+    width: "100%",
+    position: "absolute",
+    backgroundColor: "gray",
   },
 });
