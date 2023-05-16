@@ -12,11 +12,12 @@ import StarIcon from "./StarIcon";
 import ArchiveIcon from "./ArchiveIcon";
 import TrashIcon from "./TrashIcon";
 import TagIcon from "./TagIcon";
+import AddIcon from "./AddIcon";
 
 interface IconProps {
   icon: string;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
   fill?: string;
 }
 
@@ -50,6 +51,8 @@ const SvgIcon = ({ icon, ...rest }: IconProps) => {
       return <TrashIcon {...rest} />;
     case "tag":
       return <TagIcon {...rest} />;
+    case "add":
+      return <AddIcon {...rest} />;
     default:
       return null;
   }

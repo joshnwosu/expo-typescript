@@ -42,17 +42,33 @@ const Card = ({ title, data, color }: CardProps) => {
   return (
     <View style={{ marginBottom: 20 }}>
       {title && (
-        <Text
+        <View
           style={{
-            color: colors.text,
-            fontSize: 20,
-            fontWeight: "500",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
             marginHorizontal: 20,
             marginBottom: 10,
           }}
         >
-          {title}
-        </Text>
+          <Text
+            style={{
+              color: colors.text,
+              fontSize: 16,
+              fontWeight: "400",
+            }}
+          >
+            {title}
+          </Text>
+
+          <TouchableOpacity
+            style={{
+              opacity: 0.4,
+            }}
+          >
+            <SvgIcon icon="add" fill={colors.text} />
+          </TouchableOpacity>
+        </View>
       )}
 
       <View
@@ -76,15 +92,15 @@ const Card = ({ title, data, color }: CardProps) => {
                   width: 30,
                   height: 30,
                   borderRadius: 40,
-                  marginHorizontal: 10,
+                  marginHorizontal: 20,
                   justifyContent: "center",
                   alignItems: "center",
                 }}
               >
                 <SvgIcon
                   icon={item.icon}
-                  width={24}
-                  height={24}
+                  width={30}
+                  height={30}
                   fill={item.color ?? color}
                 />
               </View>
@@ -134,7 +150,7 @@ const Card = ({ title, data, color }: CardProps) => {
                 </View>
                 <View
                   style={{
-                    marginRight: 10,
+                    marginRight: 20,
                   }}
                 >
                   <Ionicons
@@ -156,6 +172,7 @@ const Card = ({ title, data, color }: CardProps) => {
 };
 
 export default function LibraryScreen() {
+  // const {colors} = useTheme();
   return (
     <ScrollView contentContainerStyle={{ paddingHorizontal: 20 }}>
       <Card data={NOTES} />
