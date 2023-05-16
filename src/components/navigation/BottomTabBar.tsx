@@ -32,6 +32,8 @@ export default function BottomTabBar({
       style={{
         flexDirection: "row",
         backgroundColor: colors.card,
+        // position: "absolute",
+        // bottom: 0,
         ...tabBarStyle,
       }}
     >

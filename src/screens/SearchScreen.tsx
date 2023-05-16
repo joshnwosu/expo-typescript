@@ -44,7 +44,7 @@ export default function SearchScreen() {
           height: 40,
           overflow: "hidden",
           marginBottom: 10,
-          opacity: 0.6,
+          // opacity: 0.6,
         }}
       >
         <TextInput

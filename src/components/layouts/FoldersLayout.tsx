@@ -54,7 +54,7 @@ export default function FoldersLayout() {
             borderRadius: 10,
           }}
         >
-          <SvgIcon icon="folder" width={50} height={50} fill="#e69600" />
+          <SvgIcon icon="folder" width={50} height={50} fill="#FFC04D" />
           <Text
             style={{
               fontSize: 12,

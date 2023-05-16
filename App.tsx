@@ -10,11 +10,33 @@ import { store } from "./src/app/store";
 
 export default function App() {
   const scheme = useColorScheme();
+
+  const CustomDefaultTheme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      // add custom color
+    },
+  };
+
+  const CustomDarkTheme = {
+    ...DarkTheme,
+    colors: {
+      ...DarkTheme.colors,
+      card: "#1F2123",
+
+      // card: "#262634",
+      // background: "#1F1D2C",
+    },
+  };
+
   return (
     <Provider store={store}>
       <View style={styles.container}>
         <StatusBar style={scheme === "dark" ? "light" : "dark"} />
-        <AppNavigator theme={scheme === "dark" ? DarkTheme : DefaultTheme} />
+        <AppNavigator
+          theme={scheme === "dark" ? CustomDarkTheme : CustomDefaultTheme}
+        />
       </View>
     </Provider>
   );

@@ -190,7 +190,7 @@ export default function LibraryScreen() {
   return (
     <ScrollView contentContainerStyle={{ paddingHorizontal: 20 }}>
       <Card title={"Notes"} data={NOTES} />
-      <Card title={"Folders"} data={FOLDERS} color="#e69600" />
+      <Card title={"Folders"} data={FOLDERS} color="#FFC04D" />
       <Card
         title={"Labels"}
         data={LABELS}
