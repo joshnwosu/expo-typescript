@@ -44,6 +44,11 @@ const BottomNavigator = () => {
           backgroundColor: colors.background,
         },
         headerShadowVisible: false,
+        headerTitleStyle: {
+          fontSize: 20,
+          fontWeight: "500",
+        },
+        headerTitleAlign: "center",
       }}
       tabBar={(props) => <BottomTabBar {...props} />}
     >

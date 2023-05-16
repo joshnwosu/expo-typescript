@@ -12,20 +12,21 @@ interface Props {
 }
 
 interface CardProps {
-  title: string;
+  title?: string;
   data: Props[];
   color?: string | undefined;
 }
 
 const NOTES: Props[] = [
   { name: "All Documents", count: 14, icon: "notes", color: "#3F7DE8" },
-  { name: "Started", count: 5, icon: "star", color: "#F0C422" },
+  { name: "Starred", count: 5, icon: "star", color: "#F0C422" },
   { name: "Archive", count: 7, icon: "archive", color: "#67BE67" },
   { name: "Trash", count: 2, icon: "trash", color: "#DE6058" },
 ];
 
 const FOLDERS: Props[] = [
   { name: "Personal", count: 14, icon: "folder" },
+  { name: "Joshua", count: 244, icon: "folder" },
   { name: "Work", count: 5, icon: "folder" },
   { name: "Quotes", count: 2, icon: "folder" },
 ];
@@ -40,17 +41,19 @@ const Card = ({ title, data, color }: CardProps) => {
 
   return (
     <View style={{ marginBottom: 20 }}>
-      <Text
-        style={{
-          color: colors.text,
-          fontSize: 20,
-          fontWeight: "600",
-          marginHorizontal: 10,
-          marginBottom: 10,
-        }}
-      >
-        {title}
-      </Text>
+      {title && (
+        <Text
+          style={{
+            color: colors.text,
+            fontSize: 20,
+            fontWeight: "500",
+            marginHorizontal: 20,
+            marginBottom: 10,
+          }}
+        >
+          {title}
+        </Text>
+      )}
 
       <View
         style={{
@@ -155,8 +158,8 @@ const Card = ({ title, data, color }: CardProps) => {
 export default function LibraryScreen() {
   return (
     <ScrollView contentContainerStyle={{ paddingHorizontal: 20 }}>
-      <Card title={"Notes"} data={NOTES} />
-      <Card title={"Folders"} data={FOLDERS} color="#FFC14B" />
+      <Card data={NOTES} />
+      <Card title={"Folders"} data={FOLDERS} color="#e69600" />
       <Card title={"Labels"} data={LABELS} color="#706FC8" />
     </ScrollView>
   );
