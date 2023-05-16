@@ -1,4 +1,5 @@
 import React from "react";
+import { TouchableOpacity, View } from "react-native";
 import { useTheme } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import BottomTabBar from "../components/navigation/BottomTabBar";
@@ -7,6 +8,7 @@ import LibraryScreen from "../screens/LibraryScreen";
 import HomeScreen from "../screens/HomeScreen";
 import ChatScreen from "../screens/ChatScreen";
 import SettingsScreen from "../screens/SettingsScreen";
+import SvgIcon from "../components/common/icons";
 // import { MAIN_SCREENS } from "../utils/screens";
 
 export const MAIN_SCREENS: MainScreen[] = [
@@ -18,10 +20,10 @@ export const MAIN_SCREENS: MainScreen[] = [
     name: "Notes",
     component: () => <HomeScreen />,
   },
-  {
-    name: "Folder",
-    component: () => <HomeScreen />,
-  },
+  // {
+  //   name: "Folder",
+  //   component: () => <HomeScreen />,
+  // },
   {
     name: "Search",
     component: () => <ChatScreen />,
@@ -46,9 +48,19 @@ const BottomNavigator = () => {
         headerShadowVisible: false,
         headerTitleStyle: {
           fontSize: 20,
-          fontWeight: "500",
+          fontWeight: "600",
         },
         headerTitleAlign: "center",
+        // headerRight: () => (
+        //   <TouchableOpacity style={{ marginRight: 20 }}>
+        //     <SvgIcon
+        //       icon="notification"
+        //       fill={colors.text}
+        //       width={30}
+        //       height={30}
+        //     />
+        //   </TouchableOpacity>
+        // ),
       }}
       tabBar={(props) => <BottomTabBar {...props} />}
     >

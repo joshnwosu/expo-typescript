@@ -26,7 +26,6 @@ const NOTES: Props[] = [
 
 const FOLDERS: Props[] = [
   { name: "Personal", count: 14, icon: "folder" },
-  { name: "Joshua", count: 244, icon: "folder" },
   { name: "Work", count: 5, icon: "folder" },
   { name: "Quotes", count: 2, icon: "folder" },
 ];
@@ -40,7 +39,7 @@ const Card = ({ title, data, color }: CardProps) => {
   const { colors } = useTheme();
 
   return (
-    <View style={{ marginBottom: 20 }}>
+    <View style={{ marginTop: 20 }}>
       {title && (
         <View
           style={{
@@ -54,8 +53,8 @@ const Card = ({ title, data, color }: CardProps) => {
           <Text
             style={{
               color: colors.text,
-              fontSize: 16,
-              fontWeight: "400",
+              fontSize: 20,
+              fontWeight: "600",
             }}
           >
             {title}
@@ -66,7 +65,7 @@ const Card = ({ title, data, color }: CardProps) => {
               opacity: 0.4,
             }}
           >
-            <SvgIcon icon="add" fill={colors.text} />
+            <Ionicons name="chevron-forward" size={16} color={colors.text} />
           </TouchableOpacity>
         </View>
       )}
@@ -99,8 +98,8 @@ const Card = ({ title, data, color }: CardProps) => {
               >
                 <SvgIcon
                   icon={item.icon}
-                  width={30}
-                  height={30}
+                  width={26}
+                  height={26}
                   fill={item.color ?? color}
                 />
               </View>
@@ -151,15 +150,13 @@ const Card = ({ title, data, color }: CardProps) => {
                 <View
                   style={{
                     marginRight: 20,
+                    opacity: 0.4,
                   }}
                 >
                   <Ionicons
                     name="chevron-forward"
                     size={16}
                     color={colors.text}
-                    style={{
-                      opacity: 0.4,
-                    }}
                   />
                 </View>
               </View>
@@ -175,7 +172,7 @@ export default function LibraryScreen() {
   // const {colors} = useTheme();
   return (
     <ScrollView contentContainerStyle={{ paddingHorizontal: 20 }}>
-      <Card data={NOTES} />
+      <Card title={"Notes"} data={NOTES} />
       <Card title={"Folders"} data={FOLDERS} color="#e69600" />
       <Card title={"Labels"} data={LABELS} color="#706FC8" />
     </ScrollView>
