@@ -1,8 +1,10 @@
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { useTheme } from "@react-navigation/native";
 import SvgIcon from "../components/common/icons";
 import { Ionicons } from "@expo/vector-icons";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
+import { increment, incrementByAmount } from "../features/counter/counterSlice";
 
 interface Props {
   name: string;
@@ -62,6 +64,7 @@ const Card = ({ title, data, color, onPress }: CardProps) => {
               style={{
                 opacity: 0.4,
               }}
+              onPress={onPress}
             >
               <SvgIcon icon="add" fill={colors.text} />
             </TouchableOpacity>
@@ -176,7 +179,13 @@ const Card = ({ title, data, color, onPress }: CardProps) => {
 };
 
 export default function LibraryScreen() {
-  // const {colors} = useTheme();
+  const dispatch = useAppDispatch();
+  const { value } = useAppSelector((state) => state.counter);
+
+  useEffect(() => {
+    console.log(value);
+  }, [value]);
+
   return (
     <ScrollView contentContainerStyle={{ paddingHorizontal: 20 }}>
       <Card title={"Notes"} data={NOTES} />
@@ -185,9 +194,7 @@ export default function LibraryScreen() {
         title={"Labels"}
         data={LABELS}
         color="#6d6f7a"
-        onPress={() => {
-          console.log("Hello");
-        }}
+        onPress={() => dispatch(incrementByAmount(5))}
       />
     </ScrollView>
   );
