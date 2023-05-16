@@ -181,9 +181,10 @@ const Card = ({ title, data, color, onPress }: CardProps) => {
 export default function LibraryScreen() {
   const dispatch = useAppDispatch();
   const { value } = useAppSelector((state) => state.counter);
+  const { colors } = useTheme();
 
   useEffect(() => {
-    console.log(value);
+    console.log(value, colors.border);
   }, [value]);
 
   return (
