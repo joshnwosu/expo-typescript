@@ -15,6 +15,7 @@ interface CardProps {
   title?: string;
   data: Props[];
   color?: string | undefined;
+  onPress?: () => void;
 }
 
 const NOTES: Props[] = [
@@ -31,11 +32,11 @@ const FOLDERS: Props[] = [
 ];
 
 const LABELS: Props[] = [
-  { name: "Inspiration", icon: "tag" },
-  { name: "Design", icon: "tag" },
+  { name: "Inspiration", count: 0, icon: "tag" },
+  { name: "Design", count: 0, icon: "tag" },
 ];
 
-const Card = ({ title, data, color }: CardProps) => {
+const Card = ({ title, data, color, onPress }: CardProps) => {
   const { colors } = useTheme();
 
   return (
@@ -60,13 +61,15 @@ const Card = ({ title, data, color }: CardProps) => {
             {title}
           </Text>
 
-          <TouchableOpacity
-            style={{
-              opacity: 0.4,
-            }}
-          >
-            <Ionicons name="chevron-forward" size={16} color={colors.text} />
-          </TouchableOpacity>
+          {onPress && (
+            <TouchableOpacity
+              style={{
+                opacity: 0.4,
+              }}
+            >
+              <SvgIcon icon="add" fill={colors.text} />
+            </TouchableOpacity>
+          )}
         </View>
       )}
 
@@ -135,17 +138,26 @@ const Card = ({ title, data, color }: CardProps) => {
                   >
                     {item.name}
                   </Text>
-                  <Text
+                  <View
                     style={{
-                      color: colors.text,
-                      opacity: 0.5,
                       marginLeft: 10,
-                      fontSize: 13,
-                      fontWeight: "500",
+                      backgroundColor: colors.background,
+                      paddingVertical: 2,
+                      paddingHorizontal: 5,
+                      borderRadius: 5,
                     }}
                   >
-                    {item.count}
-                  </Text>
+                    <Text
+                      style={{
+                        color: colors.text,
+                        opacity: 0.5,
+                        fontSize: 13,
+                        fontWeight: "500",
+                      }}
+                    >
+                      {item.count}
+                    </Text>
+                  </View>
                 </View>
                 <View
                   style={{
@@ -174,7 +186,14 @@ export default function LibraryScreen() {
     <ScrollView contentContainerStyle={{ paddingHorizontal: 20 }}>
       <Card title={"Notes"} data={NOTES} />
       <Card title={"Folders"} data={FOLDERS} color="#e69600" />
-      <Card title={"Labels"} data={LABELS} color="#706FC8" />
+      <Card
+        title={"Labels"}
+        data={LABELS}
+        color="#706FC8"
+        onPress={() => {
+          console.log("Hello");
+        }}
+      />
     </ScrollView>
   );
 }
