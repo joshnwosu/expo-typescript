@@ -189,7 +189,7 @@ export default function LibraryScreen() {
       <Card
         title={"Labels"}
         data={LABELS}
-        color="#706FC8"
+        color="#6d6f7a"
         onPress={() => {
           console.log("Hello");
         }}
