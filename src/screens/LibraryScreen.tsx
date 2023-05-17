@@ -76,6 +76,8 @@ const Card = ({ title, data, color, onPress }: CardProps) => {
         style={{
           borderRadius: 10,
           backgroundColor: colors.card,
+          // borderWidth: 1,
+          // borderColor: colors.border,
         }}
       >
         {data.map((item, index, arr) => {
