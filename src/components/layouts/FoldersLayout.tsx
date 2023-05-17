@@ -52,9 +52,11 @@ export default function FoldersLayout() {
             paddingTop: 30,
             paddingBottom: 10,
             borderRadius: 10,
+            borderWidth: 1,
+            borderColor: colors.border,
           }}
         >
-          <SvgIcon icon="folder" width={50} height={50} fill="#FFC04D" />
+          <SvgIcon icon="folder" width={60} height={60} fill="#FFC04D" />
           <Text
             style={{
               fontSize: 12,
@@ -98,8 +100,8 @@ const styles = StyleSheet.create({
   },
   column: {
     flex: 1,
-    paddingHorizontal: 10,
-    marginBottom: 20,
+    marginHorizontal: 5,
+    marginBottom: 10,
   },
   columnContainer: {
     flex: 1,

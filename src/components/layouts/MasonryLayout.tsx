@@ -28,6 +28,8 @@ const CardItem = ({ item, colors }: { item: any; colors: Colors }) => {
         margin: 5,
         borderRadius: 10,
         padding: 10,
+        borderWidth: 1,
+        borderColor: colors.border,
       }}
     >
       {/* <Text style={{ color: colors.text }}>{item.name}</Text> */}
