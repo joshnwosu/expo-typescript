@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import React, { useEffect } from "react";
-import { useTheme } from "@react-navigation/native";
+import { useNavigation, useTheme } from "@react-navigation/native";
 import SvgIcon from "../components/common/icons";
 import { Ionicons } from "@expo/vector-icons";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
@@ -11,6 +11,7 @@ interface Props {
   count?: number;
   icon: string;
   color?: string;
+  routeName?: string;
 }
 
 interface CardProps {
@@ -18,13 +19,38 @@ interface CardProps {
   data: Props[];
   color?: string | undefined;
   onPress?: () => void;
+  navigation?: any;
 }
 
 const NOTES: Props[] = [
-  { name: "All Documents", count: 14, icon: "notes", color: "#3F7DE8" },
-  { name: "Starred", count: 5, icon: "star", color: "#F0C422" },
-  { name: "Archive", count: 7, icon: "archive", color: "#67BE67" },
-  { name: "Trash", count: 2, icon: "trash", color: "#DE6058" },
+  {
+    name: "All Documents",
+    count: 14,
+    icon: "notes",
+    color: "#3F7DE8",
+    routeName: "Notes",
+  },
+  {
+    name: "Starred",
+    count: 5,
+    icon: "star",
+    color: "#F0C422",
+    routeName: "Starred",
+  },
+  {
+    name: "Archive",
+    count: 7,
+    icon: "archive",
+    color: "#67BE67",
+    routeName: "Starred",
+  },
+  {
+    name: "Trash",
+    count: 2,
+    icon: "trash",
+    color: "#DE6058",
+    routeName: "Starred",
+  },
 ];
 
 const FOLDERS: Props[] = [
@@ -34,7 +60,7 @@ const FOLDERS: Props[] = [
 
 const LABELS: Props[] = [{ name: "Inspiration", count: 8, icon: "tag" }];
 
-const Card = ({ title, data, color, onPress }: CardProps) => {
+const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
   const { colors } = useTheme();
 
   return (
@@ -88,6 +114,7 @@ const Card = ({ title, data, color, onPress }: CardProps) => {
                 flexDirection: "row",
                 alignItems: "center",
               }}
+              onPress={() => navigation.navigate(item.routeName)}
             >
               <View
                 style={{
@@ -181,6 +208,7 @@ const Card = ({ title, data, color, onPress }: CardProps) => {
 };
 
 export default function LibraryScreen() {
+  const navigation = useNavigation();
   const dispatch = useAppDispatch();
   const { value } = useAppSelector((state) => state.counter);
   const { colors } = useTheme();
@@ -195,7 +223,7 @@ export default function LibraryScreen() {
         contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 100 }}
         showsVerticalScrollIndicator={false}
       >
-        <Card title={"Notes"} data={NOTES} />
+        <Card title={"Notes"} data={NOTES} navigation={navigation} />
         <Card title={"Folders"} data={FOLDERS} color="#FFC04D" />
         <Card
           title={"Labels"}
