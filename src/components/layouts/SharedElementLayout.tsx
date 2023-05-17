@@ -12,6 +12,7 @@ import React from "react";
 // import BulletLayout from "../components/layouts/BulletLayout";
 import { useNavigation, NavigationProp } from "@react-navigation/native";
 import { SharedElement } from "react-navigation-shared-element";
+import { AntDesign } from "@expo/vector-icons";
 
 interface Props {
   key: number;
@@ -70,7 +71,20 @@ export default function SharedElementLayout() {
   const scrollX = React.useRef(new Animated.Value(0)).current;
 
   return (
-    <View style={{ flex: 1, paddingVertical: 30 }}>
+    <View style={{ flex: 1, paddingTop: 80 }}>
+      <AntDesign
+        name="arrowleft"
+        size={24}
+        color={"#333"}
+        style={{
+          paddingHorizontal: 15,
+          position: "absolute",
+          top: 50,
+          left: 10,
+          zIndex: 2,
+        }}
+        onPress={navigation.goBack}
+      />
       <Animated.FlatList
         data={data}
         keyExtractor={(item) => item.key.toString()}
@@ -113,7 +127,11 @@ export default function SharedElementLayout() {
                 <View
                   style={[
                     StyleSheet.absoluteFillObject,
-                    { overflow: "hidden", borderRadius: RADIUS },
+                    {
+                      overflow: "hidden",
+                      borderRadius: RADIUS,
+                      backgroundColor: "#222",
+                    },
                   ]}
                 >
                   <Animated.Image
@@ -163,8 +181,8 @@ const styles = StyleSheet.create({
     width: ITEM_WIDTH * 0.8,
     textTransform: "uppercase",
     position: "absolute",
-    top: SPACING,
-    left: SPACING,
+    top: SPACING * 2,
+    left: SPACING * 2,
   },
   days: {
     position: "absolute",

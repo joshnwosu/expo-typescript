@@ -210,12 +210,12 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
 export default function LibraryScreen() {
   const navigation = useNavigation();
   const dispatch = useAppDispatch();
-  const { value } = useAppSelector((state) => state.counter);
+  // const { value } = useAppSelector((state) => state.counter);
   const { colors } = useTheme();
 
-  useEffect(() => {
-    // console.log(value, colors.border);
-  }, [value]);
+  // useEffect(() => {
+  //   // console.log(value, colors.border);
+  // }, [value]);
 
   return (
     <View style={{ flex: 1 }}>

@@ -1,7 +1,8 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, FlatList } from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { SharedElement } from "react-navigation-shared-element";
+import * as Animatable from "react-native-animatable";
 
 const ITEM_WIDTH = 250;
 const ITEM_HEIGHT = 400;
@@ -10,6 +11,17 @@ const RADIUS = 10;
 
 const FULL_WIDTH = ITEM_WIDTH + SPACING;
 
+const zoomIn = {
+  0: {
+    opacity: 0,
+    scale: 0,
+  },
+  1: {
+    opacity: 1,
+    scale: 1,
+  },
+};
+
 export default function DetailScreen({ navigation, route }) {
   const { item } = route.params;
   return (
@@ -17,7 +29,7 @@ export default function DetailScreen({ navigation, route }) {
       <AntDesign
         name="arrowleft"
         size={24}
-        color={"#333"}
+        color={"#FFFFFF"}
         style={{
           paddingHorizontal: 15,
           position: "absolute",
@@ -31,7 +43,9 @@ export default function DetailScreen({ navigation, route }) {
         id={`item.${item.key}.photo`}
         style={[StyleSheet.absoluteFillObject]}
       >
-        <View style={[StyleSheet.absoluteFillObject, { borderRadius: 15 }]}>
+        <View
+          style={[StyleSheet.absoluteFillObject, { backgroundColor: "#222" }]}
+        >
           <Image
             source={{ uri: item.image }}
             style={[StyleSheet.absoluteFillObject, { resizeMode: "cover" }]}
@@ -41,6 +55,65 @@ export default function DetailScreen({ navigation, route }) {
       <SharedElement id={`item.${item.key}.location`}>
         <Text style={[styles.location]}>{item.location}</Text>
       </SharedElement>
+
+      <View
+        style={{
+          position: "absolute",
+          bottom: 0,
+          paddingBottom: 100,
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 16,
+            color: "#FFFFFF",
+            textTransform: "uppercase",
+            fontWeight: "800",
+            marginLeft: SPACING,
+          }}
+        >
+          Pick colors
+        </Text>
+        <FlatList
+          data={[...Array(8).keys()]}
+          keyExtractor={(item) => String(item)}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{ padding: SPACING }}
+          renderItem={({ item, index }) => {
+            return (
+              <Animatable.View
+                animation={"zoomIn"}
+                duration={700}
+                delay={400 + index * 100}
+                // easing={"ease-in-out-cubic"}
+                style={{
+                  backgroundColor: "#FFFFFF",
+                  // padding: SPACING,
+                  width: 50,
+                  height: 50,
+                  marginRight: SPACING,
+                  borderRadius: SPACING,
+                  overflow: "hidden",
+                  padding: 2,
+                }}
+              >
+                <Image
+                  source={{
+                    uri: "https://images.unsplash.com/photo-1478860409698-8707f313ee8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+                  }}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    resizeMode: "cover",
+                    borderRadius: SPACING,
+                  }}
+                />
+              </Animatable.View>
+            );
+          }}
+        />
+      </View>
     </View>
   );
 }

@@ -25,12 +25,8 @@ const AppNavigator = ({ theme }: any) => {
   return (
     <NavigationContainer theme={theme}>
       {/* <BottomNavigator /> */}
-      <Stack.Navigator screenOptions={{ headerShown: true }}>
-        <Stack.Screen
-          name="Bottom"
-          options={{ headerShown: false }}
-          component={BottomNavigator}
-        />
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Bottom" component={BottomNavigator} />
         <Stack.Screen name="Notes" component={NoteScreen} />
         <Stack.Screen name="Starred" component={StarredScreen} />
         <Stack.Screen

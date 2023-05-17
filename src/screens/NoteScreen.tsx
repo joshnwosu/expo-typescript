@@ -30,12 +30,6 @@ export default function NoteScreen() {
     { key: "second", title: "Folders" },
   ]);
 
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerShown: false,
-    });
-  }, []);
-
   const handleIndexChange = (currentIndex) => setIndex(currentIndex);
 
   const renderTabBar = (props) => {
