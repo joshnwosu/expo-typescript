@@ -1,10 +1,17 @@
-import { View, Text, TouchableOpacity, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  Animated,
+} from "react-native";
 import React, { useEffect } from "react";
 import { useNavigation, useTheme } from "@react-navigation/native";
 import SvgIcon from "../components/common/icons";
 import { Ionicons } from "@expo/vector-icons";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { increment, incrementByAmount } from "../features/counter/counterSlice";
+import { Swipeable } from "react-native-gesture-handler";
 
 interface Props {
   name: string;
@@ -102,104 +109,130 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
         style={{
           borderRadius: 10,
           backgroundColor: colors.card,
-          // borderWidth: 1,
-          // borderColor: colors.border,
         }}
       >
         {data.map((item, index, arr) => {
           return (
-            <TouchableOpacity
-              key={index.toString()}
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
+            <Swipeable
+              key={index}
+              renderLeftActions={(progress, dragX) => {
+                const scale = dragX.interpolate({
+                  inputRange: [0, 100],
+                  outputRange: [0, 1],
+                  extrapolate: "clamp",
+                });
+                return (
+                  <TouchableOpacity
+                    onPress={() => console.log("Hello")}
+                    // style={{ backgroundColor: "red" }}
+                  >
+                    <Animated.Text
+                      style={{
+                        transform: [{ scale: scale }],
+                        fontSize: 20,
+                        fontWeight: "bold",
+                        color: "white",
+                      }}
+                    >
+                      Delete
+                    </Animated.Text>
+                  </TouchableOpacity>
+                );
               }}
-              onPress={() => navigation.navigate(item.routeName)}
             >
-              <View
-                style={{
-                  width: 30,
-                  height: 30,
-                  borderRadius: 40,
-                  marginHorizontal: 20,
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <SvgIcon
-                  icon={item.icon}
-                  width={30}
-                  height={30}
-                  fill={item.color ?? color}
-                />
-              </View>
-              <View
+              <TouchableOpacity
+                key={index.toString()}
                 style={{
                   flexDirection: "row",
                   alignItems: "center",
-                  flex: 1,
-                  justifyContent: "space-between",
-                  position: "relative",
-                  paddingVertical: 15,
                 }}
+                onPress={() => navigation.navigate(item.routeName)}
               >
                 <View
                   style={{
-                    backgroundColor: colors.border,
-                    height: index == arr.length - 1 ? 0 : 1,
-                    width: "100%",
-                    position: "absolute",
-                    bottom: 0,
-                    right: 0,
-                    left: 0,
-                    opacity: 0.4,
+                    width: 30,
+                    height: 30,
+                    borderRadius: 40,
+                    marginHorizontal: 20,
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                />
-                <View style={{ flexDirection: "row", alignItems: "center" }}>
-                  <Text
-                    style={{
-                      color: colors.text,
-                      fontSize: 14,
-                      fontWeight: "400",
-                    }}
-                  >
-                    {item.name}
-                  </Text>
-                  <View
-                    style={{
-                      marginLeft: 10,
-                      backgroundColor: colors.background,
-                      paddingVertical: 2,
-                      paddingHorizontal: 5,
-                      borderRadius: 5,
-                    }}
-                  >
-                    <Text
-                      style={{
-                        color: colors.text,
-                        opacity: 0.5,
-                        fontSize: 13,
-                        fontWeight: "500",
-                      }}
-                    >
-                      {item.count}
-                    </Text>
-                  </View>
+                >
+                  <SvgIcon
+                    icon={item.icon}
+                    width={30}
+                    height={30}
+                    fill={item.color ?? color}
+                  />
                 </View>
                 <View
                   style={{
-                    marginRight: 20,
-                    opacity: 0.4,
+                    flexDirection: "row",
+                    alignItems: "center",
+                    flex: 1,
+                    justifyContent: "space-between",
+                    position: "relative",
+                    paddingVertical: 15,
                   }}
                 >
-                  <Ionicons
-                    name="chevron-forward"
-                    size={16}
-                    color={colors.text}
+                  <View
+                    style={{
+                      backgroundColor: colors.border,
+                      height: index == arr.length - 1 ? 0 : 1,
+                      width: "100%",
+                      position: "absolute",
+                      bottom: 0,
+                      right: 0,
+                      left: 0,
+                      opacity: 0.4,
+                    }}
                   />
+                  <View style={{ flexDirection: "row", alignItems: "center" }}>
+                    <Text
+                      style={{
+                        color: colors.text,
+                        fontSize: 14,
+                        fontWeight: "400",
+                      }}
+                    >
+                      {item.name}
+                    </Text>
+                    <View
+                      style={{
+                        marginLeft: 10,
+                        backgroundColor: colors.background,
+                        paddingVertical: 2,
+                        paddingHorizontal: 5,
+                        borderRadius: 5,
+                      }}
+                    >
+                      <Text
+                        style={{
+                          color: colors.text,
+                          opacity: 0.5,
+                          fontSize: 13,
+                          fontWeight: "500",
+                        }}
+                      >
+                        {item.count}
+                      </Text>
+                    </View>
+                  </View>
+                  <View
+                    style={{
+                      marginRight: 20,
+                      opacity: 0.4,
+                    }}
+                  >
+                    <Ionicons
+                      name="chevron-forward"
+                      size={16}
+                      color={colors.text}
+                    />
+                  </View>
                 </View>
-              </View>
-            </TouchableOpacity>
+              </TouchableOpacity>
+            </Swipeable>
           );
         })}
       </View>
