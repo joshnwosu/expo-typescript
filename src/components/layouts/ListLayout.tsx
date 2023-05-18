@@ -116,7 +116,7 @@ function ListItem({ item, onRemove }: ListItemProps) {
     onActive: (evt, ctx: any) => {
       const nextTranslate = evt.translationX + ctx.startX;
       translateX.value = Math.min(0, Math.max(nextTranslate, MAX_TRANSLATE));
-      console.log(translateX.value);
+      // console.log(translateX.value);
     },
 
     onEnd: (evt) => {

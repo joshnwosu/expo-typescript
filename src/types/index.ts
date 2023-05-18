@@ -1,6 +1,6 @@
 export interface MainScreen {
   name: string;
-  component: React.FC<any> | (() => JSX.Element);
+  component: React.FC<any> | (() => JSX.Element) | any;
 }
 
 export interface LabelProps {

@@ -25,7 +25,7 @@ const DATA: Props[] = [
   },
 ];
 
-export default function SearchScreen() {
+export default function SearchScreen({ navigation }: any) {
   const { colors } = useTheme();
   const tags = [
     { name: "All" },
@@ -92,6 +92,7 @@ export default function SearchScreen() {
                 paddingVertical: 10,
                 marginRight: arr.length - 1 == index ? 0 : 10,
               }}
+              onPress={() => navigation.navigate("Trash")}
             >
               <Text style={{ color: colors.text }}>{item.name}</Text>
             </TouchableOpacity>

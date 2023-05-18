@@ -56,7 +56,7 @@ const NOTES: Props[] = [
     count: 2,
     icon: "trash",
     color: "#DE6058",
-    routeName: "Starred",
+    routeName: "Trash",
   },
 ];
 
