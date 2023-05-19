@@ -8,6 +8,7 @@ import { DefaultTheme, DarkTheme } from "@react-navigation/native";
 import { Provider } from "react-redux";
 import { store } from "./src/app/store";
 import { LogBox } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 LogBox.ignoreAllLogs(); // ignore all annoying warnings.
 
@@ -37,14 +38,16 @@ export default function App() {
   };
 
   return (
-    <Provider store={store}>
-      <View style={styles.container}>
-        <StatusBar style={scheme === "dark" ? "light" : "dark"} />
-        <AppNavigator
-          theme={scheme === "dark" ? CustomDarkTheme : CustomDefaultTheme}
-        />
-      </View>
-    </Provider>
+    <SafeAreaProvider>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <StatusBar style={scheme === "dark" ? "light" : "dark"} />
+          <AppNavigator
+            theme={scheme === "dark" ? CustomDarkTheme : CustomDefaultTheme}
+          />
+        </View>
+      </Provider>
+    </SafeAreaProvider>
   );
 }
 
