@@ -115,7 +115,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
                 alignItems: "center",
               }}
               onPress={() => {
-                if (item.name === "Notes") navigation.navigate(item.name);
+                if (item.name === "Notes") navigation.navigate("Starred");
                 else {
                   navigation.navigate("Note Detail", {
                     screen: item.name,
