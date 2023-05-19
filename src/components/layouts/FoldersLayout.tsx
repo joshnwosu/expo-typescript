@@ -12,16 +12,18 @@ import SvgIcon from "../common/icons";
 interface Item {
   id: number;
   name: string;
-  isVisible?: boolean;
+  isFolder: boolean;
 }
 
 const items: Item[] = [
-  { id: 1, name: "Personal" },
-  { id: 2, name: "Work" },
-  { id: 3, name: "Joshua" },
-  { id: 4, name: "Space" },
-  { id: 5, name: "Quotes" },
-  // { name: "Books" },
+  { id: 1, name: "Personal", isFolder: true },
+  { id: 2, name: "Work", isFolder: true },
+  { id: 3, name: "Joshua", isFolder: true },
+  { id: 4, name: "Space", isFolder: true },
+  { id: 5, name: "Quotes", isFolder: true },
+  { id: 6, name: "Books", isFolder: true },
+  { id: 7, name: "Gmails", isFolder: true },
+  { id: 8, name: "Movies", isFolder: true },
 ];
 
 export default function FoldersLayout() {
@@ -33,15 +35,21 @@ export default function FoldersLayout() {
   const emptyItems = Array.from({ length: remainingSpace }).map((_, index) => ({
     id: -(index + 1), // Use a unique negative ID for the empty item
     name: "",
-    isVisible: false,
+    isFolder: false,
   }));
 
   const adjustedItems = [...items, ...emptyItems];
 
+  // // Find the first object with an empty name
+  // if (emptyItems.length)
+  //   emptyItems.find((item) => item?.name === "").name = "Add Folder";
+
   const renderColumn = ({ item }: { item: Item }) => {
     return (
       <TouchableOpacity
-        style={[styles.column, item.isVisible == false && styles.invisibleItem]}
+        activeOpacity={0}
+        style={[styles.column, !item.isFolder && styles.invisibleItem]}
+        disabled={!item.isFolder}
       >
         <View
           style={{
@@ -56,7 +64,11 @@ export default function FoldersLayout() {
             borderColor: colors.border,
           }}
         >
-          <SvgIcon icon="folder" width={60} height={60} fill="#FFC04D" />
+          {item.name.toLowerCase() == "add folder" ? (
+            <SvgIcon icon="add" width={60} height={60} fill={colors.border} />
+          ) : (
+            <SvgIcon icon="folder" width={60} height={60} fill="#FFC04D" />
+          )}
           <Text
             style={{
               fontSize: 12,
@@ -65,7 +77,7 @@ export default function FoldersLayout() {
               marginTop: 5,
             }}
           >
-            {item.name}
+            {item.isFolder ? item.name : null}
           </Text>
         </View>
       </TouchableOpacity>
