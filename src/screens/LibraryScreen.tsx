@@ -4,6 +4,7 @@ import {
   TouchableOpacity,
   ScrollView,
   Animated,
+  SafeAreaView,
 } from "react-native";
 import React, { useEffect } from "react";
 import { useNavigation, useTheme } from "@react-navigation/native";
@@ -251,49 +252,22 @@ export default function LibraryScreen() {
   // }, [value]);
 
   return (
-    <View style={{ flex: 1 }}>
-      <ScrollView
-        contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 100 }}
-        showsVerticalScrollIndicator={false}
-      >
-        <Card title={"Notes"} data={NOTES} navigation={navigation} />
-        <Card title={"Folders"} data={FOLDERS} color="#FFC04D" />
-        <Card
-          title={"Labels"}
-          data={LABELS}
-          color="#6d6f7a"
-          onPress={() => dispatch(incrementByAmount(5))}
-        />
-      </ScrollView>
-
-      {/* <TouchableOpacity
-        style={{
-          borderRadius: 50,
-          position: "absolute",
-          right: 30,
-          bottom: 20,
-          backgroundColor: "#9E86FE",
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: "row",
-          paddingHorizontal: 15,
-          paddingVertical: 8,
-          borderWidth: 1,
-          borderColor: colors.card,
-        }}
-      >
-        <SvgIcon icon="notes" fill={"#FFFFFF"} width={24} height={24} />
-        <Text
-          style={{
-            color: "#FFFFFF",
-            marginLeft: 10,
-            fontSize: 14,
-            fontWeight: "400",
-          }}
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={{ flex: 1 }}>
+        <ScrollView
+          contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 100 }}
+          showsVerticalScrollIndicator={false}
         >
-          New note
-        </Text>
-      </TouchableOpacity> */}
-    </View>
+          <Card data={NOTES} navigation={navigation} />
+          <Card title={"Folders"} data={FOLDERS} color="#FFC04D" />
+          <Card
+            title={"Labels"}
+            data={LABELS}
+            color="#6d6f7a"
+            onPress={() => dispatch(incrementByAmount(5))}
+          />
+        </ScrollView>
+      </View>
+    </SafeAreaView>
   );
 }

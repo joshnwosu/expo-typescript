@@ -21,7 +21,7 @@ const BottomNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        headerShown: true,
+        headerShown: false,
         headerStyle: {
           backgroundColor: colors.background,
         },
