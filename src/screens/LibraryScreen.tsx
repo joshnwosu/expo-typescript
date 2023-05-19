@@ -232,7 +232,12 @@ export default function LibraryScreen() {
           showsVerticalScrollIndicator={false}
         >
           <Card data={NOTES} navigation={navigation} />
-          <Card title={"Folders"} data={FOLDERS} color="#FFC04D" />
+          <Card
+            title={"Folders"}
+            data={FOLDERS}
+            color="#FFC04D"
+            navigation={navigation}
+          />
           <Card
             title={"Labels"}
             data={LABELS}

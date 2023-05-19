@@ -27,7 +27,7 @@ export default function App() {
     colors: {
       ...DarkTheme.colors,
       // card: DarkTheme.colors.border,
-      card: "#141414",
+      // card: "#141414",
 
       // card: "#1F2123",
 
