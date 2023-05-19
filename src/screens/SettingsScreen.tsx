@@ -1,13 +1,15 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, SafeAreaView, ScrollView } from "react-native";
 import React from "react";
 import SwipableList from "../components/layouts/ListLayout";
 
 export default function SettingsScreen() {
   return (
-    <View style={{ flex: 1, paddingVertical: 30 }}>
-      <Text>Settings</Text>
-      <SwipableList />
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <ScrollView contentContainerStyle={{ flex: 1 }}>
+        <Text>Settings</Text>
+        {/* <SwipableList /> */}
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 

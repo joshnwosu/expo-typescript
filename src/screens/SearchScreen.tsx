@@ -39,13 +39,13 @@ export default function SearchScreen({ navigation }: any) {
   ];
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <ScrollView contentContainerStyle={{ padding: 20 }}>
+      <ScrollView contentContainerStyle={{ paddingHorizontal: 15 }}>
         <View
           style={{
             borderRadius: 20,
             height: 40,
             overflow: "hidden",
-            marginBottom: 20,
+            marginBottom: 10,
             opacity: 0.6,
           }}
         >

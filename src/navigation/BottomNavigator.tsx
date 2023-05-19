@@ -2,10 +2,10 @@ import React from "react";
 import { useTheme } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import BottomTabBar from "../components/navigation/BottomTabBar";
-import SettingsScreen from "../screens/SettingsScreen";
 import NotificationScreen from "../screens/NotificationScreen";
 import LibraryNavigator from "./LibraryNavigator";
 import SearchNavigator from "./SearchNavigator";
+import SettingsNavigator from "./SettingsNavigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -30,7 +30,7 @@ const BottomNavigator = () => {
       <Tab.Screen name="Library" component={LibraryNavigator} />
       <Tab.Screen name="Search" component={SearchNavigator} />
       <Tab.Screen name="Notification" component={NotificationScreen} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
+      <Tab.Screen name="Settings" component={SettingsNavigator} />
     </Tab.Navigator>
   );
 };
