@@ -66,15 +66,19 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
   const { colors } = useTheme();
 
   return (
-    <View style={{ marginTop: 20 }}>
+    <View>
       {title && (
-        <View
+        <TouchableOpacity
           style={{
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "space-between",
-            marginHorizontal: 20,
-            marginBottom: 10,
+            paddingHorizontal: 20,
+            paddingTop: 20,
+            paddingBottom: 10,
+          }}
+          onPress={() => {
+            navigation.navigate(title);
           }}
         >
           <Text
@@ -87,17 +91,14 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
             {title}
           </Text>
 
-          {onPress && (
-            <TouchableOpacity
-              style={{
-                opacity: 0.4,
-              }}
-              onPress={onPress}
-            >
-              <SvgIcon icon="add" fill={colors.text} />
-            </TouchableOpacity>
-          )}
-        </View>
+          <View
+            style={{
+              opacity: 0.4,
+            }}
+          >
+            <Ionicons name="chevron-forward" size={16} color={colors.text} />
+          </View>
+        </TouchableOpacity>
       )}
 
       <View
@@ -115,12 +116,9 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
                 alignItems: "center",
               }}
               onPress={() => {
-                if (item.name === "Notes") navigation.navigate("Starred");
-                else {
-                  navigation.navigate("Note Detail", {
-                    screen: item.name,
-                  });
-                }
+                navigation.navigate("Note Detail", {
+                  screen: item.name,
+                });
               }}
             >
               <View
@@ -162,7 +160,12 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
                     opacity: 0.4,
                   }}
                 />
-                <View style={{ flexDirection: "row", alignItems: "center" }}>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                  }}
+                >
                   <Text
                     style={{
                       color: colors.text,
@@ -175,10 +178,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
                   <View
                     style={{
                       marginLeft: 10,
-                      backgroundColor: colors.background,
                       paddingVertical: 2,
-                      paddingHorizontal: 5,
-                      borderRadius: 5,
                     }}
                   >
                     <Text
@@ -193,7 +193,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
                     </Text>
                   </View>
                 </View>
-                <View
+                {/* <View
                   style={{
                     marginRight: 20,
                     opacity: 0.4,
@@ -204,7 +204,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
                     size={16}
                     color={colors.text}
                   />
-                </View>
+                </View> */}
               </View>
             </TouchableOpacity>
           );
@@ -217,12 +217,6 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
 export default function LibraryScreen() {
   const navigation = useNavigation();
   const dispatch = useAppDispatch();
-  // const { value } = useAppSelector((state) => state.counter);
-  const { colors } = useTheme();
-
-  // useEffect(() => {
-  //   // console.log(value, colors.border);
-  // }, [value]);
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -231,7 +225,11 @@ export default function LibraryScreen() {
           contentContainerStyle={{ paddingHorizontal: 15, paddingBottom: 100 }}
           showsVerticalScrollIndicator={false}
         >
-          <Card data={NOTES} navigation={navigation} />
+          <Card
+            // title={"Notes"}
+            data={NOTES}
+            navigation={navigation}
+          />
           <Card
             title={"Folders"}
             data={FOLDERS}
@@ -243,6 +241,7 @@ export default function LibraryScreen() {
             data={LABELS}
             color="#6d6f7a"
             onPress={() => dispatch(incrementByAmount(5))}
+            navigation={navigation}
           />
         </ScrollView>
       </View>

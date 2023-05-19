@@ -5,6 +5,7 @@ import {
   TextInput,
   ScrollView,
   SafeAreaView,
+  Alert,
 } from "react-native";
 import React from "react";
 import SvgIcon from "../components/common/icons";
@@ -94,7 +95,7 @@ export default function SearchScreen({ navigation }: any) {
                   paddingVertical: 10,
                   marginRight: arr.length - 1 == index ? 0 : 10,
                 }}
-                onPress={() => navigation.navigate("Trash")}
+                onPress={() => Alert.alert(item.name)}
               >
                 <Text style={{ color: colors.text }}>{item.name}</Text>
               </TouchableOpacity>

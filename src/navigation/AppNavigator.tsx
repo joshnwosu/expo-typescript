@@ -5,6 +5,7 @@ import DetailScreen from "../screens/DetailScreen";
 import { createSharedElementStackNavigator } from "react-navigation-shared-element";
 import NoteScreen from "../screens/NoteScreen";
 import StarredScreen from "../screens/StarredScreen";
+import NoteDetailsScreen from "../screens/NoteDetailScreen";
 
 const Stack = createSharedElementStackNavigator();
 
@@ -32,6 +33,7 @@ const AppNavigator = ({ theme }: any) => {
           component={DetailScreen}
           options={() => options}
         />
+        <Stack.Screen name="Note Detail" component={NoteDetailsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

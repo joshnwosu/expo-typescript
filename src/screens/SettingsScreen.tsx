@@ -7,7 +7,7 @@ export default function SettingsScreen() {
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView contentContainerStyle={{ flex: 1 }}>
         <Text>Settings</Text>
-        {/* <SwipableList /> */}
+        <SwipableList />
       </ScrollView>
     </SafeAreaView>
   );
