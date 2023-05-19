@@ -220,7 +220,7 @@ export default function LibraryScreen() {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, marginTop: 20 }}>
         <ScrollView
           contentContainerStyle={{ paddingHorizontal: 15, paddingBottom: 100 }}
           showsVerticalScrollIndicator={false}

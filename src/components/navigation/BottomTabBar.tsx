@@ -31,7 +31,7 @@ export default function BottomTabBar({
     <View
       style={{
         flexDirection: "row",
-        backgroundColor: colors.card,
+        backgroundColor: colors.background,
         // position: "absolute",
         // bottom: 0,
         ...tabBarStyle,
