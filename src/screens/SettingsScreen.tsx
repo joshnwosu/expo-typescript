@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, SafeAreaView, ScrollView } from "react-native";
 import React from "react";
 import SwipableList from "../components/layouts/ListLayout";
 import BulletLayout from "../components/layouts/BulletLayout";
+import ScreenLayout from "../components/layouts/ScreenLayout";
 
 export default function SettingsScreen() {
   return (
@@ -10,7 +11,10 @@ export default function SettingsScreen() {
         <Text>Settings</Text>
         <SwipableList />
       </ScrollView> */}
-      <BulletLayout />
+
+      <ScreenLayout>
+        <BulletLayout />
+      </ScreenLayout>
     </SafeAreaView>
   );
 }

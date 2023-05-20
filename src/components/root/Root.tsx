@@ -5,16 +5,16 @@ import ThemeContext from "../context/ThemeContext";
 import AppNavigator from "../../navigation/AppNavigator";
 
 export default function Root() {
-  const { colors } = useContext(ThemeContext);
+  const { theme, colors } = useContext(ThemeContext);
 
-  useEffect(() => {
-    console.log("T: ", colors);
-  }, [colors]);
+  //   useEffect(() => {
+  //     console.log("T: ", colors);
+  //   }, [colors]);
 
   return (
     <>
       <View style={styles.container}>
-        <StatusBar style={"dark"} />
+        <StatusBar style={"auto"} />
         <AppNavigator />
       </View>
     </>
