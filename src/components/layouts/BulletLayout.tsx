@@ -42,7 +42,7 @@ const BulletLayout = () => {
       backgroundColor: colors.card,
     },
     addButton: {
-      backgroundColor: colors.primary,
+      backgroundColor: colors.activeColor,
       paddingVertical: 8,
       paddingHorizontal: 16,
       borderRadius: 4,
@@ -118,7 +118,7 @@ const BulletLayout = () => {
       <Ionicons
         name={item.checked ? "checkmark-circle-outline" : "ellipse-outline"}
         size={24}
-        color={item.checked ? colors.primary : colors.text}
+        color={item.checked ? colors.activeColor : colors.inActiveColor}
         style={styles.checkIcon}
       />
       <Text style={item.checked ? styles.checkedText : styles.uncheckedText}>
