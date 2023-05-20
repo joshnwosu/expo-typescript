@@ -1,10 +1,10 @@
 import React from "react";
-import { colors } from "../../types";
+import { ThemeProps } from "../../types";
 
 interface ThemeContextProps {
-  theme: string;
+  mode: string;
   toggleTheme: () => void;
-  colors: colors;
+  theme: ThemeProps;
 }
 
 const ThemeContext = React.createContext<ThemeContextProps | undefined>(
