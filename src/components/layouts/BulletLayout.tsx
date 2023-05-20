@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-const NoteApp = () => {
+const BulletLayout = () => {
   const [note, setNote] = useState("");
   const [checklist, setChecklist] = useState([]);
 
@@ -138,4 +138,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default NoteApp;
+export default BulletLayout;
