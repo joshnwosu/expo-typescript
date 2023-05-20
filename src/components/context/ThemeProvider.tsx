@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ThemeContext from "./ThemeContext";
-import { colors, ThemeObject } from "../../types";
+import { ThemeProps, ThemeObject } from "../../types";
 import { useColorScheme } from "react-native";
 import { Theme } from "../config/theme";
 
@@ -10,14 +10,14 @@ interface ThemeProviderProps {
 
 const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const scheme = useColorScheme();
-  const [theme, setTheme] = useState(scheme); // Initial theme state
+  const [mode, setMode] = useState(scheme); // Initial theme state
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light")); // Toggle between light and dark theme
+    setMode((prevTheme) => (prevTheme === "light" ? "dark" : "light")); // Toggle between light and dark theme
   };
 
   React.useEffect(() => {
-    setTheme(scheme);
+    setMode(scheme);
   }, [scheme]);
 
   // Define your theme object with colors, typography, etc.
@@ -25,12 +25,18 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     ...Theme,
   };
 
-  const colors: colors = {
-    ...themeObject.colors[theme],
+  const theme: ThemeProps = {
+    ...themeObject[mode],
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, colors }}>
+    <ThemeContext.Provider
+      value={{
+        mode,
+        toggleTheme,
+        theme,
+      }}
+    >
       {children}
     </ThemeContext.Provider>
   );
