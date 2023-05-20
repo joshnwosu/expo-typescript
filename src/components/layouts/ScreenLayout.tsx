@@ -7,7 +7,9 @@ interface Props {
 }
 
 export default function ScreenLayout({ children }: Props) {
-  const { colors } = React.useContext(ThemeContext);
+  const {
+    theme: { colors },
+  } = React.useContext(ThemeContext);
   return (
     <View
       style={{
