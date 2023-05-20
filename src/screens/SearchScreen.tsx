@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import React from "react";
 import SvgIcon from "../components/common/icons";
-import { useTheme } from "@react-navigation/native";
 import ThemeContext from "../components/context/ThemeContext";
 
 interface Props {
@@ -31,7 +30,6 @@ const DATA: Props[] = [
 export default function SearchScreen({ navigation }: any) {
   const {
     theme: { colors },
-    toggleTheme,
   } = React.useContext(ThemeContext);
 
   const tags = [
@@ -66,7 +64,7 @@ export default function SearchScreen({ navigation }: any) {
               color: colors.text,
             }}
             placeholder="Notes, Folders, & Labels"
-            placeholderTextColor={"#6d6f7a"}
+            placeholderTextColor={colors.inActiveColor}
           />
           <View
             style={{
@@ -79,7 +77,12 @@ export default function SearchScreen({ navigation }: any) {
               alignItems: "center",
             }}
           >
-            <SvgIcon icon="search" fill={"#6d6f7a"} width={20} height={20} />
+            <SvgIcon
+              icon="search"
+              fill={colors.inActiveColor}
+              width={20}
+              height={20}
+            />
           </View>
         </View>
 
@@ -123,7 +126,7 @@ export default function SearchScreen({ navigation }: any) {
                 <View style={{ marginRight: 20 }}>
                   <SvgIcon
                     icon={item.icon}
-                    fill="#5d68f9"
+                    fill={colors.activeColor}
                     width={30}
                     height={30}
                   />
