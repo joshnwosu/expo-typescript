@@ -1,16 +1,15 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import React, { useContext, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import ThemeContext from "../context/ThemeContext";
 import AppNavigator from "../../navigation/AppNavigator";
-import { DarkTheme, DefaultTheme } from "@react-navigation/native";
 
 export default function Root() {
-  const { theme } = useContext(ThemeContext);
+  const { theme, mode } = useContext(ThemeContext);
   return (
     <>
       <View style={styles.container}>
-        <StatusBar style={"auto"} />
+        <StatusBar style={mode === "dark" ? "light" : "dark"} />
         <AppNavigator theme={theme} />
       </View>
     </>
