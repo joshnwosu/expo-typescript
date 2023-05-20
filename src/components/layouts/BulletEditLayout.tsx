@@ -61,12 +61,13 @@ const BulletLayout = () => {
     checklistItem: {
       flexDirection: "row",
       alignItems: "flex-start",
-      marginBottom: 4,
+      //   marginBottom: 4,
       flex: 1,
-      borderRadius: 4,
-      borderWidth: 1,
-      borderColor: colors.border,
-      padding: 8,
+      //   borderRadius: 4,
+      //   borderWidth: 1,
+      //   borderColor: colors.border,
+      //   padding: 8,
+      paddingHorizontal: 10,
     },
     checkIcon: {
       marginRight: 8,
