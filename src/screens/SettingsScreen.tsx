@@ -12,9 +12,7 @@ export default function SettingsScreen() {
         <SwipableList />
       </ScrollView> */}
 
-      <ScreenLayout>
-        <BulletLayout />
-      </ScreenLayout>
+      <BulletLayout />
     </SafeAreaView>
   );
 }
