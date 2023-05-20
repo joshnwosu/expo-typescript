@@ -3,19 +3,15 @@ import React, { useContext, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import ThemeContext from "../context/ThemeContext";
 import AppNavigator from "../../navigation/AppNavigator";
+import { DarkTheme, DefaultTheme } from "@react-navigation/native";
 
 export default function Root() {
-  const { theme, colors } = useContext(ThemeContext);
-
-  //   useEffect(() => {
-  //     console.log("T: ", colors);
-  //   }, [colors]);
-
+  const { theme } = useContext(ThemeContext);
   return (
     <>
       <View style={styles.container}>
         <StatusBar style={"auto"} />
-        <AppNavigator />
+        <AppNavigator theme={theme} />
       </View>
     </>
   );
