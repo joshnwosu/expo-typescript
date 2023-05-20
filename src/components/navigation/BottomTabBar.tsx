@@ -4,12 +4,12 @@ import {
   ParamListBase,
   TabNavigationState,
   NavigationHelpers,
-  useTheme,
 } from "@react-navigation/native";
 import { BottomTabNavigationEventMap } from "@react-navigation/bottom-tabs";
 import { BottomTabDescriptorMap } from "@react-navigation/bottom-tabs/lib/typescript/src/types";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import SvgIcon from "../common/icons";
+import ThemeContext from "../context/ThemeContext";
 
 interface Props {
   state: TabNavigationState<ParamListBase>;
@@ -25,15 +25,15 @@ export default function BottomTabBar({
   const insets = useSafeAreaInsets();
   // Adjust the position of the tab bar to avoid overlapping with the gesture line
   const tabBarStyle: ViewStyle = { paddingBottom: insets.bottom };
-  const { colors } = useTheme();
+  const {
+    theme: { colors },
+  } = React.useContext(ThemeContext);
 
   return (
     <View
       style={{
         flexDirection: "row",
         backgroundColor: colors.background,
-        // position: "absolute",
-        // bottom: 0,
         ...tabBarStyle,
       }}
     >
@@ -84,16 +84,15 @@ export default function BottomTabBar({
               paddingBottom: insets.bottom > 0 ? 0 : 10,
             }}
           >
-            {/* #9E86FE */}
             <SvgIcon
               icon={label.toLowerCase()}
               width={26}
               height={26}
-              fill={isFocused ? "#5d68f9" : "#6d6f7a"}
+              fill={isFocused ? colors.activeColor : colors.inActiveColor}
             />
             <Text
               style={{
-                color: isFocused ? "#5d68f9" : "#6d6f7a",
+                color: isFocused ? colors.activeColor : colors.inActiveColor,
                 fontWeight: "500",
                 fontSize: 12,
                 marginTop: 8,
