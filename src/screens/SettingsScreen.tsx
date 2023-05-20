@@ -6,11 +6,11 @@ import BulletLayout from "../components/layouts/BulletLayout";
 export default function SettingsScreen() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <ScrollView contentContainerStyle={{ flex: 1 }}>
+      {/* <ScrollView contentContainerStyle={{ flex: 1 }}>
         <Text>Settings</Text>
-        {/* <SwipableList /> */}
-        <BulletLayout />
-      </ScrollView>
+        <SwipableList />
+      </ScrollView> */}
+      <BulletLayout />
     </SafeAreaView>
   );
 }
