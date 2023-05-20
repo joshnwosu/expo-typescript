@@ -3,6 +3,7 @@ import React from "react";
 import SwipableList from "../components/layouts/ListLayout";
 import BulletLayout from "../components/layouts/BulletLayout";
 import ScreenLayout from "../components/layouts/ScreenLayout";
+import BulletEditLayout from "../components/layouts/BulletEditLayout";
 
 export default function SettingsScreen() {
   return (
@@ -12,7 +13,8 @@ export default function SettingsScreen() {
         <SwipableList />
       </ScrollView> */}
 
-      <BulletLayout />
+      {/* <BulletLayout /> */}
+      <BulletEditLayout />
     </SafeAreaView>
   );
 }
