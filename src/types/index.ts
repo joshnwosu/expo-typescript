@@ -11,32 +11,20 @@ export interface LabelProps {
     | ((props: { focused: boolean; color: string }) => React.ReactNode);
 }
 
-export interface ThemeObject {
-  colors: {
-    light: {
-      primary: string;
-      text: string;
-      background: string;
-      card: string;
-      notification: string;
-      border: string;
-    };
-    dark: {
-      primary: string;
-      text: string;
-      background: string;
-      card: string;
-      notification: string;
-      border: string;
-    };
-  };
-}
-
-export interface ThemeMode {
+export interface colors {
   primary: string;
   text: string;
   background: string;
   card: string;
   notification: string;
   border: string;
+  activeColor: string;
+  inActiveColor: string;
+}
+
+export interface ThemeObject {
+  colors: {
+    light: colors;
+    dark: colors;
+  };
 }

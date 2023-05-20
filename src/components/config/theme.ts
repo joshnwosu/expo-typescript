@@ -7,6 +7,8 @@ export const Theme = {
       card: "purple",
       notification: "orange",
       border: "brown",
+      activeColor: "#5d68f9",
+      inActiveColor: "#6d6f7a",
     },
     dark: {
       primary: "white",
@@ -15,6 +17,8 @@ export const Theme = {
       card: "magenta",
       notification: "chocolate",
       border: "tomato",
+      activeColor: "#5d68f9",
+      inActiveColor: "#6d6f7a",
     },
   },
 };

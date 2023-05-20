@@ -64,8 +64,8 @@ const FOLDERS: Props[] = [
 const LABELS: Props[] = [{ name: "Inspiration", count: 8, icon: "tag" }];
 
 const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
-  // const { themeMode } = useTheme();
-  const { themeMode } = useContext(ThemeContext);
+  // const { colors } = useTheme();
+  const { colors } = useContext(ThemeContext);
 
   return (
     <View>
@@ -85,7 +85,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
         >
           <Text
             style={{
-              color: themeMode.text,
+              color: colors.text,
               fontSize: 20,
               fontWeight: "600",
             }}
@@ -98,7 +98,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
               opacity: 0.4,
             }}
           >
-            <Ionicons name="chevron-forward" size={16} color={themeMode.text} />
+            <Ionicons name="chevron-forward" size={16} color={colors.text} />
           </View>
         </TouchableOpacity>
       )}
@@ -106,7 +106,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
       <View
         style={{
           borderRadius: 10,
-          backgroundColor: themeMode.card,
+          backgroundColor: colors.card,
         }}
       >
         {data.map((item, index, arr) => {
@@ -152,7 +152,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
               >
                 <View
                   style={{
-                    backgroundColor: themeMode.border,
+                    backgroundColor: colors.border,
                     height: index == arr.length - 1 ? 0 : 1,
                     width: "100%",
                     position: "absolute",
@@ -170,7 +170,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
                 >
                   <Text
                     style={{
-                      color: themeMode.text,
+                      color: colors.text,
                       fontSize: 14,
                       fontWeight: "400",
                     }}
@@ -185,7 +185,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
                   >
                     <Text
                       style={{
-                        color: themeMode.text,
+                        color: colors.text,
                         opacity: 0.5,
                         fontSize: 13,
                         fontWeight: "500",
@@ -204,7 +204,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
                   <Ionicons
                     name="chevron-forward"
                     size={16}
-                    color={themeMode.text}
+                    color={colors.text}
                   />
                 </View> */}
               </View>

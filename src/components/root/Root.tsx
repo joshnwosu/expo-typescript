@@ -5,11 +5,11 @@ import ThemeContext from "../context/ThemeContext";
 import AppNavigator from "../../navigation/AppNavigator";
 
 export default function Root() {
-  const { themeMode } = useContext(ThemeContext);
+  const { colors } = useContext(ThemeContext);
 
   useEffect(() => {
-    console.log("T: ", themeMode);
-  }, [themeMode]);
+    console.log("T: ", colors);
+  }, [colors]);
 
   return (
     <>

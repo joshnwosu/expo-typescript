@@ -29,8 +29,8 @@ const DATA: Props[] = [
 ];
 
 export default function SearchScreen({ navigation }: any) {
-  const { theme, themeMode, toggleTheme } = React.useContext(ThemeContext);
-  const { colors } = useTheme();
+  const { theme, colors, toggleTheme } = React.useContext(ThemeContext);
+
   const tags = [
     { name: "All" },
     { name: "Books" },
@@ -115,7 +115,7 @@ export default function SearchScreen({ navigation }: any) {
                   alignItems: "center",
                   paddingVertical: 10,
                 }}
-                onPress={() => console.log(themeMode)}
+                onPress={() => console.log(colors)}
               >
                 <View style={{ marginRight: 20 }}>
                   <SvgIcon
