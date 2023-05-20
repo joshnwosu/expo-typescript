@@ -53,8 +53,8 @@ const BulletLayout = () => {
     },
     addButtonText: {
       color: colors.text,
-      fontSize: 16,
-      fontWeight: "bold",
+      fontSize: 14,
+      fontWeight: "400",
     },
     checklistContainer: {
       flexGrow: 1,

@@ -8,7 +8,7 @@ export const Theme = {
       notification: "#ff3b30" || "rgb(255, 59, 48)",
       primary: "#007aff" || "rgb(0, 122, 255)",
       text: "#1c1c1e" || "rgb(28, 28, 30)",
-      activeColor: "#5d68f9" || "rgb(93, 104, 249)",
+      activeColor: "#e0198e" || "rgb(93, 104, 249)",
       inActiveColor: "#6d6f7a" || "rgb(109, 111, 122)",
     },
   },
