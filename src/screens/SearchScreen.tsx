@@ -10,6 +10,7 @@ import {
 import React from "react";
 import SvgIcon from "../components/common/icons";
 import { useTheme } from "@react-navigation/native";
+import ThemeContext from "../components/context/ThemeContext";
 
 interface Props {
   name: string;
@@ -28,6 +29,7 @@ const DATA: Props[] = [
 ];
 
 export default function SearchScreen({ navigation }: any) {
+  const { theme, themeMode, toggleTheme } = React.useContext(ThemeContext);
   const { colors } = useTheme();
   const tags = [
     { name: "All" },
@@ -113,6 +115,7 @@ export default function SearchScreen({ navigation }: any) {
                   alignItems: "center",
                   paddingVertical: 10,
                 }}
+                onPress={() => console.log(themeMode)}
               >
                 <View style={{ marginRight: 20 }}>
                   <SvgIcon
