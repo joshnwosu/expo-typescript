@@ -14,6 +14,7 @@ import ThemeContext from "../components/context/ThemeContext";
 interface Props {
   name: string;
   icon: string;
+  onClick?: (c: any) => void;
 }
 
 const DATA: Props[] = [
@@ -25,11 +26,16 @@ const DATA: Props[] = [
     name: "History",
     icon: "history",
   },
+  {
+    name: "Toggle theme",
+    icon: "home",
+  },
 ];
 
 export default function SearchScreen({ navigation }: any) {
   const {
     theme: { colors },
+    toggleTheme,
   } = React.useContext(ThemeContext);
 
   const tags = [
@@ -121,7 +127,7 @@ export default function SearchScreen({ navigation }: any) {
                   alignItems: "center",
                   paddingVertical: 10,
                 }}
-                onPress={() => console.log(colors)}
+                onPress={toggleTheme}
               >
                 <View style={{ marginRight: 20 }}>
                   <SvgIcon
