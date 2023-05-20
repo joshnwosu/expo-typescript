@@ -9,11 +9,16 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useTheme } from "@react-navigation/native";
+import ThemeContext from "../context/ThemeContext";
 
 const BulletLayout = () => {
-  const { colors } = useTheme();
+  // const { colors } = useTheme();
   const [note, setNote] = useState("");
   const [checklist, setChecklist] = useState([]);
+
+  const {
+    theme: { colors },
+  } = React.useContext(ThemeContext);
 
   const styles = StyleSheet.create({
     container: {
