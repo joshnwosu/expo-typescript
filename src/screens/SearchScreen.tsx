@@ -29,7 +29,10 @@ const DATA: Props[] = [
 ];
 
 export default function SearchScreen({ navigation }: any) {
-  const { theme, colors, toggleTheme } = React.useContext(ThemeContext);
+  const {
+    theme: { colors },
+    toggleTheme,
+  } = React.useContext(ThemeContext);
 
   const tags = [
     { name: "All" },
