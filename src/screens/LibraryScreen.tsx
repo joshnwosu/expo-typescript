@@ -65,7 +65,8 @@ const LABELS: Props[] = [{ name: "Inspiration", count: 8, icon: "tag" }];
 
 const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
   // const { colors } = useTheme();
-  const { colors } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
+  const colors = theme.colors;
 
   return (
     <View>
