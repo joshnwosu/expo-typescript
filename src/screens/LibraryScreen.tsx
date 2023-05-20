@@ -6,12 +6,13 @@ import {
   Animated,
   SafeAreaView,
 } from "react-native";
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { useNavigation, useTheme } from "@react-navigation/native";
 import SvgIcon from "../components/common/icons";
 import { Ionicons } from "@expo/vector-icons";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { increment, incrementByAmount } from "../features/counter/counterSlice";
+import ThemeContext from "../components/context/ThemeContext";
 
 interface Props {
   name: string;
@@ -63,7 +64,8 @@ const FOLDERS: Props[] = [
 const LABELS: Props[] = [{ name: "Inspiration", count: 8, icon: "tag" }];
 
 const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
-  const { colors } = useTheme();
+  // const { themeMode } = useTheme();
+  const { themeMode } = useContext(ThemeContext);
 
   return (
     <View>
@@ -83,7 +85,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
         >
           <Text
             style={{
-              color: colors.text,
+              color: themeMode.text,
               fontSize: 20,
               fontWeight: "600",
             }}
@@ -96,7 +98,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
               opacity: 0.4,
             }}
           >
-            <Ionicons name="chevron-forward" size={16} color={colors.text} />
+            <Ionicons name="chevron-forward" size={16} color={themeMode.text} />
           </View>
         </TouchableOpacity>
       )}
@@ -104,7 +106,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
       <View
         style={{
           borderRadius: 10,
-          backgroundColor: colors.card,
+          backgroundColor: themeMode.card,
         }}
       >
         {data.map((item, index, arr) => {
@@ -150,7 +152,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
               >
                 <View
                   style={{
-                    backgroundColor: colors.border,
+                    backgroundColor: themeMode.border,
                     height: index == arr.length - 1 ? 0 : 1,
                     width: "100%",
                     position: "absolute",
@@ -168,7 +170,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
                 >
                   <Text
                     style={{
-                      color: colors.text,
+                      color: themeMode.text,
                       fontSize: 14,
                       fontWeight: "400",
                     }}
@@ -183,7 +185,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
                   >
                     <Text
                       style={{
-                        color: colors.text,
+                        color: themeMode.text,
                         opacity: 0.5,
                         fontSize: 13,
                         fontWeight: "500",
@@ -202,7 +204,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
                   <Ionicons
                     name="chevron-forward"
                     size={16}
-                    color={colors.text}
+                    color={themeMode.text}
                   />
                 </View> */}
               </View>
