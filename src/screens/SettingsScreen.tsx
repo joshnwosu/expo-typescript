@@ -4,6 +4,9 @@ import SwipableList from "../components/layouts/ListLayout";
 import BulletLayout from "../components/layouts/BulletLayout";
 import ScreenLayout from "../components/layouts/ScreenLayout";
 import BulletEditLayout from "../components/layouts/BulletEditLayout";
+import BulletInserLayout from "../components/layouts/BulletInsertLayout";
+import BulletCreateLayout from "../components/layouts/BulletCreateLayout";
+import BulletLayoutText from "../components/layouts/BulletLayoutText";
 
 export default function SettingsScreen() {
   return (
@@ -14,7 +17,10 @@ export default function SettingsScreen() {
       </ScrollView> */}
 
       {/* <BulletLayout /> */}
-      <BulletEditLayout />
+      {/* <BulletEditLayout /> */}
+      {/* <BulletInserLayout /> */}
+      {/* <BulletCreateLayout /> */}
+      <BulletLayoutText />
     </SafeAreaView>
   );
 }
