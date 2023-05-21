@@ -60,7 +60,7 @@ const BulletLayout = () => {
     },
     checklistItem: {
       flexDirection: "row",
-      alignItems: "flex-start",
+      //   alignItems: "center",
       //   marginBottom: 4,
       flex: 1,
       //   borderRadius: 4,
@@ -71,7 +71,7 @@ const BulletLayout = () => {
     },
     checkIcon: {
       marginRight: 8,
-      marginTop: 4,
+      marginTop: 2,
     },
     uncheckedText: {
       fontSize: 16,
@@ -115,9 +115,9 @@ const BulletLayout = () => {
   };
 
   const handleToggleItem = (index) => {
-    if (editingIndex !== -1) {
-      return; // Item is being edited, do not toggle
-    }
+    // if (editingIndex !== -1) {
+    //   return; // Item is being edited, do not toggle
+    // }
 
     setChecklist((prevChecklist) => {
       const updatedChecklist = [...prevChecklist];
