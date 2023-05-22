@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import {
   View,
   TextInput,
@@ -8,117 +8,89 @@ import {
   Text,
   KeyboardAvoidingView,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import ThemeContext from "../context/ThemeContext";
+import DraggableFlatList from "react-native-draggable-flatlist";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 const BulletLayout = () => {
-  const [note, setNote] = useState("");
+  const [title, setTitle] = useState("");
   const [checklist, setChecklist] = useState([]);
   const [editingIndex, setEditingIndex] = useState(-1);
+  const [editingValue, setEditingValue] = useState("");
   const textInputsRefs = useRef([]);
-  const [keyPressEvent, setKeyPressEvent] = useState("");
+  const titleRef = useRef<any>();
+  const [isMultiline, setIsMultiline] = useState(false);
 
   const {
     theme: { colors },
-  } = React.useContext(ThemeContext);
+  } = useContext(ThemeContext);
 
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      padding: 16,
     },
-    inputContainer: {
-      flexDirection: "row",
-      marginBottom: 16,
-    },
-    textInput: {
-      flex: 1,
-      borderWidth: 1,
-      borderColor: colors.border,
+    titleInput: {
       borderRadius: 4,
-      marginRight: 8,
-      padding: 8,
-      fontSize: 16,
+      paddingHorizontal: 20,
+      fontSize: 24,
       color: colors.text,
       backgroundColor: colors.background,
+      marginBottom: 10,
     },
-    addButton: {
+    insertListButton: {
       paddingVertical: 8,
       paddingHorizontal: 16,
       borderRadius: 4,
       alignItems: "center",
       justifyContent: "center",
     },
-    addButtonText: {
-      color: colors.text,
-      fontSize: 14,
-      fontWeight: "400",
-    },
+
     checklistContainer: {
       flexGrow: 1,
-      //   paddingHorizontal: 10,
+      padding: 10,
     },
     checklistItem: {
       flexDirection: "row",
-      //   alignItems: "center",
-      //   marginBottom: 4,
       flex: 1,
-      //   borderRadius: 4,
-      //   borderWidth: 1,
-      //   borderColor: colors.border,
-      //   padding: 8,
       paddingHorizontal: 10,
     },
     checkIcon: {
+      alignItems: "flex-start",
       marginRight: 8,
       marginTop: 2,
     },
     uncheckedText: {
-      fontSize: 16,
-      lineHeight: 24,
-      color: colors.text,
-      flex: 1,
-      fontWeight: "400",
+      opacity: 1,
     },
     checkedText: {
-      fontSize: 16,
-      lineHeight: 24,
       textDecorationLine: "line-through",
-      color: colors.text,
       opacity: 0.6,
-      flex: 1,
-      fontWeight: "400",
     },
     editTextInput: {
       flex: 1,
-      //   borderRadius: 4,
-      fontSize: 20,
-      fontWeight: "400",
+      fontSize: 18,
+      fontWeight: "300",
       color: colors.text,
       margin: 0,
-      padding: 8,
+      // padding: 8,
       lineHeight: 24,
-      //   borderWidth: 1,
-      //   borderColor: colors.border,
-      //   backgroundColor: colors.background,
+      // borderWidth: 1,
+      // borderColor: colors.activeColor,
+      minHeight: 33,
+      alignItems: "center",
+      paddingTop: 4,
     },
   });
 
   const handleAddItem = () => {
-    if (note.trim() !== "") {
-      setChecklist((prevChecklist) => [
-        ...prevChecklist,
-        { text: note, checked: false },
-      ]);
-      setNote("");
-    }
+    setChecklist((prevChecklist) => [
+      ...prevChecklist,
+      { text: "", checked: false },
+    ]);
   };
 
   const handleToggleItem = (index) => {
-    // if (editingIndex !== -1) {
-    //   return; // Item is being edited, do not toggle
-    // }
-
     setChecklist((prevChecklist) => {
       const updatedChecklist = [...prevChecklist];
       updatedChecklist[index].checked = !updatedChecklist[index].checked;
@@ -133,10 +105,16 @@ const BulletLayout = () => {
       return updatedChecklist;
     });
 
-    if (index < textInputsRefs.current.length) {
+    textInputsRefs.current.length = checklist.length;
+
+    if (index < textInputsRefs.current.length - 1) {
       textInputsRefs.current[index].focus();
-    } else if (index > 0 && index === textInputsRefs.current.length) {
+    } else if (index > 0 && index === textInputsRefs.current.length - 1) {
       textInputsRefs.current[index - 1].focus();
+    }
+
+    if (textInputsRefs.current.length == 1) {
+      titleRef.current.focus();
     }
   };
 
@@ -156,12 +134,8 @@ const BulletLayout = () => {
   };
 
   const handleEditItem = (newText, index) => {
-    if (newText.trim() === "" && keyPressEvent === "Backspace") {
-      handleRemoveEditingItem();
-    }
-
-    if (newText.endsWith("\n")) {
-      newText = newText.slice(0, -1); // Remove the trailing newline character
+    if (checklist[index] && newText.endsWith("\n") && editingIndex !== -1) {
+      newText = newText.slice(0, -1);
       if (newText.trim() !== "") {
         setChecklist((prevChecklist) => [
           ...prevChecklist,
@@ -173,31 +147,45 @@ const BulletLayout = () => {
       }
     }
 
-    setChecklist((prevChecklist) => {
-      const updatedChecklist = [...prevChecklist];
-      updatedChecklist[index].text = newText;
-      return updatedChecklist;
-    });
-  };
-
-  const handleKeyPress = (event) => {
-    setKeyPressEvent(event.nativeEvent.key);
-    if (event.nativeEvent.key === "Enter") {
-      event.preventDefault();
-      handleAddItem();
-    } else if (event.nativeEvent.key === "Backspace") {
-      event.preventDefault();
-      //   handleRemoveEditingItem();
-      //   console.log("Yo");
-
-      //   console.log(checklist);
-      //   console.log(editingIndex);
+    if (checklist[index]) {
+      setChecklist((prevChecklist) => {
+        const updatedChecklist = [...prevChecklist];
+        updatedChecklist[index].text = newText;
+        return updatedChecklist;
+      });
     }
   };
 
-  const renderItem = ({ item, index }) => {
+  const handleKeyPress = ({ nativeEvent }, index) => {
+    if (nativeEvent.key === "Backspace" && editingValue === "") {
+      handleRemoveItem(index);
+    }
+  };
+
+  // this will be useful in the future
+  const handleContentSizeChange = (event, index) => {
+    const { contentSize } = event.nativeEvent;
+    const { width: textWidth } = contentSize;
+    textInputsRefs.current[index].measure((x, y, width, height) => {
+      if (width < textWidth) {
+        setIsMultiline(true);
+      } else {
+        setIsMultiline(false);
+      }
+      // console.log("w: ", width, textWidth);
+    });
+  };
+
+  const renderItem = ({ item, index, drag }: any) => {
     return (
       <View style={styles.checklistItem}>
+        <MaterialIcons
+          name="drag-indicator"
+          size={24}
+          color={colors.inActiveColor}
+          style={styles.checkIcon}
+          onLongPress={drag}
+        />
         <Ionicons
           name={item.checked ? "checkmark-circle" : "ellipse-outline"}
           size={24}
@@ -208,42 +196,95 @@ const BulletLayout = () => {
         <TextInput
           ref={(ref) => (textInputsRefs.current[index] = ref)}
           value={item.text}
-          onChangeText={(newText) => handleEditItem(newText, index)}
-          autoFocus
+          onChangeText={(newText) => {
+            handleEditItem(newText, index);
+            setEditingValue(newText);
+          }}
+          onFocus={(e) => {
+            setEditingValue(e.nativeEvent.text);
+            setEditingIndex(index);
+          }}
           onBlur={handleFinishEditing}
-          style={styles.editTextInput}
+          style={[
+            item.checked ? styles.checkedText : styles.uncheckedText,
+            styles.editTextInput,
+          ]}
+          autoFocus
           multiline
-          onKeyPress={handleKeyPress}
+          // multiline={isMultiline}
+          onContentSizeChange={(event) => {
+            handleContentSizeChange(event, index);
+          }}
+          onKeyPress={(event) => {
+            handleKeyPress(event, index);
+          }}
+          blurOnSubmit={true}
+          enablesReturnKeyAutomatically={true}
+          onSubmitEditing={() => {
+            handleAddItem();
+          }}
+          textBreakStrategy="highQuality"
+          scrollEnabled={false}
+          selectionColor={colors.activeColor}
+          // selectTextOnFocus
         />
+        <TouchableOpacity onPress={() => handleRemoveItem(index)}>
+          <Ionicons name="close" size={24} color={colors.inActiveColor} />
+        </TouchableOpacity>
       </View>
     );
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.inputContainer}>
-        <TextInput
-          value={note}
-          onChangeText={setNote}
-          placeholder="Enter a note..."
-          style={styles.textInput}
-          onSubmitEditing={handleAddItem}
-          blurOnSubmit={false}
-        />
-        <TouchableOpacity style={styles.addButton} onPress={handleAddItem}>
-          <Ionicons name={"add"} size={24} color={colors.activeColor} />
+    <KeyboardAwareScrollView
+      extraHeight={135}
+      extraScrollHeight={70}
+      automaticallyAdjustContentInsets={true}
+      enableOnAndroid={true}
+      keyboardShouldPersistTaps="handled"
+      scrollEnabled={true}
+      contentInsetAdjustmentBehavior="automatic"
+      automaticallyAdjustKeyboardInsets
+    >
+      <View style={styles.container}>
+        <TouchableOpacity
+          style={styles.insertListButton}
+          onPress={handleAddItem}
+        >
+          <Ionicons
+            name={"list-outline"}
+            size={24}
+            color={colors.activeColor}
+          />
         </TouchableOpacity>
-      </View>
-      <KeyboardAvoidingView style={{ flex: 1 }}>
+
         <FlatList
           data={checklist}
           renderItem={renderItem}
           keyExtractor={(item, index) => index.toString()}
           contentContainerStyle={styles.checklistContainer}
-          keyboardShouldPersistTaps="handled"
+          keyboardShouldPersistTaps="always"
+          contentInsetAdjustmentBehavior="never"
+          ListHeaderComponent={
+            <View>
+              <TextInput
+                ref={titleRef}
+                value={title}
+                multiline
+                onChangeText={setTitle}
+                placeholder="Title"
+                style={styles.titleInput}
+                onSubmitEditing={handleAddItem}
+                placeholderTextColor={colors.inActiveColor}
+                blurOnSubmit={true}
+                scrollEnabled={false}
+                selectionColor={colors.activeColor}
+              />
+            </View>
+          }
         />
-      </KeyboardAvoidingView>
-    </View>
+      </View>
+    </KeyboardAwareScrollView>
   );
 };
 
