@@ -7,10 +7,16 @@ import {
   TouchableOpacity,
   Text,
   KeyboardAvoidingView,
+  Dimensions,
 } from "react-native";
-import { Ionicons, MaterialIcons } from "@expo/vector-icons";
+import {
+  Ionicons,
+  MaterialIcons,
+  AntDesign,
+  Entypo,
+  EvilIcons,
+} from "@expo/vector-icons";
 import ThemeContext from "../context/ThemeContext";
-import DraggableFlatList from "react-native-draggable-flatlist";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 const BulletLayout = () => {
@@ -25,6 +31,8 @@ const BulletLayout = () => {
   const {
     theme: { colors },
   } = useContext(ThemeContext);
+
+  const { width, height } = Dimensions.get("window");
 
   const styles = StyleSheet.create({
     container: {
@@ -55,6 +63,9 @@ const BulletLayout = () => {
       flexDirection: "row",
       flex: 1,
       paddingHorizontal: 10,
+      marginBottom: 4,
+      // borderWidth: 1,
+      alignItems: "flex-start",
     },
     checkIcon: {
       alignItems: "flex-start",
@@ -70,17 +81,14 @@ const BulletLayout = () => {
     },
     editTextInput: {
       flex: 1,
-      fontSize: 20,
-      fontWeight: "300",
+      fontSize: 17,
+      fontWeight: "400",
       color: colors.text,
       margin: 0,
-      // padding: 8,
-      lineHeight: 26,
-      // borderWidth: 1,
-      // borderColor: colors.activeColor,
       minHeight: 33,
-      alignItems: "center",
-      paddingTop: 3,
+      padding: 0,
+      // paddingTop: -10,
+      textAlign: "left",
     },
   });
 
@@ -158,6 +166,7 @@ const BulletLayout = () => {
   };
 
   const handleKeyPress = ({ nativeEvent }, index) => {
+    // console.log(nativeEvent.key);
     if (nativeEvent.key === "Backspace" && editingValue === "") {
       handleRemoveItem(index);
     }
@@ -184,7 +193,7 @@ const BulletLayout = () => {
           name="drag-indicator"
           size={24}
           color={colors.inActiveColor}
-          style={styles.checkIcon}
+          style={[styles.checkIcon, { opacity: 0.5 }]}
           onLongPress={drag}
         />
         <Ionicons
@@ -229,9 +238,14 @@ const BulletLayout = () => {
           selectionColor={colors.activeColor}
           // selectTextOnFocus
         />
-        <TouchableOpacity onPress={() => handleRemoveItem(index)}>
-          <Ionicons name="close" size={24} color={colors.inActiveColor} />
-        </TouchableOpacity>
+
+        <EvilIcons
+          name="close"
+          size={20}
+          color={colors.inActiveColor}
+          style={[styles.checkIcon, { marginRight: 0, marginLeft: 10 }]}
+          onPress={() => handleRemoveItem(index)}
+        />
       </View>
     );
   };

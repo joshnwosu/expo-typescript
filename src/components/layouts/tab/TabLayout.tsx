@@ -9,8 +9,8 @@ import {
 import React, { useLayoutEffect, useState } from "react";
 import { TabView, SceneMap } from "react-native-tab-view";
 import { useNavigation, useTheme } from "@react-navigation/native";
-import FoldersLayout from "./FoldersLayout";
-import MasonryLayout from "./MasonryLayout";
+import FoldersLayout from "../FoldersLayout";
+import MasonryLayout from "../MasonryLayout";
 
 const FirstRoute = () => {
   return <MasonryLayout />;
