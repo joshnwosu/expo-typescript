@@ -269,7 +269,7 @@ const BulletLayout = () => {
           renderItem={renderItem}
           keyExtractor={(item, index) => index.toString()}
           contentContainerStyle={styles.checklistContainer}
-          keyboardShouldPersistTaps="always"
+          keyboardShouldPersistTaps="handled"
           contentInsetAdjustmentBehavior="never"
           ListHeaderComponent={
             <View>
