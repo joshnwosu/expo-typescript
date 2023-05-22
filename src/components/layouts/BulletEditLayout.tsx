@@ -18,6 +18,10 @@ import {
 } from "@expo/vector-icons";
 import ThemeContext from "../context/ThemeContext";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { v4 as uuidv4 } from "uuid";
+import DraggableFlatlist, {
+  ScaleDecorator,
+} from "react-native-draggable-flatlist";
 
 const BulletLayout = () => {
   const [title, setTitle] = useState("");
@@ -93,16 +97,38 @@ const BulletLayout = () => {
   });
 
   const handleAddItem = () => {
-    setChecklist((prevChecklist) => [
-      ...prevChecklist,
-      { text: "", checked: false },
-    ]);
+    // setChecklist((prevChecklist) => [
+    //   ...prevChecklist,
+    //   { text: "", checked: false },
+    // ]);
+
+    setChecklist((prevChecklist) => {
+      const newItem = {
+        key: uuidv4(),
+        text: "",
+        checked: false,
+      };
+      return [...prevChecklist, newItem];
+    });
   };
 
-  const handleToggleItem = (index) => {
+  const handleToggleItem = (key: string) => {
+    // setChecklist((prevChecklist) => {
+    //   const updatedChecklist = [...prevChecklist];
+    //   updatedChecklist[index].checked = !updatedChecklist[index].checked;
+    //   return updatedChecklist;
+    // });
+
     setChecklist((prevChecklist) => {
-      const updatedChecklist = [...prevChecklist];
-      updatedChecklist[index].checked = !updatedChecklist[index].checked;
+      const updatedChecklist = prevChecklist.map((item) => {
+        if (item.key === key) {
+          return {
+            ...item,
+            checked: !item.checked,
+          };
+        }
+        return item;
+      });
       return updatedChecklist;
     });
   };
@@ -201,7 +227,7 @@ const BulletLayout = () => {
           size={24}
           color={item.checked ? colors.activeColor : colors.inActiveColor}
           style={styles.checkIcon}
-          onPress={() => handleToggleItem(index)}
+          onPress={() => handleToggleItem(item.key)}
         />
         <TextInput
           ref={(ref) => (textInputsRefs.current[index] = ref)}
@@ -281,6 +307,7 @@ const BulletLayout = () => {
         <FlatList
           data={checklist}
           renderItem={renderItem}
+          // onDragEnd={({ data }) => setChecklist(data)}
           keyExtractor={(item, index) => index.toString()}
           contentContainerStyle={styles.checklistContainer}
           keyboardShouldPersistTaps="handled"
