@@ -32,7 +32,7 @@ const BulletLayout = () => {
     },
     titleInput: {
       borderRadius: 4,
-      paddingHorizontal: 20,
+      paddingHorizontal: 10,
       fontSize: 24,
       color: colors.text,
       backgroundColor: colors.background,
@@ -236,16 +236,21 @@ const BulletLayout = () => {
   };
 
   return (
-    <KeyboardAwareScrollView
-      extraHeight={135}
-      extraScrollHeight={70}
-      automaticallyAdjustContentInsets={true}
-      enableOnAndroid={true}
-      keyboardShouldPersistTaps="handled"
-      scrollEnabled={true}
-      contentInsetAdjustmentBehavior="automatic"
-      automaticallyAdjustKeyboardInsets
+    <KeyboardAvoidingView
+      style={{ flex: 1, flexGrow: 1 }}
+      contentContainerStyle={{ flex: 1 }}
+      behavior="padding"
     >
+      {/*  <KeyboardAwareScrollView
+       extraHeight={135}
+       extraScrollHeight={70}
+       automaticallyAdjustContentInsets={true}
+       enableOnAndroid={true}
+       keyboardShouldPersistTaps="handled"
+       scrollEnabled={true}
+       contentInsetAdjustmentBehavior="automatic"
+       automaticallyAdjustKeyboardInsets
+     > */}
       <View style={styles.container}>
         <TouchableOpacity
           style={styles.insertListButton}
@@ -274,7 +279,13 @@ const BulletLayout = () => {
                 onChangeText={setTitle}
                 placeholder="Title"
                 style={styles.titleInput}
-                onSubmitEditing={handleAddItem}
+                onSubmitEditing={() => {
+                  if (checklist.length > 0) {
+                    textInputsRefs.current[0].focus();
+                  } else {
+                    handleAddItem();
+                  }
+                }}
                 placeholderTextColor={colors.inActiveColor}
                 blurOnSubmit={true}
                 scrollEnabled={false}
@@ -284,7 +295,8 @@ const BulletLayout = () => {
           }
         />
       </View>
-    </KeyboardAwareScrollView>
+      {/* </KeyboardAwareScrollView> */}
+    </KeyboardAvoidingView>
   );
 };
 
