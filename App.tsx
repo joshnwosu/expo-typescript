@@ -5,16 +5,19 @@ import { store } from "./src/app/store";
 import { LogBox } from "react-native";
 import ThemeProvider from "./src/components/context/ThemeProvider";
 import Root from "./src/components/root/Root";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 LogBox.ignoreAllLogs(); // ignore all annoying warnings.
 
 const App: React.FC = () => {
   return (
-    <Provider store={store}>
-      <ThemeProvider>
-        <Root />
-      </ThemeProvider>
-    </Provider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <Provider store={store}>
+        <ThemeProvider>
+          <Root />
+        </ThemeProvider>
+      </Provider>
+    </GestureHandlerRootView>
   );
 };
 
