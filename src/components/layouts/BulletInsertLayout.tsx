@@ -44,7 +44,7 @@ const BulletLayout = () => {
       fontWeight: "400",
     },
     checklistContainer: {
-      flexGrow: 1,
+      // flexGrow: 1,
       paddingHorizontal: 10,
     },
     checklistItem: {
@@ -154,20 +154,29 @@ const BulletLayout = () => {
 
   return (
     <View style={styles.container}>
-      <KeyboardAvoidingView style={{ flex: 1 }}>
-        <View style={styles.inputContainer}>
-          <TouchableOpacity style={styles.addButton} onPress={handleAddItem}>
-            <Text style={styles.addButtonText}>Click to insert checklist</Text>
-          </TouchableOpacity>
-        </View>
-        <FlatList
-          data={checklist}
-          renderItem={renderItem}
-          keyExtractor={(item, index) => index.toString()}
-          contentContainerStyle={styles.checklistContainer}
-          keyboardShouldPersistTaps="handled"
-        />
-      </KeyboardAvoidingView>
+      {/* <KeyboardAvoidingView style={{ flex: 1 }}> */}
+      <FlatList
+        data={checklist}
+        renderItem={renderItem}
+        keyExtractor={(item, index) => index.toString()}
+        contentContainerStyle={styles.checklistContainer}
+        keyboardShouldPersistTaps="handled"
+        ListFooterComponent={() => {
+          return (
+            <View style={styles.inputContainer}>
+              <TouchableOpacity
+                style={styles.addButton}
+                onPress={handleAddItem}
+              >
+                <Text style={styles.addButtonText}>
+                  Click to insert checklist
+                </Text>
+              </TouchableOpacity>
+            </View>
+          );
+        }}
+      />
+      {/* </KeyboardAvoidingView> */}
     </View>
   );
 };
