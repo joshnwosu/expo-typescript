@@ -7,6 +7,10 @@ import BulletEditLayout from "../components/layouts/BulletEditLayout";
 import BulletInserLayout from "../components/layouts/BulletInsertLayout";
 import BulletCreateLayout from "../components/layouts/BulletCreateLayout";
 import BulletLayoutText from "../components/layouts/BulletLayoutText";
+import DragList from "../components/layouts/DragList";
+import ItemList from "../components/layouts/ItemList";
+import TextHighlighter from "../components/layouts/TextHighlighter";
+import Draw from "../components/layouts/Draw";
 
 export default function SettingsScreen() {
   return (
@@ -20,7 +24,11 @@ export default function SettingsScreen() {
       {/* <BulletEditLayout /> */}
       {/* <BulletInserLayout /> */}
       {/* <BulletCreateLayout /> */}
-      <BulletLayoutText />
+      {/* <BulletLayoutText /> */}
+      {/* <DragList /> */}
+      {/* <ItemList /> */}
+      {/* <TextHighlighter /> */}
+      <Draw />
     </SafeAreaView>
   );
 }
