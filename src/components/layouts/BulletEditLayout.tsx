@@ -33,16 +33,17 @@ const BulletLayout = () => {
     titleInput: {
       borderRadius: 4,
       paddingHorizontal: 10,
-      fontSize: 24,
+      fontSize: 30,
+      fontWeight: "700",
       color: colors.text,
       backgroundColor: colors.background,
-      marginBottom: 10,
+      marginBottom: 20,
     },
     insertListButton: {
       paddingVertical: 8,
-      paddingHorizontal: 16,
+      paddingHorizontal: 20,
       borderRadius: 4,
-      alignItems: "center",
+      // alignItems: "center",
       justifyContent: "center",
     },
 
@@ -69,17 +70,17 @@ const BulletLayout = () => {
     },
     editTextInput: {
       flex: 1,
-      fontSize: 18,
+      fontSize: 20,
       fontWeight: "300",
       color: colors.text,
       margin: 0,
       // padding: 8,
-      lineHeight: 24,
+      lineHeight: 26,
       // borderWidth: 1,
       // borderColor: colors.activeColor,
       minHeight: 33,
       alignItems: "center",
-      paddingTop: 4,
+      paddingTop: 3,
     },
   });
 
