@@ -97,11 +97,6 @@ const BulletLayout = () => {
   });
 
   const handleAddItem = () => {
-    // setChecklist((prevChecklist) => [
-    //   ...prevChecklist,
-    //   { text: "", checked: false },
-    // ]);
-
     setChecklist((prevChecklist) => {
       const newItem = {
         key: uuidv4(),
@@ -113,12 +108,6 @@ const BulletLayout = () => {
   };
 
   const handleToggleItem = (key: string) => {
-    // setChecklist((prevChecklist) => {
-    //   const updatedChecklist = [...prevChecklist];
-    //   updatedChecklist[index].checked = !updatedChecklist[index].checked;
-    //   return updatedChecklist;
-    // });
-
     setChecklist((prevChecklist) => {
       const updatedChecklist = prevChecklist.map((item) => {
         if (item.key === key) {
