@@ -6,6 +6,8 @@ import { createSharedElementStackNavigator } from "react-navigation-shared-eleme
 import NoteScreen from "../screens/NoteScreen";
 import StarredScreen from "../screens/StarredScreen";
 import NoteDetailsScreen from "../screens/NoteDetailScreen";
+import LibraryNavigator from "./LibraryNavigator";
+import SettingsScreen from "../screens/SettingsScreen";
 
 const Stack = createSharedElementStackNavigator();
 
@@ -25,7 +27,13 @@ const AppNavigator = ({ theme }: any) => {
   return (
     <NavigationContainer theme={theme}>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Bottom" component={BottomNavigator} />
+        {/* <Stack.Screen name="Bottom" component={BottomNavigator} /> */}
+        <Stack.Screen name="Library" component={LibraryNavigator} />
+        <Stack.Screen
+          name="Settings"
+          options={{ title: "Settings" }}
+          component={SettingsScreen}
+        />
         <Stack.Screen name="Notes" component={NoteScreen} />
         <Stack.Screen name="Starred" component={StarredScreen} />
         <Stack.Screen
