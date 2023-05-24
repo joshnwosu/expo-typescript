@@ -36,7 +36,8 @@ const BulletLayout = () => {
     theme: { colors },
   } = useContext(ThemeContext);
 
-  const { width, height } = Dimensions.get("window");
+  const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } =
+    Dimensions.get("window");
 
   const styles = StyleSheet.create({
     container: {
@@ -55,7 +56,6 @@ const BulletLayout = () => {
       paddingVertical: 8,
       paddingHorizontal: 20,
       borderRadius: 4,
-      // alignItems: "center",
       justifyContent: "center",
     },
 
@@ -68,7 +68,6 @@ const BulletLayout = () => {
       flex: 1,
       paddingHorizontal: 10,
       marginBottom: 4,
-      // borderWidth: 1,
       alignItems: "flex-start",
     },
     checkIcon: {
@@ -91,7 +90,6 @@ const BulletLayout = () => {
       margin: 0,
       minHeight: 33,
       padding: 0,
-      // paddingTop: -10,
       textAlign: "left",
     },
   });
