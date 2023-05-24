@@ -13,11 +13,11 @@ const StackNavigatorWrapper = ({ children }: Prop) => {
   return (
     <Stack.Navigator
       screenOptions={{
-        headerShown: true,
-        headerLargeTitle: true,
-        headerStyle: {
-          backgroundColor: colors.background,
-        },
+        // headerShown: true,
+        // headerLargeTitle: true,
+        // headerStyle: {
+        //   backgroundColor: colors.background,
+        // },
         headerShadowVisible: false,
       }}
     >
