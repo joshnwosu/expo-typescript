@@ -119,7 +119,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
                 alignItems: "center",
               }}
               onPress={() => {
-                navigation.navigate("Note Detail", {
+                navigation.navigate("Notes", {
                   screen: item.name,
                 });
               }}

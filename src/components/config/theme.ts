@@ -17,7 +17,7 @@ export const Theme = {
     colors: {
       background: "#010101" || "rgb(1, 1, 1)",
       border: "#272729" || "rgb(39, 39, 41)",
-      card: "#161616" || "rgb(18, 18, 18)",
+      card: "#1a1a1a" || "rgb(26, 26, 26)",
       notification: "rgb(255, 69, 58)",
       primary: "#0a84ff" || "rgb(10, 132, 255)",
       text: "#e5e5e7" || "rgb(229, 229, 231)",

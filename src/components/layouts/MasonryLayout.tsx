@@ -55,7 +55,6 @@ const MasonryLayout = () => {
         numColumns={2}
         renderItem={({ item }) => <CardItem item={item} colors={colors} />}
         onEndReachedThreshold={0.1}
-        containerStyle={{ marginTop: 20 }}
       />
     </View>
   );
