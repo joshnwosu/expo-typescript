@@ -250,6 +250,15 @@ export default function LibraryScreen() {
             onPress={() => dispatch(incrementByAmount(5))}
             navigation={navigation}
           />
+
+          {/* <View
+            style={{
+              height: 50,
+              aspectRatio: 1,
+              backgroundColor: "red",
+              borderRadius: 50,
+            }}
+          /> */}
         </ScrollView>
       </View>
     </SafeAreaView>
