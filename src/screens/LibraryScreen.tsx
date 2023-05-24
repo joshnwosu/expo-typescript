@@ -87,7 +87,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
           <Text
             style={{
               color: colors.text,
-              fontSize: 20,
+              fontSize: 16,
               fontWeight: "600",
             }}
           >
@@ -106,7 +106,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
 
       <View
         style={{
-          borderRadius: 10,
+          // borderRadius: 10,
           backgroundColor: colors.card,
         }}
       >
@@ -223,9 +223,12 @@ export default function LibraryScreen() {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ flex: 1, marginTop: 20 }}>
+      <View style={{ flex: 1 }}>
         <ScrollView
-          contentContainerStyle={{ paddingHorizontal: 15, paddingBottom: 100 }}
+          contentContainerStyle={{
+            paddingTop: 15,
+            paddingBottom: 100,
+          }}
           showsVerticalScrollIndicator={false}
         >
           <Card

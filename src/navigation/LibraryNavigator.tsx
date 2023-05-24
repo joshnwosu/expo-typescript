@@ -31,7 +31,11 @@ const LibraryHeaderRight = ({ navigation }) => (
 
 const LibraryNavigator = ({ navigation }) => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerShadowVisible: false,
+      }}
+    >
       <Stack.Screen
         name="Library"
         options={{

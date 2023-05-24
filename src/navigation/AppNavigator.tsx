@@ -26,6 +26,7 @@ const AppNavigator = ({ theme }: any) => {
           name="AppNavigator"
           options={{
             headerShown: false,
+            headerShadowVisible: false,
           }}
           component={LibraryNavigator}
         />
