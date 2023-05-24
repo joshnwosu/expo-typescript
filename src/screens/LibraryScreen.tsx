@@ -106,7 +106,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
 
       <View
         style={{
-          // borderRadius: 10,
+          borderRadius: 10,
           backgroundColor: colors.card,
         }}
       >
@@ -228,6 +228,7 @@ export default function LibraryScreen() {
           contentContainerStyle={{
             paddingTop: 15,
             paddingBottom: 100,
+            paddingHorizontal: 20,
           }}
           showsVerticalScrollIndicator={false}
         >

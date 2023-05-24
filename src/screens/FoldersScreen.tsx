@@ -4,10 +4,8 @@ import FoldersLayout from "../components/layouts/FoldersLayout";
 
 export default function FoldersScreen() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ flex: 1 }}>
-        <FoldersLayout />
-      </View>
-    </SafeAreaView>
+    <View style={{ flex: 1 }}>
+      <FoldersLayout />
+    </View>
   );
 }

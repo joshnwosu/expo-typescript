@@ -1,11 +1,11 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import SettingsScreen from "../screens/SettingsScreen";
+import SearchScreen from "../screens/SearchScreen";
 import RightHeaderIcon from "../components/layouts/RightHeaderIcon";
 
 const Stack = createNativeStackNavigator();
 
-const SettingsNavigator = () => {
+const SearchNavigator = () => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -14,12 +14,12 @@ const SettingsNavigator = () => {
       }}
     >
       <Stack.Screen
-        name="Set"
-        options={{ title: "Settings" }}
-        component={SettingsScreen}
+        name="Sea"
+        options={{ title: "Search" }}
+        component={SearchScreen}
       />
     </Stack.Navigator>
   );
 };
 
-export default SettingsNavigator;
+export default SearchNavigator;

@@ -1,8 +1,11 @@
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import React from "react";
+import { View, Text, TouchableOpacity } from "react-native";
 import { createSharedElementStackNavigator } from "react-navigation-shared-element";
 import LibraryNavigator from "./LibraryNavigator";
 import DetailScreen from "../screens/DetailScreen";
+import BottomNavigator from "./BottomNavigator";
+import SvgIcon from "../components/common/icons";
 
 const Stack = createSharedElementStackNavigator();
 
@@ -21,14 +24,13 @@ const options = {
 const AppNavigator = ({ theme }: any) => {
   return (
     <NavigationContainer theme={theme}>
-      <Stack.Navigator screenOptions={{ headerShown: true }}>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen
           name="AppNavigator"
           options={{
-            headerShown: false,
             headerShadowVisible: false,
           }}
-          component={LibraryNavigator}
+          component={BottomNavigator}
         />
         <Stack.Screen
           name="Details"

@@ -48,15 +48,14 @@ const MasonryLayout = () => {
   ];
 
   return (
-    <View style={styles.container}>
-      <MasonryList
-        data={data}
-        keyExtractor={(item): string => item.id}
-        numColumns={2}
-        renderItem={({ item }) => <CardItem item={item} colors={colors} />}
-        onEndReachedThreshold={0.1}
-      />
-    </View>
+    <MasonryList
+      data={data}
+      keyExtractor={(item): string => item.id}
+      numColumns={2}
+      renderItem={({ item }) => <CardItem item={item} colors={colors} />}
+      onEndReachedThreshold={0.1}
+      contentContainerStyle={styles.container}
+    />
   );
 };
 
@@ -64,7 +63,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    paddingHorizontal: 15,
+    padding: 10,
     marginBottom: 20,
   },
 });

@@ -9,38 +9,23 @@ import NoteScreen from "../screens/NoteScreen";
 import SearchScreen from "../screens/SearchScreen";
 import SettingsNavigator from "./SettingsNavigator";
 import NotificationScreen from "../screens/NotificationScreen";
+import RightHeaderIcon from "../components/layouts/RightHeaderIcon";
 
 const Stack = createNativeStackNavigator();
-
-const LibraryHeaderRight = ({ navigation }) => (
-  <View style={{ flexDirection: "row", alignItems: "center" }}>
-    <TouchableOpacity
-      style={{ marginLeft: 20 }}
-      onPress={() => navigation.navigate("Notification")}
-    >
-      <SvgIcon icon="notification" width={20} height={20} fill="#FFFFFF" />
-    </TouchableOpacity>
-    <TouchableOpacity
-      style={{ marginLeft: 20 }}
-      onPress={() => navigation.navigate("Settings")}
-    >
-      <SvgIcon icon="settings" width={20} height={20} fill="#FFFFFF" />
-    </TouchableOpacity>
-  </View>
-);
 
 const LibraryNavigator = ({ navigation }) => {
   return (
     <Stack.Navigator
       screenOptions={{
+        headerShown: true,
         headerShadowVisible: false,
+        headerRight: () => <RightHeaderIcon />,
       }}
     >
       <Stack.Screen
-        name="Library"
+        name="Lib"
         options={{
           headerTitle: "Library",
-          headerRight: () => <LibraryHeaderRight navigation={navigation} />,
         }}
         component={LibraryScreen}
       />
