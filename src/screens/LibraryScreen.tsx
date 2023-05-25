@@ -136,8 +136,8 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
               >
                 <SvgIcon
                   icon={item.icon}
-                  width={30}
-                  height={30}
+                  width={24}
+                  height={24}
                   fill={item.color ?? color}
                 />
               </View>
