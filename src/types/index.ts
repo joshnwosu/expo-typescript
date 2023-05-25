@@ -29,3 +29,7 @@ export interface ThemeObject {
   light: ThemeProps;
   dark: ThemeProps;
 }
+
+export interface GroupCardProps {
+  data: { name: string; icon: string }[];
+}

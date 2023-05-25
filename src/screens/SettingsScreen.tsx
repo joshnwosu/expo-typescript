@@ -3,14 +3,22 @@ import React from "react";
 import ListLayout from "../components/layouts/ListLayout";
 import ScreenLayout from "../components/layouts/ScreenLayout";
 import BulletEditLayout from "../components/layouts/BulletEditLayout";
+import GroupCard from "../components/layouts/group-card/GroupCard";
+
+const DATA = [
+  { name: "General", icon: "settings" },
+  { name: "Appearance", icon: "folder" },
+];
 
 export default function SettingsScreen() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <View style={{ flex: 1, padding: 20 }}>
       {/* <ListLayout /> */}
       {/* <DragList /> */}
       {/* <BulletEditLayout /> */}
-    </SafeAreaView>
+
+      <GroupCard data={DATA} />
+    </View>
   );
 }
 
