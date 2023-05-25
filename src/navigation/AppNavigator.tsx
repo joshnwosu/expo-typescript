@@ -1,13 +1,15 @@
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
 import { createSharedElementStackNavigator } from "react-navigation-shared-element";
-import LibraryNavigator from "./LibraryNavigator";
-import DetailScreen from "../screens/DetailScreen";
 import BottomNavigator from "./BottomNavigator";
-import SvgIcon from "../components/common/icons";
+import NotificationScreen from "../screens/NotificationScreen";
+import DetailScreen from "../screens/DetailScreen";
+import CreateScreen from "../screens/CreateScreen";
 
 const Stack = createSharedElementStackNavigator();
+// const Stack = createStackNavigator();
 
 const options = {
   headerBackTitleVisible: false,
@@ -36,6 +38,22 @@ const AppNavigator = ({ theme }: any) => {
           name="Details"
           component={DetailScreen}
           options={() => options}
+        />
+        <Stack.Screen
+          name="Notification"
+          options={{
+            presentation: "modal",
+            headerShown: true,
+            headerLeft: () => null,
+          }}
+          component={NotificationScreen}
+        />
+        <Stack.Screen
+          name="Create"
+          options={{
+            headerShown: false,
+          }}
+          component={CreateScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

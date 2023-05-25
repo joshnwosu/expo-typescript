@@ -51,7 +51,8 @@ export default function BottomTabBar({
 
         const onPress = () => {
           if (route?.name === "Edit") {
-            console.log("Hello");
+            // console.log("Hello");
+            navigation.navigate("Create");
           } else {
             const event = navigation.emit({
               type: "tabPress",
