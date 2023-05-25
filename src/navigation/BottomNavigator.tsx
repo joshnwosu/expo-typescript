@@ -29,6 +29,7 @@ const BottomNavigator = () => {
       tabBar={(props) => <BottomTabBar {...props} />}
     >
       <Tab.Screen name="Library" component={LibraryNavigator} />
+      <Tab.Screen name="Edit" component={LibraryNavigator} />
       <Tab.Screen name="Search" component={SearchNavigator} />
       <Tab.Screen name="Settings" component={SettingsNavigator} />
     </Tab.Navigator>

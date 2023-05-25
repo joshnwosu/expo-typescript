@@ -50,7 +50,7 @@ export default function BottomTabBar({
         const isFocused = state.index === index;
 
         const onPress = () => {
-          if (route?.name === "Add") {
+          if (route?.name === "Edit") {
             console.log("Hello");
           } else {
             const event = navigation.emit({
@@ -102,7 +102,7 @@ export default function BottomTabBar({
                 marginTop: 8,
               }}
             >
-              {label}
+              {label === "Edit" ? "Create" : label}
             </Text>
           </Pressable>
         );
