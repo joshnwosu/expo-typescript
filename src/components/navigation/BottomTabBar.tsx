@@ -50,14 +50,19 @@ export default function BottomTabBar({
         const isFocused = state.index === index;
 
         const onPress = () => {
-          const event = navigation.emit({
-            type: "tabPress",
-            target: route.key,
-            canPreventDefault: true,
-          });
+          if (route?.name === "Edit") {
+            // console.log("Hello");
+            navigation.navigate("Create");
+          } else {
+            const event = navigation.emit({
+              type: "tabPress",
+              target: route.key,
+              canPreventDefault: true,
+            });
 
-          if (!isFocused && !event.defaultPrevented) {
-            navigation.navigate(route.name);
+            if (!isFocused && !event.defaultPrevented) {
+              navigation.navigate(route.name);
+            }
           }
         };
 
@@ -98,7 +103,7 @@ export default function BottomTabBar({
                 marginTop: 8,
               }}
             >
-              {label}
+              {label === "Edit" ? "Create" : label}
             </Text>
           </Pressable>
         );

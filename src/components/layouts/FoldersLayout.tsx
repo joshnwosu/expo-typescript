@@ -85,24 +85,13 @@ export default function FoldersLayout() {
   };
 
   return (
-    <View style={{ flex: 1, paddingTop: 20 }}>
-      <View
-        style={[
-          styles.container,
-          {
-            paddingHorizontal: 10,
-          },
-        ]}
-      >
-        <FlatList
-          data={adjustedItems}
-          renderItem={renderColumn}
-          keyExtractor={(item) => item.name.toString()}
-          numColumns={column}
-          contentContainerStyle={styles.columnContainer}
-        />
-      </View>
-    </View>
+    <FlatList
+      data={adjustedItems}
+      renderItem={renderColumn}
+      keyExtractor={(item) => item.name.toString()}
+      numColumns={column}
+      contentContainerStyle={styles.columnContainer}
+    />
   );
 }
 
@@ -118,6 +107,7 @@ const styles = StyleSheet.create({
   columnContainer: {
     flex: 1,
     marginBottom: 20,
+    padding: 10,
   },
   invisibleItem: {
     opacity: 0,

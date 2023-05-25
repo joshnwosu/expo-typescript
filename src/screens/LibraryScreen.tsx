@@ -87,7 +87,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
           <Text
             style={{
               color: colors.text,
-              fontSize: 20,
+              fontSize: 16,
               fontWeight: "600",
             }}
           >
@@ -119,7 +119,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
                 alignItems: "center",
               }}
               onPress={() => {
-                navigation.navigate("Note Detail", {
+                navigation.navigate("Notes", {
                   screen: item.name,
                 });
               }}
@@ -136,8 +136,8 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
               >
                 <SvgIcon
                   icon={item.icon}
-                  width={30}
-                  height={30}
+                  width={24}
+                  height={24}
                   fill={item.color ?? color}
                 />
               </View>
@@ -223,9 +223,13 @@ export default function LibraryScreen() {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ flex: 1, marginTop: 20 }}>
+      <View style={{ flex: 1 }}>
         <ScrollView
-          contentContainerStyle={{ paddingHorizontal: 15, paddingBottom: 100 }}
+          contentContainerStyle={{
+            paddingTop: 15,
+            paddingBottom: 100,
+            paddingHorizontal: 20,
+          }}
           showsVerticalScrollIndicator={false}
         >
           <Card
@@ -246,6 +250,15 @@ export default function LibraryScreen() {
             onPress={() => dispatch(incrementByAmount(5))}
             navigation={navigation}
           />
+
+          {/* <View
+            style={{
+              height: 50,
+              aspectRatio: 1,
+              backgroundColor: "red",
+              borderRadius: 50,
+            }}
+          /> */}
         </ScrollView>
       </View>
     </SafeAreaView>

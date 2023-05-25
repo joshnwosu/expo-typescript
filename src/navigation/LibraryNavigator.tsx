@@ -1,49 +1,30 @@
 import React from "react";
-import { View, TouchableOpacity } from "react-native";
 import LibraryScreen from "../screens/LibraryScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import StackNavigatorWrapper from "./StackNavigatorWrapper";
 import FoldersScreen from "../screens/FoldersScreen";
 import LabelScreen from "../screens/LabelScreen";
-import SvgIcon from "../components/common/icons";
+import NoteScreen from "../screens/NoteScreen";
+import RightHeaderIcon from "../components/layouts/RightHeaderIcon";
 
 const Stack = createNativeStackNavigator();
 
-const LibraryNavigator = ({ navigation }) => {
+const LibraryNavigator = () => {
   return (
-    <StackNavigatorWrapper>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: true,
+        headerShadowVisible: false,
+        headerRight: () => <RightHeaderIcon />,
+      }}
+    >
       <Stack.Screen
         name="Lib"
         options={{
           headerTitle: "Library",
-          headerRight(props) {
-            return (
-              <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <TouchableOpacity style={{ marginLeft: 20 }}>
-                  <SvgIcon
-                    icon="notification"
-                    width={20}
-                    height={20}
-                    fill="#FFFFFF"
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={{ marginLeft: 20 }}
-                  onPress={() => navigation.navigate("Settings")}
-                >
-                  <SvgIcon
-                    icon="settings"
-                    width={20}
-                    height={20}
-                    fill="#FFFFFF"
-                  />
-                </TouchableOpacity>
-              </View>
-            );
-          },
         }}
         component={LibraryScreen}
       />
+      <Stack.Screen name="Notes" component={NoteScreen} />
       <Stack.Screen name="Folders" component={FoldersScreen} />
       <Stack.Screen
         name="Labels"
@@ -52,7 +33,7 @@ const LibraryNavigator = ({ navigation }) => {
           presentation: "formSheet",
         }}
       />
-    </StackNavigatorWrapper>
+    </Stack.Navigator>
   );
 };
 

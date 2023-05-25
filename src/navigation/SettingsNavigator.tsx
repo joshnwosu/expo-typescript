@@ -1,19 +1,24 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import StackNavigatorWrapper from "./StackNavigatorWrapper";
 import SettingsScreen from "../screens/SettingsScreen";
+import RightHeaderIcon from "../components/layouts/RightHeaderIcon";
 
 const Stack = createNativeStackNavigator();
 
 const SettingsNavigator = () => {
   return (
-    <StackNavigatorWrapper>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: true,
+        headerRight: () => <RightHeaderIcon />,
+      }}
+    >
       <Stack.Screen
         name="Set"
         options={{ title: "Settings" }}
         component={SettingsScreen}
       />
-    </StackNavigatorWrapper>
+    </Stack.Navigator>
   );
 };
 

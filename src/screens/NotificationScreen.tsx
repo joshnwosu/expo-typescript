@@ -8,17 +8,13 @@ export default function NotificationScreen() {
     <View
       style={{
         flex: 1,
-        // justifyContent: "center",
-        // alignItems: "center",
-        marginTop: 50,
       }}
     >
-      {/* <LottieView
+      <LottieView
+        source={require("../../assets/lottie/landingAnimation.json")}
         autoPlay
         loop
-        source={require("../../assets/lottie/landingAnimation.json")}
-      /> */}
-      <BulletLayout />
+      />
     </View>
   );
 }
