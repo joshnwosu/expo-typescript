@@ -11,7 +11,6 @@ export default function SettingsDetails({ navigation, route }) {
   }, []);
   return (
     <View style={{ padding: 15 }}>
-      <Text>SettingsDetails</Text>
       <GroupCard title="Appearance">
         <View style={{ padding: 20 }}>
           <Text>Hello world here</Text>
