@@ -1,10 +1,35 @@
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
+import ThemeContext from "../context/ThemeContext";
 
 const AccentColor = () => {
+  const {
+    theme: { colors },
+  } = useContext(ThemeContext);
+  const accents = Array(5)
+    .fill(0)
+    .map((_, index) => ({ id: index }));
   return (
-    <View>
-      <Text>AccentColor</Text>
+    <View
+      style={{
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-around",
+        padding: 20,
+      }}
+    >
+      {accents.map(() => {
+        return (
+          <View
+            style={{
+              height: 30,
+              aspectRatio: 1,
+              borderRadius: 20,
+              backgroundColor: colors.activeColor,
+            }}
+          />
+        );
+      })}
     </View>
   );
 };
