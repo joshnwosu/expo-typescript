@@ -37,19 +37,19 @@ export const getStyle = () => {
     item_icon_container: {
       width: 30,
       height: 30,
-      marginHorizontal: 20,
+      marginHorizontal: 15,
       justifyContent: "center",
       alignItems: "center",
     },
     item_icon: {
       color: colors.primary,
-      width: 24,
-      height: 24,
+      width: 20,
+      height: 20,
     },
     item_text_container: {
       flex: 1,
-      // borderBottomColor: colors.border,
-      paddingVertical: 15,
+      paddingVertical: 14,
+      paddingRight: 10,
     },
     item_text: {
       color: colors.text,
@@ -58,17 +58,22 @@ export const getStyle = () => {
     },
     item_text_description: {
       color: colors.text,
-      fontSize: 12,
-      fontWeight: "300",
+      fontSize: 13,
+      fontWeight: "400",
       marginTop: 3,
       opacity: 0.5,
+    },
+    item_clickable_container: {
+      flexDirection: "row",
+      alignItems: "center",
+      marginRight: 20,
     },
     item_clickable: {
       color: colors.text,
       fontSize: 16,
       fontWeight: "300",
-      right: 10,
       opacity: 0.4,
+      marginLeft: 10,
     },
     item_border: {
       width: "100%",

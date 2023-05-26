@@ -12,13 +12,14 @@ export default function GroupCard({ title, data }: GroupCardProps) {
         <Text style={styles.group_card_title}>{title}</Text>
       </View>
       <View style={styles.group_card}>
-        {data?.map(({ name, icon, clickable, description }, index) => {
+        {data?.map(({ name, icon, clickable, description, message }, index) => {
           return (
             <Item
               key={index.toString()}
               name={name}
               icon={icon}
               description={description}
+              message={message}
               index={index}
               length={data?.length}
               clickable={clickable}

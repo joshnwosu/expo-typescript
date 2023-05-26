@@ -3,26 +3,29 @@ import React from "react";
 import SvgIcon from "../../common/icons";
 import { getStyle } from "./styles";
 import { Ionicons } from "@expo/vector-icons";
+import { GroupCardItemProps } from "../../../types";
 // import { GroupCardItemProps } from "../../../types";
 
-interface GroupCardItemProps {
-  name: string;
-  icon: string;
-  clickable?: boolean;
-  description: string;
-  index: string | number;
-  length: number;
-}
-
 export default function Item(item: GroupCardItemProps) {
-  const { icon, name, clickable, description, index, length } = item;
+  const { icon, name, clickable, description, message, index, length } = item;
   const styles = getStyle();
 
   const renderDescription = () => {
     if (description) {
-      return <Text style={styles.item_text_description}>{description}</Text>;
+      return (
+        <Text numberOfLines={1} style={styles.item_text_description}>
+          {description}
+        </Text>
+      );
     }
     return null;
+  };
+
+  const renderMessage = () => {
+    if (typeof message === "string") {
+      return <Text style={styles.item_text}>{message}</Text>;
+    }
+    return message;
   };
 
   return (
@@ -41,10 +44,13 @@ export default function Item(item: GroupCardItemProps) {
           {renderDescription()}
         </View>
         {clickable && (
-          <Ionicons
-            name="chevron-forward-outline"
-            style={styles.item_clickable}
-          />
+          <View style={styles.item_clickable_container}>
+            {renderMessage()}
+            <Ionicons
+              name="chevron-forward-outline"
+              style={styles.item_clickable}
+            />
+          </View>
         )}
         {index !== length - 1 && <View style={styles.item_border} />}
       </View>

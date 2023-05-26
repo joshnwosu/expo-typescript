@@ -37,5 +37,16 @@ export interface GroupCardProps {
     icon: string;
     description?: string;
     clickable?: boolean;
+    message?: any;
   }[];
+}
+
+export interface GroupCardItemProps {
+  name: string;
+  icon: string;
+  clickable?: boolean;
+  description: string;
+  index: string | number;
+  length: number;
+  message: any;
 }

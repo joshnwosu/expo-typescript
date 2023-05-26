@@ -23,12 +23,31 @@ const descriptions = {
 
 const GENERAL = [
   { name: "Account", icon: "profile", clickable: true },
-  { name: "Notifications", icon: "notification", clickable: true },
+  {
+    name: "Notifications",
+    icon: "notification",
+    clickable: true,
+    message: "On",
+  },
   { name: "Sync", icon: "sync", description: "Last successful synced: " },
 ];
 
 const APPEARANCE = [
-  { name: "Theme", icon: "theme", clickable: true },
+  {
+    name: "Theme",
+    icon: "theme",
+    clickable: true,
+    message: (
+      <View
+        style={{
+          height: 20,
+          aspectRatio: 1,
+          borderRadius: 30,
+          backgroundColor: "tomato",
+        }}
+      />
+    ),
+  },
   { name: "Navigation Menu", icon: "sidebarBottom", clickable: true },
   { name: "Quick Actions", icon: "quickAction", clickable: true },
 ];
