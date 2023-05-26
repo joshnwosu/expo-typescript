@@ -4,21 +4,75 @@ import ListLayout from "../components/layouts/ListLayout";
 import ScreenLayout from "../components/layouts/ScreenLayout";
 import BulletEditLayout from "../components/layouts/BulletEditLayout";
 import GroupCard from "../components/layouts/group-card/GroupCard";
+import { GroupCardProps } from "../types";
 
-const DATA = [
-  { name: "General", icon: "settings" },
-  { name: "Appearance", icon: "folder" },
+const descriptions = {
+  Account: "Manage your account settings",
+  Notifications: "Manage your notification preferences",
+  Sync: "Last successful synced: ",
+  Theme: "Customize the app theme",
+  "Navigation Menu": "Configure the navigation menu",
+  "Quick Actions": "Manage quick actions",
+  "Locked Notes": "Protect your notes with a lock",
+  Passcode: "Set up a passcode for additional security",
+  "Help & Feedback": "Get help and provide feedback",
+  "About Us": "Learn more about the app and the team",
+  "What's New": "Discover the latest features and updates",
+  "Share Memora": "Share the app with others",
+};
+
+const GENERAL = [
+  { name: "Account", icon: "profile" },
+  { name: "Notifications", icon: "notification" },
+  { name: "Sync", icon: "sync", description: "Last successful synced: " },
 ];
+
+const APPEARANCE = [
+  { name: "Theme", icon: "theme" },
+  { name: "Navigation Menu", icon: "sidebarBottom" },
+  { name: "Quick Actions", icon: "quickAction" },
+];
+
+const SECURITY = [
+  { name: "Locked Notes", icon: "notes" },
+  { name: "Passcode", icon: "lock" },
+];
+
+const SUPPORT = [
+  { name: "Help & Feedback", icon: "feedback" },
+  { name: "About Us", icon: "information" },
+  { name: "What's New", icon: "whatsNew" },
+  { name: "Share Memora", icon: "share" },
+];
+
+// Add descriptions to the arrays
+const addDescriptions = (array: GroupCardProps["data"]) => {
+  return array.map((item) => ({
+    ...item,
+    description: descriptions[item.name],
+  }));
+};
+
+const GENERAL_WITH_DESCRIPTIONS = addDescriptions(GENERAL);
+const APPEARANCE_WITH_DESCRIPTIONS = addDescriptions(APPEARANCE);
+const SECURITY_WITH_DESCRIPTIONS = addDescriptions(SECURITY);
+const SUPPORT_WITH_DESCRIPTIONS = addDescriptions(SUPPORT);
 
 export default function SettingsScreen() {
   return (
-    <View style={{ flex: 1, padding: 20 }}>
+    <ScrollView
+      contentContainerStyle={{ padding: 15 }}
+      showsVerticalScrollIndicator={false}
+    >
       {/* <ListLayout /> */}
       {/* <DragList /> */}
       {/* <BulletEditLayout /> */}
 
-      <GroupCard data={DATA} />
-    </View>
+      <GroupCard title="General" data={GENERAL_WITH_DESCRIPTIONS} />
+      <GroupCard title="Appearance" data={APPEARANCE_WITH_DESCRIPTIONS} />
+      <GroupCard title="Privacy" data={SECURITY_WITH_DESCRIPTIONS} />
+      <GroupCard title="Support" data={SUPPORT_WITH_DESCRIPTIONS} />
+    </ScrollView>
   );
 }
 

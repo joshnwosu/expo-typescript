@@ -17,7 +17,7 @@ export const Theme = {
     colors: {
       background: "#010101",
       border: "#272729",
-      card: "#222222",
+      card: "#141414",
       notification: "#ff453a",
       primary: "#5d68f9",
       text: "#e5e5e7",

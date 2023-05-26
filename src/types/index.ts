@@ -31,5 +31,6 @@ export interface ThemeObject {
 }
 
 export interface GroupCardProps {
-  data: { name: string; icon: string }[];
+  title?: string;
+  data: { name: string; icon: string; description?: string }[];
 }
