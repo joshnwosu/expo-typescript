@@ -43,8 +43,8 @@ export const getStyle = () => {
     },
     item_icon: {
       color: colors.primary,
-      width: 20,
-      height: 20,
+      width: 24,
+      height: 24,
     },
     item_text_container: {
       flex: 1,
