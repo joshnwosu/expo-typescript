@@ -32,15 +32,20 @@ export default function Item(item: GroupCardItemProps) {
   };
 
   const renderSeperator = () => {
-    if (index !== length - 1 && mode === "dark") {
-      return (
-        <>
-          <View style={styles.item_border} />
-          <View style={[styles.item_border, styles.item_border_mt]} />
-        </>
-      );
+    if (index !== length - 1) {
+      if (mode === "dark") {
+        return (
+          <>
+            <View style={[styles.item_seperator, styles.item_top_seperator]} />
+            <View
+              style={[styles.item_seperator, styles.item_bottom_seperator]}
+            />
+          </>
+        );
+      }
+      return <View style={styles.item_seperator} />;
     }
-    return <View style={styles.item_border} />;
+    return null;
   };
 
   return (
@@ -58,7 +63,7 @@ export default function Item(item: GroupCardItemProps) {
           height={styles.item_icon.height}
         />
       </View>
-      <View style={{ flex: 1, flexDirection: "row", alignItems: "center" }}>
+      <View style={styles.item_content}>
         <View style={styles.item_text_container}>
           <Text style={styles.item_text}>{name}</Text>
           {renderDescription()}
