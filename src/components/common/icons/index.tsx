@@ -15,6 +15,15 @@ import TagIcon from "./TagIcon";
 import AddIcon from "./AddIcon";
 import NotitficationIcon from "./NotificationIcon";
 import HistoryIcon from "./HistoryIcon";
+import ThemeIcon from "./ThemeIcon";
+import InformationIcon from "./InformationIcon";
+import LockIcon from "./LockIcon";
+import SyncIcon from "./SyncIcon";
+import FeedbackIcon from "./FeedbackIcon";
+import ShareIcon from "./ShareIcon";
+import QuickActionIcon from "./QuickActionIcon";
+import WhatsNewIcon from "./WhatsNewIcon";
+import SidebarBottomIcon from "./SidebarBottomIcon";
 
 interface IconProps {
   icon: string;
@@ -59,6 +68,25 @@ const SvgIcon = ({ icon, ...rest }: IconProps) => {
       return <NotitficationIcon {...rest} />;
     case "history":
       return <HistoryIcon {...rest} />;
+    case "theme":
+      return <ThemeIcon {...rest} />;
+    case "information":
+      return <InformationIcon {...rest} />;
+    case "lock":
+      return <LockIcon {...rest} />;
+    case "sync":
+      return <SyncIcon {...rest} />;
+    case "feedback":
+      return <FeedbackIcon {...rest} />;
+    case "share":
+      return <ShareIcon {...rest} />;
+    case "quickAction":
+      return <QuickActionIcon {...rest} />;
+    case "whatsNew":
+      return <WhatsNewIcon {...rest} />;
+    case "sidebarBottom":
+      return <SidebarBottomIcon {...rest} />;
+
     default:
       return null;
   }

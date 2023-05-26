@@ -31,6 +31,7 @@ const LibraryNavigator = () => {
         component={LabelScreen}
         options={{
           presentation: "formSheet",
+          headerRight: () => null,
         }}
       />
     </Stack.Navigator>
