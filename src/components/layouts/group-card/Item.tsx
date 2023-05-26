@@ -1,13 +1,14 @@
 import { TouchableOpacity, View, Text } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
 import SvgIcon from "../../common/icons";
 import { getStyle } from "./styles";
 import { Ionicons } from "@expo/vector-icons";
 import { GroupCardItemProps } from "../../../types";
 import { useNavigation } from "@react-navigation/native";
-// import { GroupCardItemProps } from "../../../types";
+import ThemeContext from "../../context/ThemeContext";
 
 export default function Item(item: GroupCardItemProps) {
+  const { mode } = useContext(ThemeContext);
   const navigation = useNavigation<any>();
   const { icon, name, clickable, description, message, index, length } = item;
   const styles = getStyle();
@@ -28,6 +29,18 @@ export default function Item(item: GroupCardItemProps) {
       return <Text style={styles.item_text}>{message}</Text>;
     }
     return message;
+  };
+
+  const renderSeperator = () => {
+    if (index !== length - 1 && mode === "dark") {
+      return (
+        <>
+          <View style={styles.item_border} />
+          <View style={[styles.item_border, styles.item_border_mt]} />
+        </>
+      );
+    }
+    return <View style={styles.item_border} />;
   };
 
   return (
@@ -59,7 +72,7 @@ export default function Item(item: GroupCardItemProps) {
             />
           </View>
         )}
-        {index !== length - 1 && <View style={styles.item_border} />}
+        {renderSeperator()}
       </View>
     </TouchableOpacity>
   );

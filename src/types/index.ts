@@ -22,6 +22,8 @@ export interface ThemeProps {
     border: string;
     activeColor: string;
     inActiveColor: string;
+    topSeperator: string;
+    bottomSeperator: string;
   };
 }
 

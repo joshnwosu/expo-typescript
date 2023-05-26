@@ -78,10 +78,14 @@ export const getStyle = () => {
     item_border: {
       width: "100%",
       height: 1,
-      backgroundColor: colors.border,
+      backgroundColor: colors.topSeperator,
       position: "absolute",
       bottom: 0,
       opacity: 0.7,
+    },
+    item_border_mt: {
+      bottom: 1,
+      backgroundColor: colors.bottomSeperator,
     },
   });
 
