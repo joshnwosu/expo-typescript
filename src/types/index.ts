@@ -36,7 +36,7 @@ export interface GroupCardProps {
   title?: string;
   data: {
     name: string;
-    icon: string;
+    icon?: string;
     description?: string;
     clickable?: boolean;
     message?: any;

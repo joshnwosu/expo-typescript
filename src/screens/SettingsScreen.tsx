@@ -3,8 +3,8 @@ import React from "react";
 import ListLayout from "../components/layouts/ListLayout";
 import ScreenLayout from "../components/layouts/ScreenLayout";
 import BulletEditLayout from "../components/layouts/BulletEditLayout";
-import GroupCard from "../components/layouts/group-card/GroupCard";
 import { GroupCardProps } from "../types";
+import GroupCardList from "../components/layouts/group-card/GroupCardList";
 
 const descriptions = {
   Account: "Manage your account settings",
@@ -87,10 +87,10 @@ export default function SettingsScreen() {
       {/* <DragList /> */}
       {/* <BulletEditLayout /> */}
 
-      <GroupCard title="General" data={GENERAL_WITH_DESCRIPTIONS} />
-      <GroupCard title="Appearance" data={APPEARANCE_WITH_DESCRIPTIONS} />
-      <GroupCard title="Privacy" data={SECURITY_WITH_DESCRIPTIONS} />
-      <GroupCard title="Support" data={SUPPORT_WITH_DESCRIPTIONS} />
+      <GroupCardList title="General" data={GENERAL_WITH_DESCRIPTIONS} />
+      <GroupCardList title="Appearance" data={APPEARANCE_WITH_DESCRIPTIONS} />
+      <GroupCardList title="Privacy" data={SECURITY_WITH_DESCRIPTIONS} />
+      <GroupCardList title="Support" data={SUPPORT_WITH_DESCRIPTIONS} />
     </ScrollView>
   );
 }

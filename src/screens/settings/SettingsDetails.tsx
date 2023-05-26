@@ -1,5 +1,6 @@
 import { View, Text } from "react-native";
 import React, { useLayoutEffect } from "react";
+import GroupCard from "../../components/layouts/group-card/GroupCard";
 
 export default function SettingsDetails({ navigation, route }) {
   const { name } = route?.params;
@@ -9,8 +10,13 @@ export default function SettingsDetails({ navigation, route }) {
     });
   }, []);
   return (
-    <View>
+    <View style={{ padding: 15 }}>
       <Text>SettingsDetails</Text>
+      <GroupCard title="Appearance">
+        <View style={{ padding: 20 }}>
+          <Text>Hello world here</Text>
+        </View>
+      </GroupCard>
     </View>
   );
 }
