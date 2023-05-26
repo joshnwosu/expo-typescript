@@ -4,9 +4,11 @@ import SvgIcon from "../../common/icons";
 import { getStyle } from "./styles";
 import { Ionicons } from "@expo/vector-icons";
 import { GroupCardItemProps } from "../../../types";
+import { useNavigation } from "@react-navigation/native";
 // import { GroupCardItemProps } from "../../../types";
 
 export default function Item(item: GroupCardItemProps) {
+  const navigation = useNavigation<any>();
   const { icon, name, clickable, description, message, index, length } = item;
   const styles = getStyle();
 
@@ -29,7 +31,12 @@ export default function Item(item: GroupCardItemProps) {
   };
 
   return (
-    <TouchableOpacity style={styles.item}>
+    <TouchableOpacity
+      style={styles.item}
+      onPress={() => {
+        if (clickable) navigation.navigate("Settings Detail", { name: name });
+      }}
+    >
       <View style={styles.item_icon_container}>
         <SvgIcon
           icon={icon}

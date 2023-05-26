@@ -2,6 +2,7 @@ import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import SettingsScreen from "../screens/SettingsScreen";
 import RightHeaderIcon from "../components/layouts/RightHeaderIcon";
+import SettingsDetails from "../screens/settings/SettingsDetails";
 
 const Stack = createNativeStackNavigator();
 
@@ -10,7 +11,8 @@ const SettingsNavigator = () => {
     <Stack.Navigator
       screenOptions={{
         headerShown: true,
-        headerRight: () => <RightHeaderIcon />,
+        // presentation: "formSheet",
+        headerRight: () => null,
       }}
     >
       <Stack.Screen
@@ -18,6 +20,7 @@ const SettingsNavigator = () => {
         options={{ title: "Settings" }}
         component={SettingsScreen}
       />
+      <Stack.Screen name="Settings Detail" component={SettingsDetails} />
     </Stack.Navigator>
   );
 };
