@@ -12,7 +12,7 @@ export default function GroupCard({ title, data }: GroupCardProps) {
         <Text style={styles.group_card_title}>{title}</Text>
       </View>
       <View style={styles.group_card}>
-        {data?.map(({ name, icon, description }, index) => {
+        {data?.map(({ name, icon, clickable, description }, index) => {
           return (
             <Item
               key={index.toString()}
@@ -21,6 +21,7 @@ export default function GroupCard({ title, data }: GroupCardProps) {
               description={description}
               index={index}
               length={data?.length}
+              clickable={clickable}
             />
           );
         })}

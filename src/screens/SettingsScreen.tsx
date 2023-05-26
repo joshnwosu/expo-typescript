@@ -22,26 +22,26 @@ const descriptions = {
 };
 
 const GENERAL = [
-  { name: "Account", icon: "profile" },
-  { name: "Notifications", icon: "notification" },
+  { name: "Account", icon: "profile", clickable: true },
+  { name: "Notifications", icon: "notification", clickable: true },
   { name: "Sync", icon: "sync", description: "Last successful synced: " },
 ];
 
 const APPEARANCE = [
-  { name: "Theme", icon: "theme" },
-  { name: "Navigation Menu", icon: "sidebarBottom" },
-  { name: "Quick Actions", icon: "quickAction" },
+  { name: "Theme", icon: "theme", clickable: true },
+  { name: "Navigation Menu", icon: "sidebarBottom", clickable: true },
+  { name: "Quick Actions", icon: "quickAction", clickable: true },
 ];
 
 const SECURITY = [
-  { name: "Locked Notes", icon: "notes" },
-  { name: "Passcode", icon: "lock" },
+  { name: "Locked Notes", icon: "notes", clickable: true },
+  { name: "Passcode", icon: "lock", clickable: true },
 ];
 
 const SUPPORT = [
-  { name: "Help & Feedback", icon: "feedback" },
-  { name: "About Us", icon: "information" },
-  { name: "What's New", icon: "whatsNew" },
+  { name: "Help & Feedback", icon: "feedback", clickable: true },
+  { name: "About Us", icon: "information", clickable: true },
+  { name: "What's New", icon: "whatsNew", clickable: true },
   { name: "Share Memora", icon: "share" },
 ];
 

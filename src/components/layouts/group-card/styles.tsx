@@ -63,6 +63,13 @@ export const getStyle = () => {
       marginTop: 3,
       opacity: 0.5,
     },
+    item_clickable: {
+      color: colors.text,
+      fontSize: 16,
+      fontWeight: "300",
+      right: 10,
+      opacity: 0.4,
+    },
     item_border: {
       width: "100%",
       height: 1,
