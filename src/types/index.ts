@@ -22,6 +22,8 @@ export interface ThemeProps {
     border: string;
     activeColor: string;
     inActiveColor: string;
+    topSeperator: string;
+    bottomSeperator: string;
   };
 }
 
@@ -34,7 +36,7 @@ export interface GroupCardProps {
   title?: string;
   data: {
     name: string;
-    icon: string;
+    icon?: string;
     description?: string;
     clickable?: boolean;
     message?: any;

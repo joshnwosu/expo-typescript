@@ -10,6 +10,8 @@ export const Theme = {
       text: "#1c1c1e",
       activeColor: "#e0198e",
       inActiveColor: "#6d6f7a",
+      topSeperator: "#d8d8d8",
+      bottomSeperator: "#d8d8d8",
     },
   },
   dark: {
@@ -23,6 +25,8 @@ export const Theme = {
       text: "#e5e5e7",
       activeColor: "tomato" || "#5d68f9",
       inActiveColor: "#6d6f7a",
+      topSeperator: "#040404",
+      bottomSeperator: "#242424",
     },
   },
 };

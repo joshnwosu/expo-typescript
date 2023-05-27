@@ -35,9 +35,7 @@ export const getStyle = () => {
       alignItems: "center",
     },
     item_icon_container: {
-      width: 30,
-      height: 30,
-      marginHorizontal: 15,
+      marginLeft: 15,
       justifyContent: "center",
       alignItems: "center",
     },
@@ -46,6 +44,12 @@ export const getStyle = () => {
       width: 24,
       height: 24,
     },
+    item_content: {
+      flex: 1,
+      flexDirection: "row",
+      alignItems: "center",
+      marginLeft: 15,
+    },
     item_text_container: {
       flex: 1,
       paddingVertical: 14,
@@ -53,13 +57,13 @@ export const getStyle = () => {
     },
     item_text: {
       color: colors.text,
-      fontSize: 16,
-      fontWeight: "300",
+      fontSize: 18,
+      fontWeight: "400",
     },
     item_text_description: {
       color: colors.text,
       fontSize: 13,
-      fontWeight: "400",
+      fontWeight: "300",
       marginTop: 3,
       opacity: 0.5,
     },
@@ -75,13 +79,20 @@ export const getStyle = () => {
       opacity: 0.4,
       marginLeft: 10,
     },
-    item_border: {
+    item_seperator: {
       width: "100%",
       height: 1,
-      backgroundColor: colors.border,
       position: "absolute",
       bottom: 0,
       opacity: 0.7,
+      backgroundColor: colors.border,
+    },
+    item_top_seperator: {
+      backgroundColor: colors.topSeperator,
+    },
+    item_bottom_seperator: {
+      bottom: 1,
+      backgroundColor: colors.bottomSeperator,
     },
   });
 

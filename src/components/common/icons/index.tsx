@@ -80,11 +80,11 @@ const SvgIcon = ({ icon, ...rest }: IconProps) => {
       return <FeedbackIcon {...rest} />;
     case "share":
       return <ShareIcon {...rest} />;
-    case "quickAction":
+    case "quick-action":
       return <QuickActionIcon {...rest} />;
-    case "whatsNew":
+    case "whats-new":
       return <WhatsNewIcon {...rest} />;
-    case "sidebarBottom":
+    case "sidebar-bottom":
       return <SidebarBottomIcon {...rest} />;
 
     default:

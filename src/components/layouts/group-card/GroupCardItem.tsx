@@ -1,12 +1,15 @@
 import { TouchableOpacity, View, Text } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
 import SvgIcon from "../../common/icons";
 import { getStyle } from "./styles";
 import { Ionicons } from "@expo/vector-icons";
 import { GroupCardItemProps } from "../../../types";
-// import { GroupCardItemProps } from "../../../types";
+import { useNavigation } from "@react-navigation/native";
+import ThemeContext from "../../context/ThemeContext";
 
 export default function Item(item: GroupCardItemProps) {
+  const { mode } = useContext(ThemeContext);
+  const navigation = useNavigation<any>();
   const { icon, name, clickable, description, message, index, length } = item;
   const styles = getStyle();
 
@@ -28,8 +31,30 @@ export default function Item(item: GroupCardItemProps) {
     return message;
   };
 
+  const renderSeperator = () => {
+    if (index !== length - 1) {
+      if (mode === "dark") {
+        return (
+          <>
+            <View style={[styles.item_seperator, styles.item_top_seperator]} />
+            <View
+              style={[styles.item_seperator, styles.item_bottom_seperator]}
+            />
+          </>
+        );
+      }
+      return <View style={styles.item_seperator} />;
+    }
+    return null;
+  };
+
   return (
-    <TouchableOpacity style={styles.item}>
+    <TouchableOpacity
+      style={styles.item}
+      onPress={() => {
+        if (clickable) navigation.navigate("Settings Detail", { name: name });
+      }}
+    >
       <View style={styles.item_icon_container}>
         <SvgIcon
           icon={icon}
@@ -38,7 +63,7 @@ export default function Item(item: GroupCardItemProps) {
           height={styles.item_icon.height}
         />
       </View>
-      <View style={{ flex: 1, flexDirection: "row", alignItems: "center" }}>
+      <View style={styles.item_content}>
         <View style={styles.item_text_container}>
           <Text style={styles.item_text}>{name}</Text>
           {renderDescription()}
@@ -52,7 +77,7 @@ export default function Item(item: GroupCardItemProps) {
             />
           </View>
         )}
-        {index !== length - 1 && <View style={styles.item_border} />}
+        {renderSeperator()}
       </View>
     </TouchableOpacity>
   );
