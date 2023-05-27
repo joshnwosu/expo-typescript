@@ -52,8 +52,8 @@ export default function SettingsScreen() {
         />
       ),
     },
-    { name: "Navigation Menu", icon: "sidebarBottom", clickable: true },
-    { name: "Quick Actions", icon: "quickAction", clickable: true },
+    { name: "Navigation Menu", icon: "sidebar-bottom", clickable: true },
+    { name: "Quick Actions", icon: "quick-action", clickable: true },
   ];
 
   const SECURITY = [
@@ -64,7 +64,7 @@ export default function SettingsScreen() {
   const SUPPORT = [
     { name: "Help & Feedback", icon: "feedback", clickable: true },
     { name: "About Us", icon: "information", clickable: true },
-    { name: "What's New", icon: "whatsNew", clickable: true },
+    { name: "What's New", icon: "whats-new", clickable: true },
     { name: "Share Memora", icon: "share" },
   ];
 
