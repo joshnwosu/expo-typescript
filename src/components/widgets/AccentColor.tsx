@@ -2,6 +2,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useContext, useState } from "react";
 import ThemeContext from "../context/ThemeContext";
 import { Ionicons } from "@expo/vector-icons";
+import Animated, { BounceIn, BounceOut } from "react-native-reanimated";
 
 const accents = [
   "tomato",
@@ -42,7 +43,25 @@ const AccentColor = () => {
             onPress={() => setSelected(color)}
           >
             {selected === color && (
-              <Ionicons name="checkmark-done" size={14} color={"#222222"} />
+              <>
+                <Animated.View
+                  entering={BounceIn}
+                  style={{
+                    height: 30,
+                    aspectRatio: 1,
+                    borderRadius: 30,
+                    backgroundColor: colors.card,
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Ionicons
+                    name="checkmark-done"
+                    size={14}
+                    color={colors.text}
+                  />
+                </Animated.View>
+              </>
             )}
           </TouchableOpacity>
         );
