@@ -12,7 +12,7 @@ export default function SettingsDetails({ navigation, route }) {
   }, []);
   return (
     <View style={{ padding: 15 }}>
-      <GroupCard title="Appearance">
+      <GroupCard title="Accent color">
         <AccentColor />
       </GroupCard>
     </View>

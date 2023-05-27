@@ -18,9 +18,10 @@ const AccentColor = () => {
         padding: 20,
       }}
     >
-      {accents.map(() => {
+      {accents.map((item) => {
         return (
           <View
+            key={item.id}
             style={{
               height: 30,
               aspectRatio: 1,
