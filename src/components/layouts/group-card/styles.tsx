@@ -59,6 +59,8 @@ export const getStyle = () => {
       flexDirection: "row",
       alignItems: "center",
       marginLeft: 15,
+      height: "100%",
+      marginVertical: 2,
     },
     item_text_container: {
       flex: 1,

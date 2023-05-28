@@ -16,11 +16,7 @@ export default function GroupCardItem(item: GroupCardItemProps) {
 
   const renderDescription = () => {
     if (description) {
-      return (
-        <Text numberOfLines={1} style={styles.item_text_description}>
-          {description}
-        </Text>
-      );
+      return <Text style={styles.item_text_description}>{description}</Text>;
     }
     return null;
   };

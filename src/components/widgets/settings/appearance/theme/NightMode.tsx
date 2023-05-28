@@ -17,6 +17,7 @@ const NightMode = () => {
     {
       name: "Dim mode",
       message: <CustomSwitch value={dimMode} onValueChange={setDimMode} />,
+      description: "Applies a warmer color tone to the app interface.",
     },
   ];
 
