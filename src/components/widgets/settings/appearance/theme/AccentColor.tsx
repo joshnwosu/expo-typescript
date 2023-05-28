@@ -4,6 +4,7 @@ import ThemeContext from "../../../../context/ThemeContext";
 import { Ionicons } from "@expo/vector-icons";
 import Animated, { BounceIn, BounceOut } from "react-native-reanimated";
 import GroupCard from "../../../../layouts/group-card/GroupCard";
+import HapticTouch from "../../../../common/HapticTouch";
 
 const accents = [
   "tomato",
@@ -34,7 +35,7 @@ const AccentColor = () => {
       >
         {accents.map((color, index) => {
           return (
-            <TouchableOpacity
+            <HapticTouch
               activeOpacity={1}
               key={index}
               style={{
@@ -68,7 +69,7 @@ const AccentColor = () => {
                   </Animated.View>
                 </>
               )}
-            </TouchableOpacity>
+            </HapticTouch>
           );
         })}
       </View>

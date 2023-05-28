@@ -6,6 +6,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { GroupCardItemProps } from "../../../types";
 import { useNavigation } from "@react-navigation/native";
 import ThemeContext from "../../context/ThemeContext";
+import { IconName } from "../../../types/icon";
 
 export default function GroupCardItem(item: GroupCardItemProps) {
   const { mode } = useContext(ThemeContext);
@@ -50,6 +51,7 @@ export default function GroupCardItem(item: GroupCardItemProps) {
 
   return (
     <TouchableOpacity
+      activeOpacity={0.7}
       style={styles.item}
       onPress={() => {
         if (clickable) navigation.navigate("Settings Detail", { name: name });
@@ -57,7 +59,7 @@ export default function GroupCardItem(item: GroupCardItemProps) {
     >
       <View style={styles.item_icon_container}>
         <SvgIcon
-          icon={icon}
+          icon={icon as IconName}
           fill={styles.item_icon.color}
           width={styles.item_icon.width}
           height={styles.item_icon.height}
@@ -68,15 +70,17 @@ export default function GroupCardItem(item: GroupCardItemProps) {
           <Text style={styles.item_text}>{name}</Text>
           {renderDescription()}
         </View>
-        {clickable && (
-          <View style={styles.item_clickable_container}>
-            {renderMessage()}
+
+        <View style={styles.item_clickable_container}>
+          {renderMessage()}
+          {clickable && (
             <Ionicons
               name="chevron-forward-outline"
               style={styles.item_clickable}
             />
-          </View>
-        )}
+          )}
+        </View>
+
         {renderSeperator()}
       </View>
     </TouchableOpacity>

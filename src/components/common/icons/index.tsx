@@ -25,13 +25,7 @@ import QuickActionIcon from "./QuickActionIcon";
 import WhatsNewIcon from "./WhatsNewIcon";
 import SidebarBottomIcon from "./SidebarBottomIcon";
 import MoonIcon from "./MoonIcon";
-
-interface IconProps {
-  icon: string;
-  width?: number;
-  height?: number;
-  fill?: string;
-}
+import { IconProps } from "../../../types/icon";
 
 const SvgIcon = ({ icon, ...rest }: IconProps) => {
   switch (icon) {
