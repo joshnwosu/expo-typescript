@@ -26,8 +26,7 @@ interface IconProps {
     | "feedback"
     | "share"
     | "sidebar-bottom"
-    | "moon"
-    | string;
+    | "moon";
   width?: number;
   height?: number;
   fill?: string;
