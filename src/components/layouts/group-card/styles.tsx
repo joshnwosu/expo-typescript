@@ -13,13 +13,12 @@ export const getStyle = () => {
     },
     group_card: {
       backgroundColor: colors.card,
-      marginBottom: 10,
       borderRadius: 10,
       // padding: 10,
     },
     group_card_title_container: {
       paddingVertical: 5,
-      paddingHorizontal: 10,
+      paddingHorizontal: 15,
     },
     group_card_title: {
       color: colors.text,
@@ -27,6 +26,17 @@ export const getStyle = () => {
       fontWeight: "500",
       textTransform: "uppercase",
       opacity: 0.5,
+    },
+    group_card_description_container: {
+      paddingVertical: 5,
+      paddingHorizontal: 15,
+    },
+    group_card_description: {
+      color: colors.text,
+      fontSize: 13,
+      fontWeight: "400",
+      lineHeight: 20,
+      opacity: 0.4,
     },
 
     // Item style

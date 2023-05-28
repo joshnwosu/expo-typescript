@@ -1,7 +1,8 @@
 import { View, Text } from "react-native";
 import React, { useLayoutEffect } from "react";
 import GroupCard from "../../components/layouts/group-card/GroupCard";
-import AccentColor from "../../components/widgets/AccentColor";
+import AccentColor from "../../components/widgets/settings/appearance/theme/AccentColor";
+import ThemeScreen from "../../components/layouts/settings/ThemeScreen";
 
 export default function SettingsDetails({ navigation, route }) {
   const { name } = route?.params;
@@ -10,11 +11,5 @@ export default function SettingsDetails({ navigation, route }) {
       title: name,
     });
   }, []);
-  return (
-    <View style={{ padding: 15 }}>
-      <GroupCard title="Accent color">
-        <AccentColor />
-      </GroupCard>
-    </View>
-  );
+  return <ThemeScreen />;
 }

@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useContext, useState } from "react";
-import ThemeContext from "../context/ThemeContext";
+import ThemeContext from "../../../../context/ThemeContext";
 import { Ionicons } from "@expo/vector-icons";
 import Animated, { BounceIn, BounceOut } from "react-native-reanimated";
 
