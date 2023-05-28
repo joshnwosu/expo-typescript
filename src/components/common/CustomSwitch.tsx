@@ -1,8 +1,19 @@
 import React from "react";
 import { Switch, SwitchProps } from "react-native";
+import ThemeContext from "../context/ThemeContext";
 
 const CustomSwitch = ({ value, onValueChange, ...rest }: SwitchProps) => {
-  return <Switch value={value} onValueChange={onValueChange} {...rest} />;
+  const {
+    theme: { colors },
+  } = React.useContext(ThemeContext);
+  return (
+    <Switch
+      value={value}
+      onValueChange={onValueChange}
+      {...rest}
+      // trackColor={{ true: colors.primary }}
+    />
+  );
 };
 
 export default CustomSwitch;
