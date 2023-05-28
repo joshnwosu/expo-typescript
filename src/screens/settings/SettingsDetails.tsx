@@ -12,7 +12,7 @@ export default function SettingsDetails({ navigation, route }) {
     });
   }, []);
 
-  let componentToRender;
+  let componentToRender: JSX.Element | React.ReactElement;
 
   switch (name) {
     case "Theme":
