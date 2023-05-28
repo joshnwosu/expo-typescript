@@ -20,8 +20,7 @@ export interface ThemeProps {
     card: string;
     notification: string;
     border: string;
-    activeColor: string;
-    inActiveColor: string;
+    inactive: string;
     topSeperator: string;
     bottomSeperator: string;
   };
@@ -52,4 +51,10 @@ export interface GroupCardItemProps {
   index: string | number;
   length: number;
   message: any;
+}
+
+export interface LayoutProp {
+  name: "system" | "light" | "dark";
+  backgroundColor: "automatic" | "#FFFFFF" | "#000000";
+  options?: ["#FFFFFF", "#000000"];
 }

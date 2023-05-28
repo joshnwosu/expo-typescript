@@ -205,14 +205,14 @@ const BulletLayout = () => {
         <MaterialIcons
           name="drag-indicator"
           size={24}
-          color={colors.inActiveColor}
+          color={colors.inactive}
           style={[styles.checkIcon, { opacity: 0.5 }]}
           onLongPress={drag}
         />
         <Ionicons
           name={item.checked ? "checkmark-circle" : "ellipse-outline"}
           size={24}
-          color={item.checked ? colors.activeColor : colors.inActiveColor}
+          color={item.checked ? colors.primary : colors.inactive}
           style={styles.checkIcon}
           onPress={() => handleToggleItem(item.key)}
         />
@@ -248,14 +248,14 @@ const BulletLayout = () => {
           }}
           textBreakStrategy="highQuality"
           scrollEnabled={false}
-          selectionColor={colors.activeColor}
+          selectionColor={colors.primary}
           // selectTextOnFocus
         />
 
         <EvilIcons
           name="close"
           size={20}
-          color={colors.inActiveColor}
+          color={colors.inactive}
           style={[styles.checkIcon, { marginRight: 0, marginLeft: 10 }]}
           onPress={() => handleRemoveItem(index)}
         />
@@ -284,11 +284,7 @@ const BulletLayout = () => {
           style={styles.insertListButton}
           onPress={handleAddItem}
         >
-          <Ionicons
-            name={"list-outline"}
-            size={24}
-            color={colors.activeColor}
-          />
+          <Ionicons name={"list-outline"} size={24} color={colors.primary} />
         </TouchableOpacity>
 
         <FlatList
@@ -315,10 +311,10 @@ const BulletLayout = () => {
                     handleAddItem();
                   }
                 }}
-                placeholderTextColor={colors.inActiveColor}
+                placeholderTextColor={colors.inactive}
                 blurOnSubmit={true}
                 scrollEnabled={false}
-                selectionColor={colors.activeColor}
+                selectionColor={colors.primary}
               />
             </View>
           }

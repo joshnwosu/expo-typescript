@@ -11,5 +11,19 @@ export default function SettingsDetails({ navigation, route }) {
       title: name,
     });
   }, []);
-  return <ThemeScreen />;
+
+  let componentToRender: JSX.Element | React.ReactElement;
+
+  switch (name) {
+    case "Theme":
+      componentToRender = <ThemeScreen />;
+      break;
+    default:
+      componentToRender = (
+        <View>
+          <Text style={{ color: "red" }}>No component yet.</Text>
+        </View>
+      );
+  }
+  return componentToRender;
 }
