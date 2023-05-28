@@ -6,11 +6,13 @@ import { LayoutProp } from "../../types";
 interface ThemeState {
   themeMode: LayoutProp["name"];
   accentMode: string;
+  dimMode: boolean;
 }
 
 const initialState: ThemeState = {
   themeMode: "dark",
   accentMode: "#5d68f9",
+  dimMode: false,
 };
 
 export const themeSlice = createSlice({
@@ -23,10 +25,13 @@ export const themeSlice = createSlice({
     setAccentMode: (state, action) => {
       state.accentMode = action.payload;
     },
+    setDimMode: (state, action) => {
+      state.dimMode = action.payload;
+    },
   },
 });
 
-export const { setThemeMode, setAccentMode } = themeSlice.actions;
+export const { setThemeMode, setAccentMode, setDimMode } = themeSlice.actions;
 
 export const selectCount = (state: RootState) => state.counter.value;
 

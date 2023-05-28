@@ -28,11 +28,8 @@ const LayoutColor = () => {
   const dispatch = useAppDispatch();
   const { themeMode } = useAppSelector((state) => state.theme);
 
-  // const [selected, setSelected] = useState<LayoutProp["name"]>(themeMode);
   const {
     theme: { colors },
-    toggleTheme,
-    mode,
   } = useContext(ThemeContext);
 
   React.useEffect(() => {
@@ -41,8 +38,8 @@ const LayoutColor = () => {
 
   return (
     <GroupCard
-      title="Accent color"
-      description="Change the main accent of the app. This will not change the color of existing tasks."
+      title={`Layout (${themeMode} MODE)`}
+      // description="Change the appearn accent of the app."
     >
       <View
         style={{
@@ -64,8 +61,6 @@ const LayoutColor = () => {
                   padding: 10,
                 }}
                 onPress={() => {
-                  // setSelected(name);
-                  // toggleTheme(name);
                   dispatch(setThemeMode(name));
                 }}
               >

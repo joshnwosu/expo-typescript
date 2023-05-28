@@ -22,7 +22,7 @@ export const getStyle = () => {
     },
     group_card_title: {
       color: colors.text,
-      fontSize: 14,
+      fontSize: 12,
       fontWeight: "500",
       textTransform: "uppercase",
       opacity: 0.5,
@@ -59,6 +59,8 @@ export const getStyle = () => {
       flexDirection: "row",
       alignItems: "center",
       marginLeft: 15,
+      height: "100%",
+      marginVertical: 2,
     },
     item_text_container: {
       flex: 1,
