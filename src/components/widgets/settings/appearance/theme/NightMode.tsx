@@ -7,7 +7,8 @@ const night: GroupCardProps["data"] = [
   {
     name: "Night mode",
     icon: "moon",
-    message: <Switch />,
+    message: <Switch value={true} />,
+    description: "Toggle night mode on/off",
   },
   {
     name: "Dim mode",
@@ -18,7 +19,7 @@ const NightMode = () => {
   return (
     <GroupCardList
       title="Night Mode"
-      description="Night mode will effect notes appearance and general system appearance at the same time."
+      description="These modes will effect notes appearance and general system appearance at the same time."
       data={night}
     />
   );

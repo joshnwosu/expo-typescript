@@ -26,13 +26,6 @@ import WhatsNewIcon from "./WhatsNewIcon";
 import SidebarBottomIcon from "./SidebarBottomIcon";
 import MoonIcon from "./MoonIcon";
 
-interface IconProps {
-  icon: string;
-  width?: number;
-  height?: number;
-  fill?: string;
-}
-
 const SvgIcon = ({ icon, ...rest }: IconProps) => {
   switch (icon) {
     case "home":

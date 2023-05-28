@@ -50,6 +50,7 @@ export default function GroupCardItem(item: GroupCardItemProps) {
 
   return (
     <TouchableOpacity
+      activeOpacity={0.7}
       style={styles.item}
       onPress={() => {
         if (clickable) navigation.navigate("Settings Detail", { name: name });
