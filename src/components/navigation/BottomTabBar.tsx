@@ -93,11 +93,11 @@ export default function BottomTabBar({
               icon={label.toLowerCase()}
               width={26}
               height={26}
-              fill={isFocused ? colors.activeColor : colors.inActiveColor}
+              fill={isFocused ? colors.primary : colors.inactive}
             />
             <Text
               style={{
-                color: isFocused ? colors.activeColor : colors.inActiveColor,
+                color: isFocused ? colors.primary : colors.inactive,
                 fontWeight: "500",
                 fontSize: 12,
                 marginTop: 8,

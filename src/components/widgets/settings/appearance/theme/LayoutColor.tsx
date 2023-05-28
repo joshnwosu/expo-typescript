@@ -78,7 +78,7 @@ const LayoutColor = () => {
                       overflow: "hidden",
                       borderWidth: 2,
                       borderColor:
-                        name === themeMode ? "tomato" : colors.border,
+                        name === themeMode ? colors.primary : colors.border,
                     }}
                   >
                     <View
@@ -102,7 +102,7 @@ const LayoutColor = () => {
                       backgroundColor,
                       borderWidth: 2,
                       borderColor:
-                        name === themeMode ? "tomato" : colors.border,
+                        name === themeMode ? colors.primary : colors.border,
                     }}
                   />
                 )}

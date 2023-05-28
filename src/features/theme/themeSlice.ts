@@ -10,7 +10,7 @@ interface ThemeState {
 
 const initialState: ThemeState = {
   themeMode: "dark",
-  accentMode: "",
+  accentMode: "#5d68f9",
 };
 
 export const themeSlice = createSlice({

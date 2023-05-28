@@ -6,9 +6,12 @@ import Animated, { BounceIn, BounceOut } from "react-native-reanimated";
 import GroupCard from "../../../../layouts/group-card/GroupCard";
 import HapticTouch from "../../../../common/HapticTouch";
 import { accents } from "../../../../config/theme";
+import { useAppDispatch, useAppSelector } from "../../../../../app/hooks";
+import { setAccentMode } from "../../../../../features/theme/themeSlice";
 
 const AccentColor = () => {
-  const [selected, setSelected] = useState(accents[0]);
+  const dispatch = useAppDispatch();
+  const { accentMode } = useAppSelector((state) => state.theme);
   const {
     theme: { colors },
   } = useContext(ThemeContext);
@@ -38,9 +41,9 @@ const AccentColor = () => {
                 justifyContent: "center",
                 alignItems: "center",
               }}
-              onPress={() => setSelected(color)}
+              onPress={() => dispatch(setAccentMode(color))}
             >
-              {selected === color && (
+              {accentMode === color && (
                 <>
                   <Animated.View
                     entering={BounceIn}

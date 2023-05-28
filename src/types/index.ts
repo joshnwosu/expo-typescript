@@ -20,8 +20,7 @@ export interface ThemeProps {
     card: string;
     notification: string;
     border: string;
-    activeColor: string;
-    inActiveColor: string;
+    inactive: string;
     topSeperator: string;
     bottomSeperator: string;
   };

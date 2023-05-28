@@ -69,7 +69,7 @@ export default function SearchScreen({ navigation }: any) {
             color: colors.text,
           }}
           placeholder="Notes, Folders, & Labels"
-          placeholderTextColor={colors.inActiveColor}
+          placeholderTextColor={colors.inactive}
         />
         <View
           style={{
@@ -84,7 +84,7 @@ export default function SearchScreen({ navigation }: any) {
         >
           <SvgIcon
             icon="search"
-            fill={colors.inActiveColor}
+            fill={colors.inactive}
             width={20}
             height={20}
           />
@@ -131,7 +131,7 @@ export default function SearchScreen({ navigation }: any) {
               <View style={{ marginRight: 20 }}>
                 <SvgIcon
                   icon={item.icon}
-                  fill={colors.activeColor}
+                  fill={colors.primary}
                   width={30}
                   height={30}
                 />
