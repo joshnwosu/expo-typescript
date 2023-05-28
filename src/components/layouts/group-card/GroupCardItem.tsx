@@ -7,7 +7,7 @@ import { GroupCardItemProps } from "../../../types";
 import { useNavigation } from "@react-navigation/native";
 import ThemeContext from "../../context/ThemeContext";
 
-export default function Item(item: GroupCardItemProps) {
+export default function GroupCardItem(item: GroupCardItemProps) {
   const { mode } = useContext(ThemeContext);
   const navigation = useNavigation<any>();
   const { icon, name, clickable, description, message, index, length } = item;

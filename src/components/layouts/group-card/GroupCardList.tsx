@@ -5,10 +5,14 @@ import { GroupCardProps } from "../../../types";
 import { getStyle } from "./styles";
 import GroupCard from "./GroupCard";
 
-export default function GroupCardList({ title, data }: GroupCardProps) {
+export default function GroupCardList({
+  title,
+  description,
+  data,
+}: GroupCardProps) {
   const styles = getStyle();
   return (
-    <GroupCard title={title}>
+    <GroupCard title={title} description={description}>
       {data?.map(({ name, icon, clickable, description, message }, index) => {
         return (
           <GroupCardItem

@@ -24,6 +24,7 @@ import ShareIcon from "./ShareIcon";
 import QuickActionIcon from "./QuickActionIcon";
 import WhatsNewIcon from "./WhatsNewIcon";
 import SidebarBottomIcon from "./SidebarBottomIcon";
+import MoonIcon from "./MoonIcon";
 
 interface IconProps {
   icon: string;
@@ -86,6 +87,8 @@ const SvgIcon = ({ icon, ...rest }: IconProps) => {
       return <WhatsNewIcon {...rest} />;
     case "sidebar-bottom":
       return <SidebarBottomIcon {...rest} />;
+    case "moon":
+      return <MoonIcon {...rest} />;
 
     default:
       return null;
