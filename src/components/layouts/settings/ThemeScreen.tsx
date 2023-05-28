@@ -11,7 +11,7 @@ const ThemeScreen = () => {
       <AccentColor />
       <LayoutColor />
       <NightMode />
-      <DisplayView />
+      {/* <DisplayView /> // ToDo */}
     </ScrollView>
   );
 };

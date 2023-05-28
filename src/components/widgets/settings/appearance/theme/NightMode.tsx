@@ -19,6 +19,7 @@ const NightMode = () => {
     },
     {
       name: "Dim mode",
+      icon: "cloud-sunny",
       message: (
         <CustomSwitch
           value={dimMode}

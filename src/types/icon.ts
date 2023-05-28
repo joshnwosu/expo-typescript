@@ -25,7 +25,8 @@ export type IconName =
   | "feedback"
   | "share"
   | "sidebar-bottom"
-  | "moon";
+  | "moon"
+  | "cloud-sunny";
 export interface IconProps {
   icon: IconName;
   width?: number;
