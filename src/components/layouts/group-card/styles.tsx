@@ -22,7 +22,7 @@ export const getStyle = () => {
     },
     group_card_title: {
       color: colors.text,
-      fontSize: 14,
+      fontSize: 12,
       fontWeight: "500",
       textTransform: "uppercase",
       opacity: 0.5,

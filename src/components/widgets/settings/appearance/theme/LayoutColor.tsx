@@ -41,8 +41,8 @@ const LayoutColor = () => {
 
   return (
     <GroupCard
-      title="Accent color"
-      description="Change the main accent of the app. This will not change the color of existing tasks."
+      title={`Layout (${themeMode} MODE)`}
+      // description="Change the appearn accent of the app."
     >
       <View
         style={{
