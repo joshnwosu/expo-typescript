@@ -10,7 +10,6 @@ const NightMode = () => {
   const dispatch = useAppDispatch();
   const { dimMode } = useAppSelector((state) => state.theme);
   const [nightMode, setNightMode] = useState(false);
-  // const [dimMode, setDimMode] = useState(false);
 
   const night: GroupCardProps["data"] = [
     {
