@@ -3,34 +3,42 @@ import React, { useContext, useState } from "react";
 import ThemeContext from "../../../../context/ThemeContext";
 import GroupCard from "../../../../layouts/group-card/GroupCard";
 import HapticTouch from "../../../../common/HapticTouch";
-
-interface LayoutProp {
-  name: "System" | "Light" | "Dark";
-  backgroundColor: "Automatic" | "#FFFFFF" | "#000000";
-  options?: ["#FFFFFF", "#000000"];
-}
+import { LayoutProp } from "../../../../../types";
+import { useAppDispatch, useAppSelector } from "../../../../../app/hooks";
+import { setThemeMode } from "../../../../../features/theme/themeSlice";
+// import { useAppDispatch, useAppSelector } from "";
 
 const layout: LayoutProp[] = [
   {
-    name: "System",
-    backgroundColor: "Automatic",
+    name: "system",
+    backgroundColor: "automatic",
     options: ["#FFFFFF", "#000000"],
   },
   {
-    name: "Light",
+    name: "light",
     backgroundColor: "#FFFFFF",
   },
   {
-    name: "Dark",
+    name: "dark",
     backgroundColor: "#000000",
   },
 ];
 
 const LayoutColor = () => {
-  const [selected, setSelected] = useState<LayoutProp["name"]>(layout[0].name);
+  const dispatch = useAppDispatch();
+  const { themeMode } = useAppSelector((state) => state.theme);
+
+  // const [selected, setSelected] = useState<LayoutProp["name"]>(themeMode);
   const {
     theme: { colors },
+    toggleTheme,
+    mode,
   } = useContext(ThemeContext);
+
+  React.useEffect(() => {
+    console.log(themeMode);
+  }, [themeMode]);
+
   return (
     <GroupCard
       title="Accent color"
@@ -55,7 +63,11 @@ const LayoutColor = () => {
                   borderRadius: 10,
                   padding: 10,
                 }}
-                onPress={() => setSelected(name)}
+                onPress={() => {
+                  // setSelected(name);
+                  // toggleTheme(name);
+                  dispatch(setThemeMode(name));
+                }}
               >
                 {options ? (
                   <View
@@ -65,7 +77,8 @@ const LayoutColor = () => {
                       borderRadius: 10,
                       overflow: "hidden",
                       borderWidth: 2,
-                      borderColor: name === selected ? "tomato" : colors.border,
+                      borderColor:
+                        name === themeMode ? "tomato" : colors.border,
                     }}
                   >
                     <View
@@ -88,7 +101,8 @@ const LayoutColor = () => {
                       borderRadius: 10,
                       backgroundColor,
                       borderWidth: 2,
-                      borderColor: name === selected ? "tomato" : colors.border,
+                      borderColor:
+                        name === themeMode ? "tomato" : colors.border,
                     }}
                   />
                 )}

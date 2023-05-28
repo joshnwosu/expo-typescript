@@ -13,7 +13,6 @@ const NightMode = () => {
       name: "Night mode",
       icon: "moon",
       message: <CustomSwitch value={nightMode} onValueChange={setNightMode} />,
-      description: "Toggle night mode on/off",
     },
     {
       name: "Dim mode",

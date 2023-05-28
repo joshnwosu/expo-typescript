@@ -1,24 +1,35 @@
 import React, { useState } from "react";
 import ThemeContext from "./ThemeContext";
-import { ThemeProps, ThemeObject } from "../../types";
+import { ThemeProps, ThemeObject, LayoutProp } from "../../types";
 import { useColorScheme } from "react-native";
 import { Theme } from "../config/theme";
+import { useAppSelector } from "../../app/hooks";
 
 interface ThemeProviderProps {
   children: React.ReactNode;
 }
 
 const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
+  const { themeMode } = useAppSelector((state) => state.theme);
   const scheme = useColorScheme();
-  const [mode, setMode] = useState(scheme); // Initial theme state
+  const [mode, setMode] = useState<LayoutProp["name"]>(themeMode); // Initial theme state
+  const [accent, setAccent] = useState(""); // Initial accent state
 
   const toggleTheme = () => {
-    setMode((prevTheme) => (prevTheme === "light" ? "dark" : "light")); // Toggle between light and dark theme
+    if (themeMode === "system") {
+      setMode(scheme);
+    } else {
+      setMode(themeMode);
+    }
+  };
+
+  const toggleAccent = (value: string) => {
+    setAccent(value);
   };
 
   React.useEffect(() => {
-    setMode(scheme);
-  }, [scheme]);
+    toggleTheme();
+  }, [scheme, themeMode]);
 
   // Define your theme object with colors, typography, etc.
   const themeObject: ThemeObject = {

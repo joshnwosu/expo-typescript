@@ -13,6 +13,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { increment, incrementByAmount } from "../features/counter/counterSlice";
 import ThemeContext from "../components/context/ThemeContext";
+import { IconName } from "../types/icon";
 
 interface Props {
   name: string;
@@ -135,7 +136,7 @@ const Card = ({ title, data, color, onPress, navigation }: CardProps) => {
                 }}
               >
                 <SvgIcon
-                  icon={item.icon}
+                  icon={item.icon as IconName}
                   width={24}
                   height={24}
                   fill={item.color ?? color}

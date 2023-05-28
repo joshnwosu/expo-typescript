@@ -1,9 +1,9 @@
 import React from "react";
-import { ThemeProps } from "../../types";
+import { LayoutProp, ThemeProps } from "../../types";
 
 interface ThemeContextProps {
   mode: string;
-  toggleTheme: () => void;
+  toggleTheme: (value: LayoutProp["name"]) => void;
   theme: ThemeProps;
 }
 

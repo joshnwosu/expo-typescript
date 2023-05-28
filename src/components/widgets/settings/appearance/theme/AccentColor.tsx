@@ -5,15 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import Animated, { BounceIn, BounceOut } from "react-native-reanimated";
 import GroupCard from "../../../../layouts/group-card/GroupCard";
 import HapticTouch from "../../../../common/HapticTouch";
-
-const accents = [
-  "tomato",
-  "#3269FF",
-  "#FFD947",
-  "#AE3B76",
-  "#0BEAAF",
-  "#FE7745",
-];
+import { accents } from "../../../../config/theme";
 
 const AccentColor = () => {
   const [selected, setSelected] = useState(accents[0]);

@@ -53,3 +53,9 @@ export interface GroupCardItemProps {
   length: number;
   message: any;
 }
+
+export interface LayoutProp {
+  name: "system" | "light" | "dark";
+  backgroundColor: "automatic" | "#FFFFFF" | "#000000";
+  options?: ["#FFFFFF", "#000000"];
+}
