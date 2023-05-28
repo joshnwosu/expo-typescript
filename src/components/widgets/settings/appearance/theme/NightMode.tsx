@@ -35,7 +35,7 @@ const NightMode = () => {
   return (
     <GroupCardList
       title="Night Mode"
-      description="These modes will effect notes appearance and general system appearance at the same time."
+      description="Night mode will effect notes appearance and general system appearance at the same time."
       data={night}
     />
   );

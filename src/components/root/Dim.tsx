@@ -4,7 +4,7 @@ import { useAppSelector } from "../../app/hooks";
 
 const Dim = () => {
   const { accentMode } = useAppSelector((state) => state.theme);
-  const opacity = 30;
+  const opacity = 20;
   return (
     <View
       pointerEvents="none"
