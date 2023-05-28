@@ -67,13 +67,13 @@ export const getStyle = () => {
     },
     item_text: {
       color: colors.text,
-      fontSize: 18,
-      fontWeight: "400",
+      fontSize: 16,
+      fontWeight: "500",
     },
     item_text_description: {
       color: colors.text,
       fontSize: 13,
-      fontWeight: "300",
+      fontWeight: "400",
       marginTop: 3,
       opacity: 0.5,
     },
