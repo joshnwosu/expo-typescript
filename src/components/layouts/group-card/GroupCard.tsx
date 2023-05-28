@@ -5,16 +5,28 @@ import { getStyle } from "./styles";
 interface Props {
   title?: string;
   children: JSX.Element | React.ReactNode;
+  description?: string;
 }
 
-export default function GroupCard({ title, children }: Props) {
+export default function GroupCard({ title, description, children }: Props) {
   const styles = getStyle();
+  const renderGroupDescription = () => {
+    if (description) {
+      return (
+        <View style={styles.group_card_description_container}>
+          <Text style={styles.group_card_description}>{description}</Text>
+        </View>
+      );
+    }
+    return null;
+  };
   return (
     <View style={styles.group_card_container}>
       <View style={styles.group_card_title_container}>
         <Text style={styles.group_card_title}>{title}</Text>
       </View>
       <View style={styles.group_card}>{children}</View>
+      {renderGroupDescription()}
     </View>
   );
 }

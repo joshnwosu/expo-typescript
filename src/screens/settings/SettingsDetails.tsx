@@ -12,7 +12,10 @@ export default function SettingsDetails({ navigation, route }) {
   }, []);
   return (
     <View style={{ padding: 15 }}>
-      <GroupCard title="Accent color">
+      <GroupCard
+        title="Accent color"
+        description="Change the main accent of the app. This will not change the color of existing tasks."
+      >
         <AccentColor />
       </GroupCard>
     </View>
