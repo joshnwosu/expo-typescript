@@ -70,15 +70,17 @@ export default function GroupCardItem(item: GroupCardItemProps) {
           <Text style={styles.item_text}>{name}</Text>
           {renderDescription()}
         </View>
-        {clickable && (
-          <View style={styles.item_clickable_container}>
-            {renderMessage()}
+
+        <View style={styles.item_clickable_container}>
+          {renderMessage()}
+          {clickable && (
             <Ionicons
               name="chevron-forward-outline"
               style={styles.item_clickable}
             />
-          </View>
-        )}
+          )}
+        </View>
+
         {renderSeperator()}
       </View>
     </TouchableOpacity>

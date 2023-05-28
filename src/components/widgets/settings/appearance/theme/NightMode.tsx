@@ -1,21 +1,26 @@
-import { StyleSheet, Text, View, Switch } from "react-native";
-import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
 import GroupCardList from "../../../../layouts/group-card/GroupCardList";
 import { GroupCardProps } from "../../../../../types";
-
-const night: GroupCardProps["data"] = [
-  {
-    name: "Night mode",
-    icon: "moon",
-    message: <Switch value={true} />,
-    description: "Toggle night mode on/off",
-  },
-  {
-    name: "Dim mode",
-  },
-];
+import CustomSwitch from "../../../../common/CustomSwitch";
 
 const NightMode = () => {
+  const [nightMode, setNightMode] = useState(false);
+  const [dimMode, setDimMode] = useState(false);
+
+  const night: GroupCardProps["data"] = [
+    {
+      name: "Night mode",
+      icon: "moon",
+      message: <CustomSwitch value={nightMode} onValueChange={setNightMode} />,
+      description: "Toggle night mode on/off",
+    },
+    {
+      name: "Dim mode",
+      message: <CustomSwitch value={dimMode} onValueChange={setDimMode} />,
+    },
+  ];
+
   return (
     <GroupCardList
       title="Night Mode"

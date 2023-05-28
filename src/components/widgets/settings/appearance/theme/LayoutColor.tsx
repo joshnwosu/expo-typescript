@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React, { useContext, useState } from "react";
 import ThemeContext from "../../../../context/ThemeContext";
 import GroupCard from "../../../../layouts/group-card/GroupCard";
+import HapticTouch from "../../../../common/HapticTouch";
 
 interface LayoutProp {
   name: "System" | "Light" | "Dark";
@@ -45,10 +46,9 @@ const LayoutColor = () => {
       >
         {layout.map(({ name, backgroundColor, options }, index) => {
           return (
-            <View style={{ flex: 1, alignItems: "center" }}>
-              <TouchableOpacity
+            <View key={name} style={{ flex: 1, alignItems: "center" }}>
+              <HapticTouch
                 activeOpacity={1}
-                key={name}
                 style={{
                   width: "100%",
                   height: 60,
@@ -92,7 +92,7 @@ const LayoutColor = () => {
                     }}
                   />
                 )}
-              </TouchableOpacity>
+              </HapticTouch>
               <Text
                 style={{
                   color: colors.text,
