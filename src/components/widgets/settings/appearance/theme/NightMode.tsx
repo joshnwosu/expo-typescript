@@ -3,10 +3,14 @@ import React, { useState } from "react";
 import GroupCardList from "../../../../layouts/group-card/GroupCardList";
 import { GroupCardProps } from "../../../../../types";
 import CustomSwitch from "../../../../common/CustomSwitch";
+import { useAppDispatch, useAppSelector } from "../../../../../app/hooks";
+import { setDimMode } from "../../../../../features/theme/themeSlice";
 
 const NightMode = () => {
+  const dispatch = useAppDispatch();
+  const { dimMode } = useAppSelector((state) => state.theme);
   const [nightMode, setNightMode] = useState(false);
-  const [dimMode, setDimMode] = useState(false);
+  // const [dimMode, setDimMode] = useState(false);
 
   const night: GroupCardProps["data"] = [
     {
@@ -16,7 +20,14 @@ const NightMode = () => {
     },
     {
       name: "Dim mode",
-      message: <CustomSwitch value={dimMode} onValueChange={setDimMode} />,
+      message: (
+        <CustomSwitch
+          value={dimMode}
+          onValueChange={() => {
+            dispatch(setDimMode(!dimMode));
+          }}
+        />
+      ),
       description: "Applies a warmer color tone to the app interface.",
     },
   ];
