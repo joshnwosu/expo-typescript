@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import GroupCardList from "../../../../layouts/group-card/GroupCardList";
 import {
   GroupCardItemProps,
@@ -8,12 +8,21 @@ import {
 } from "../../../../../types";
 import CustomSwitch from "../../../../common/CustomSwitch";
 import { useAppDispatch, useAppSelector } from "../../../../../app/hooks";
-import { setDimMode } from "../../../../../features/theme/themeSlice";
+import {
+  setDimBrightness,
+  setDimMode,
+} from "../../../../../features/theme/themeSlice";
+import Slider from "@react-native-community/slider";
+import ThemeContext from "../../../../context/ThemeContext";
 
 const NightMode = () => {
   const dispatch = useAppDispatch();
   const { dimMode } = useAppSelector((state) => state.theme);
   const [nightMode, setNightMode] = useState(false);
+
+  const {
+    theme: { colors },
+  } = useContext(ThemeContext);
 
   const night: GroupCardListProps["data"] = [
     {
@@ -41,7 +50,17 @@ const NightMode = () => {
             padding: 20,
           }}
         >
-          <Text style={{ color: "blue" }}>Hello world</Text>
+          <Slider
+            style={{ width: 200, height: 40 }}
+            minimumValue={0}
+            maximumValue={1}
+            minimumTrackTintColor={colors.primary}
+            // maximumTrackTintColor={colors.inactive}
+            onValueChange={(value) => {
+              dispatch(setDimBrightness(Number(value * 99).toFixed(0)));
+              // console.log(value * 99);
+            }}
+          />
         </View>
       ),
     },
