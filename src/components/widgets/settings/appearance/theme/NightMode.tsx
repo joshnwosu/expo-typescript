@@ -1,7 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 import GroupCardList from "../../../../layouts/group-card/GroupCardList";
-import { GroupCardProps } from "../../../../../types";
+import {
+  GroupCardItemProps,
+  GroupCardListProps,
+  GroupCardProps,
+} from "../../../../../types";
 import CustomSwitch from "../../../../common/CustomSwitch";
 import { useAppDispatch, useAppSelector } from "../../../../../app/hooks";
 import { setDimMode } from "../../../../../features/theme/themeSlice";
@@ -11,7 +15,7 @@ const NightMode = () => {
   const { dimMode } = useAppSelector((state) => state.theme);
   const [nightMode, setNightMode] = useState(false);
 
-  const night: GroupCardProps["data"] = [
+  const night: GroupCardListProps["data"] = [
     {
       name: "Night mode",
       icon: "moon",
@@ -28,7 +32,18 @@ const NightMode = () => {
           }}
         />
       ),
-      description: "Applies a warmer color tone to the app interface.",
+      // description: "Applies a warmer color tone to the app interface.",
+    },
+    {
+      component: (
+        <View
+          style={{
+            padding: 20,
+          }}
+        >
+          <Text style={{ color: "blue" }}>Hello world</Text>
+        </View>
+      ),
     },
   ];
 

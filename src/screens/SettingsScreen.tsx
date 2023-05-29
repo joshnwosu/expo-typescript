@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import ListLayout from "../components/layouts/ListLayout";
 import ScreenLayout from "../components/layouts/ScreenLayout";
 import BulletEditLayout from "../components/layouts/BulletEditLayout";
-import { GroupCardProps } from "../types";
+import { GroupCardListProps, GroupCardProps } from "../types";
 import GroupCardList from "../components/layouts/group-card/GroupCardList";
 import ThemeContext from "../components/context/ThemeContext";
 
@@ -69,7 +69,7 @@ export default function SettingsScreen() {
   ];
 
   // Add descriptions to the arrays
-  const addDescriptions = (array: GroupCardProps["data"]) => {
+  const addDescriptions = (array: GroupCardListProps["data"]) => {
     return array.map((item) => ({
       ...item,
       description: descriptions[item.name],

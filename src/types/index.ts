@@ -33,24 +33,27 @@ export interface ThemeObject {
 
 export interface GroupCardProps {
   title?: string;
+  children: JSX.Element | React.ReactNode;
   description?: string;
-  data: {
-    name: string;
-    icon?: string;
-    description?: string;
-    clickable?: boolean;
-    message?: any;
-  }[];
+}
+
+export interface GroupCardListProps {
+  title?: string;
+  description?: string;
+  data?: GroupCardItemProps["item"][];
 }
 
 export interface GroupCardItemProps {
-  name: string;
-  icon: string;
-  clickable?: boolean;
-  description: string;
-  index: string | number;
-  length: number;
-  message: any;
+  item?: {
+    name?: string;
+    icon?: string;
+    clickable?: boolean;
+    description?: string;
+    message?: any;
+    component?: JSX.Element;
+  };
+  index?: string | number;
+  length?: number;
 }
 
 export interface LayoutProp {

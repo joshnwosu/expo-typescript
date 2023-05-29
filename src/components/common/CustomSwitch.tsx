@@ -12,6 +12,7 @@ const CustomSwitch = ({ value, onValueChange, ...rest }: SwitchProps) => {
       onValueChange={onValueChange}
       {...rest}
       trackColor={{ true: colors.primary }}
+      thumbColor={"#ffffff"}
     />
   );
 };
