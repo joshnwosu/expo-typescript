@@ -178,8 +178,7 @@ const BulletLayout = () => {
     }
   };
 
-  const handleKeyPress = ({ nativeEvent }, index) => {
-    // console.log(nativeEvent.key);
+  const handleKeyPress = ({ nativeEvent }, index: number) => {
     if (nativeEvent.key === "Backspace" && editingValue === "") {
       handleRemoveItem(index);
     }
@@ -195,7 +194,6 @@ const BulletLayout = () => {
       } else {
         setIsMultiline(false);
       }
-      // console.log("w: ", width, textWidth);
     });
   };
 
