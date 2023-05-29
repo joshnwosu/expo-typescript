@@ -100,9 +100,9 @@ export default function GroupCardItem({
     <TouchableOpacity
       activeOpacity={0.7}
       style={styles.item}
-      // onPress={() => {
-      //   if (clickable) navigation.navigate("Settings Detail", { name: name });
-      // }}
+      onPress={() => {
+        if (clickable) navigation.navigate("Settings Detail", { name: name });
+      }}
     >
       <>
         {component ? (
