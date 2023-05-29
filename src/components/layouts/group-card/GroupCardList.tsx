@@ -1,7 +1,7 @@
 import { View, Text } from "react-native";
 import React from "react";
 import GroupCardItem from "./GroupCardItem";
-import { GroupCardProps } from "../../../types";
+import { GroupCardItemProps, GroupCardListProps } from "../../../types";
 import { getStyle } from "./styles";
 import GroupCard from "./GroupCard";
 
@@ -9,21 +9,17 @@ export default function GroupCardList({
   title,
   description,
   data,
-}: GroupCardProps) {
+}: GroupCardListProps) {
   const styles = getStyle();
   return (
     <GroupCard title={title} description={description}>
-      {data?.map(({ name, icon, clickable, description, message }, index) => {
+      {data?.map((item: GroupCardItemProps["item"], index) => {
         return (
           <GroupCardItem
             key={index.toString()}
-            name={name}
-            icon={icon}
-            description={description}
-            message={message}
+            item={item}
             index={index}
             length={data?.length}
-            clickable={clickable}
           />
         );
       })}

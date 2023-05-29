@@ -26,6 +26,7 @@ import WhatsNewIcon from "./WhatsNewIcon";
 import SidebarBottomIcon from "./SidebarBottomIcon";
 import MoonIcon from "./MoonIcon";
 import { IconProps } from "../../../types/icon";
+import CloudySunnyIcon from "./CloudySunnyIcon";
 
 const SvgIcon = ({ icon, ...rest }: IconProps) => {
   switch (icon) {
@@ -83,6 +84,8 @@ const SvgIcon = ({ icon, ...rest }: IconProps) => {
       return <SidebarBottomIcon {...rest} />;
     case "moon":
       return <MoonIcon {...rest} />;
+    case "cloud-sunny":
+      return <CloudySunnyIcon {...rest} />;
 
     default:
       return null;

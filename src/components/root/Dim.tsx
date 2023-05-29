@@ -1,12 +1,15 @@
 import { View, Text } from "react-native";
 import React from "react";
+import { useAppSelector } from "../../app/hooks";
 
 const Dim = () => {
+  const { accentMode } = useAppSelector((state) => state.theme);
+  const opacity = 20;
   return (
     <View
       pointerEvents="none"
       style={{
-        backgroundColor: "#f00f0020",
+        backgroundColor: `${accentMode}${opacity}`,
         position: "absolute",
         top: 0,
         right: 0,

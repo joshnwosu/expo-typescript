@@ -32,10 +32,6 @@ const LayoutColor = () => {
     theme: { colors },
   } = useContext(ThemeContext);
 
-  React.useEffect(() => {
-    console.log(themeMode);
-  }, [themeMode]);
-
   return (
     <GroupCard
       title={`Layout (${themeMode} MODE)`}

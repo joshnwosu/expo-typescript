@@ -1,14 +1,13 @@
 import { View, Text } from "react-native";
 import React from "react";
 import { getStyle } from "./styles";
+import { GroupCardProps } from "../../../types";
 
-interface Props {
-  title?: string;
-  children: JSX.Element | React.ReactNode;
-  description?: string;
-}
-
-export default function GroupCard({ title, description, children }: Props) {
+export default function GroupCard({
+  title,
+  description,
+  children,
+}: GroupCardProps) {
   const styles = getStyle();
   const renderGroupDescription = () => {
     if (description) {
