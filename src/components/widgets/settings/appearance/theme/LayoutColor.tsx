@@ -3,12 +3,12 @@ import React, { useContext, useState } from "react";
 import ThemeContext from "../../../../context/ThemeContext";
 import GroupCard from "../../../../layouts/group-card/GroupCard";
 import HapticTouch from "../../../../common/HapticTouch";
-import { LayoutProp } from "../../../../../types";
+import { BackgroundProps } from "../../../../../types";
 import { useAppDispatch, useAppSelector } from "../../../../../app/hooks";
-import { setThemeMode } from "../../../../../features/theme/themeSlice";
+import { setThemeModeAsync } from "../../../../../features/theme/themeSlice";
 // import { useAppDispatch, useAppSelector } from "";
 
-const layout: LayoutProp[] = [
+const layout: BackgroundProps[] = [
   {
     name: "system",
     backgroundColor: "automatic",
@@ -31,6 +31,10 @@ const LayoutColor = () => {
   const {
     theme: { colors },
   } = useContext(ThemeContext);
+
+  const handleThemeModeChange = async (theme: BackgroundProps["name"]) => {
+    await dispatch(setThemeModeAsync(theme));
+  };
 
   return (
     <GroupCard
@@ -56,9 +60,10 @@ const LayoutColor = () => {
                   borderRadius: 10,
                   padding: 10,
                 }}
-                onPress={() => {
-                  dispatch(setThemeMode(name));
-                }}
+                onPress={() => handleThemeModeChange(name)}
+                // onPress={() => {
+                //   dispatch(setThemeMode(name));
+                // }}
               >
                 {options ? (
                   <View

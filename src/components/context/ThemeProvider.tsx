@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ThemeContext from "./ThemeContext";
-import { ThemeProps, ThemeObject, LayoutProp } from "../../types";
+import { ThemeProps, ThemeObject, BackgroundProps } from "../../types";
 import { useColorScheme } from "react-native";
 import { useAppSelector } from "../../app/hooks";
 
@@ -11,7 +11,7 @@ interface ThemeProviderProps {
 const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const { themeMode, accentMode } = useAppSelector((state) => state.theme);
   const scheme = useColorScheme();
-  const [mode, setMode] = useState<LayoutProp["name"]>(themeMode); // Initial theme state
+  const [mode, setMode] = useState<BackgroundProps["name"]>(themeMode); // Initial theme state
 
   const toggleTheme = () => {
     if (themeMode === "system") {

@@ -7,14 +7,20 @@ import GroupCard from "../../../../layouts/group-card/GroupCard";
 import HapticTouch from "../../../../common/HapticTouch";
 import { accents } from "../../../../config/theme";
 import { useAppDispatch, useAppSelector } from "../../../../../app/hooks";
-import { setAccentMode } from "../../../../../features/theme/themeSlice";
+import { setAccentModeAsync } from "../../../../../features/theme/themeSlice";
+import { AccentColor } from "../../../../../types";
 
-const AccentColor = () => {
+const AccentColorMode = () => {
   const dispatch = useAppDispatch();
   const { accentMode } = useAppSelector((state) => state.theme);
   const {
     theme: { colors },
   } = useContext(ThemeContext);
+
+  const handleAccentModeChange = async (accent: AccentColor) => {
+    await dispatch(setAccentModeAsync(accent));
+  };
+
   return (
     <GroupCard
       title="Accent color"
@@ -41,7 +47,7 @@ const AccentColor = () => {
                 justifyContent: "center",
                 alignItems: "center",
               }}
-              onPress={() => dispatch(setAccentMode(color))}
+              onPress={() => handleAccentModeChange(color)}
             >
               {accentMode === color && (
                 <>
@@ -72,6 +78,6 @@ const AccentColor = () => {
   );
 };
 
-export default AccentColor;
+export default AccentColorMode;
 
 const styles = StyleSheet.create({});

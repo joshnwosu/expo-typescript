@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "../features/counter/counterSlice";
-import themeReducer from "../features/theme/themeSlice";
+import themeReducer, { getStoredTheme } from "../features/theme/themeSlice";
 
 export const store = configureStore({
   reducer: {
@@ -15,3 +15,4 @@ export const store = configureStore({
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+store.dispatch(getStoredTheme());
