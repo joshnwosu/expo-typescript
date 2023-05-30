@@ -278,12 +278,12 @@ const BulletLayout = () => {
        automaticallyAdjustKeyboardInsets
      > */}
       <View style={styles.container}>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={styles.insertListButton}
           onPress={handleAddItem}
         >
           <Ionicons name={"list-outline"} size={24} color={colors.primary} />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         <FlatList
           data={checklist}
@@ -313,6 +313,7 @@ const BulletLayout = () => {
                 blurOnSubmit={true}
                 scrollEnabled={false}
                 selectionColor={colors.primary}
+                autoFocus
               />
             </View>
           }

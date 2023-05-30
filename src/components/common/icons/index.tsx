@@ -29,6 +29,7 @@ import { IconProps } from "../../../types/icon";
 import CloudySunnyIcon from "./CloudySunnyIcon";
 import SunnyIcon from "./SunnyIcon";
 import SunnyLowIcon from "./SunnyLowIcon";
+import ColorIcon from "./ColorIcon";
 
 const SvgIcon = ({ icon, ...rest }: IconProps) => {
   switch (icon) {
@@ -92,6 +93,8 @@ const SvgIcon = ({ icon, ...rest }: IconProps) => {
       return <SunnyIcon {...rest} />;
     case "sunny-low":
       return <SunnyLowIcon {...rest} />;
+    case "color":
+      return <ColorIcon {...rest} />;
 
     default:
       return null;

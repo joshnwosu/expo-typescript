@@ -28,6 +28,7 @@ export type IconName =
   | "moon"
   | "cloud-sunny"
   | "sunny"
+  | "color"
   | "sunny-low";
 export interface IconProps {
   icon: IconName;

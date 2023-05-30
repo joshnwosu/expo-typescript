@@ -89,10 +89,10 @@ export default function SettingsScreen() {
       {/* <DragList /> */}
       {/* <BulletEditLayout /> */}
 
-      <GroupCardList title="General" data={GENERAL_WITH_DESCRIPTIONS} />
-      <GroupCardList title="Appearance" data={APPEARANCE_WITH_DESCRIPTIONS} />
-      <GroupCardList title="Privacy" data={SECURITY_WITH_DESCRIPTIONS} />
-      <GroupCardList title="Support" data={SUPPORT_WITH_DESCRIPTIONS} />
+      <GroupCardList title="General" data={GENERAL} />
+      <GroupCardList title="Appearance" data={APPEARANCE} />
+      <GroupCardList title="Privacy" data={SECURITY} />
+      <GroupCardList title="Support" data={SUPPORT} />
     </ScrollView>
   );
 }
