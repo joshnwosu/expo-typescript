@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
-import React, { useContext, useState } from "react";
+import { StyleSheet, Text, View, Dimensions, Alert } from "react-native";
+import React, { useContext, useState, useEffect } from "react";
 import GroupCardList from "../../../../layouts/group-card/GroupCardList";
 import {
   GroupCardItemProps,
@@ -12,17 +12,16 @@ import {
   setDimBrightness,
   setDimMode,
 } from "../../../../../features/theme/themeSlice";
+import * as Brightness from "expo-brightness";
 import Slider from "@react-native-community/slider";
 import ThemeContext from "../../../../context/ThemeContext";
 
+const { width: SCREEN_WIDTH } = Dimensions.get("window");
+
 const NightMode = () => {
   const dispatch = useAppDispatch();
-  const { dimMode } = useAppSelector((state) => state.theme);
+  const { dimMode, dimBrightness } = useAppSelector((state) => state.theme);
   const [nightMode, setNightMode] = useState(false);
-
-  const {
-    theme: { colors },
-  } = useContext(ThemeContext);
 
   const night: GroupCardListProps["data"] = [
     {
@@ -40,28 +39,6 @@ const NightMode = () => {
             dispatch(setDimMode(!dimMode));
           }}
         />
-      ),
-      // description: "Applies a warmer color tone to the app interface.",
-    },
-    {
-      component: (
-        <View
-          style={{
-            padding: 20,
-          }}
-        >
-          <Slider
-            style={{ width: 200, height: 40 }}
-            minimumValue={0}
-            maximumValue={1}
-            minimumTrackTintColor={colors.primary}
-            // maximumTrackTintColor={colors.inactive}
-            onValueChange={(value) => {
-              dispatch(setDimBrightness(Number(value * 99).toFixed(0)));
-              // console.log(value * 99);
-            }}
-          />
-        </View>
       ),
     },
   ];

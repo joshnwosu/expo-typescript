@@ -9,7 +9,7 @@ const Dim = () => {
     <View
       pointerEvents="none"
       style={{
-        backgroundColor: `${accentMode}${dimBrightness}`,
+        backgroundColor: `${accentMode}10`,
         position: "absolute",
         top: 0,
         right: 0,

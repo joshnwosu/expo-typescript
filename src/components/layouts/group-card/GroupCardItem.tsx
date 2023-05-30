@@ -69,16 +69,6 @@ export default function GroupCardItem({
 
   const renderSeperator = () => {
     if (index !== length - 1) {
-      if (mode === "dark") {
-        return (
-          <>
-            <View style={[styles.item_seperator, styles.item_top_seperator]} />
-            <View
-              style={[styles.item_seperator, styles.item_bottom_seperator]}
-            />
-          </>
-        );
-      }
       return <View style={styles.item_seperator} />;
     }
     return null;
@@ -96,6 +86,18 @@ export default function GroupCardItem({
     return null;
   };
 
+  const renderClickContent = () => {
+    if (clickable || message) {
+      return (
+        <View style={styles.item_clickable_container}>
+          {renderMessage()}
+          {renderClickableIcon()}
+        </View>
+      );
+    }
+    return null;
+  };
+
   return (
     <TouchableOpacity
       activeOpacity={0.7}
@@ -105,21 +107,22 @@ export default function GroupCardItem({
       }}
     >
       <>
-        {component ? (
-          component
+        {/* {component ? (
+          <View style={styles.item_content}>
+            {component}
+            {renderSeperator()}
+          </View>
         ) : (
-          <>
-            {renderIcon()}
-            <View style={styles.item_content}>
-              {renderContent()}
-              <View style={styles.item_clickable_container}>
-                {renderMessage()}
-                {renderClickableIcon()}
-              </View>
-              {renderSeperator()}
-            </View>
-          </>
-        )}
+          <> */}
+        {renderIcon()}
+        <View style={styles.item_content}>
+          {renderContent()}
+          {renderClickContent()}
+          {component}
+          {renderSeperator()}
+        </View>
+        {/* </>
+        )} */}
       </>
     </TouchableOpacity>
   );

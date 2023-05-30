@@ -3321,6 +3321,11 @@ expo-asset@~8.9.1:
     path-browserify "^1.0.0"
     url-parse "^1.5.9"
 
+expo-brightness@~11.2.1:
+  version "11.2.1"
+  resolved "https://registry.yarnpkg.com/expo-brightness/-/expo-brightness-11.2.1.tgz#646ab1e5e4a9bc2f241910cf33855f13b28d50e1"
+  integrity sha512-Bo1vlcfG/HoNU+OK1c1EVgLc97sQaWfXfZwoRi98DNg0uZiibCU3CL7CDAHl1WP64wWILvK071fexsqxoiE1iw==
+
 expo-constants@~14.2.0, expo-constants@~14.2.1:
   version "14.2.1"
   resolved "https://registry.yarnpkg.com/expo-constants/-/expo-constants-14.2.1.tgz#b5b6b8079d2082c31ccf2cbc7cf97a0e83c229c3"
