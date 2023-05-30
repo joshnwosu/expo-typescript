@@ -15,45 +15,50 @@ import {
 import * as Brightness from "expo-brightness";
 import Slider from "@react-native-community/slider";
 import ThemeContext from "../../../../context/ThemeContext";
+import SvgIcon from "../../../../common/icons";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 
 const BrightnessMode = () => {
   const dispatch = useAppDispatch();
-  const { dimMode, dimBrightness } = useAppSelector((state) => state.theme);
-  const [nightMode, setNightMode] = useState(false);
+  const { dimBrightness } = useAppSelector((state) => state.theme);
+  const {
+    theme: { colors },
+  } = useContext(ThemeContext);
+  const [sliderValue, setSliderValue] = useState(0);
 
   useEffect(() => {
     (async () => {
       const { status } = await Brightness.requestPermissionsAsync();
       if (status === "granted") {
-        Brightness.setSystemBrightnessAsync(dimBrightness);
+        const b = await Brightness.getBrightnessAsync();
+        Brightness.setSystemBrightnessAsync(5);
+        setSliderValue(b);
       }
     })();
   }, []);
-
-  const {
-    theme: { colors },
-  } = useContext(ThemeContext);
 
   const night: GroupCardListProps["data"] = [
     {
       component: (
         <View
           style={{
-            padding: 5,
-            justifyContent: "center",
-            alignItems: "center",
             flex: 1,
+            flexDirection: "row",
+            padding: 5,
+            justifyContent: "space-between",
+            alignItems: "center",
+            paddingRight: 20,
           }}
         >
+          <SvgIcon icon="sunny-low" fill={colors.inactive} />
           <Slider
-            style={{ width: SCREEN_WIDTH - 120, height: 40 }}
+            style={{ width: SCREEN_WIDTH - 140, height: 40 }}
             minimumValue={0}
             maximumValue={1}
             minimumTrackTintColor={colors.primary}
             // maximumTrackTintColor={colors.inactive}
-            // value={dimBrightness}
+            value={sliderValue}
             onValueChange={(value) => {
               // console.log(value);
               Brightness.setSystemBrightnessAsync(Number(value));
@@ -63,6 +68,7 @@ const BrightnessMode = () => {
             }}
             tapToSeek={true}
           />
+          <SvgIcon icon="sunny" fill={colors.inactive} />
         </View>
       ),
     },
@@ -83,7 +89,7 @@ const BrightnessMode = () => {
   return (
     <GroupCardList
       title="Brightness"
-      description="Adjusts phone's brightness."
+      description="Adjusts phone's brightness. This will effect the brightness of your phone."
       data={night}
     />
   );
