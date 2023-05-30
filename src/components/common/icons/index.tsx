@@ -27,6 +27,8 @@ import SidebarBottomIcon from "./SidebarBottomIcon";
 import MoonIcon from "./MoonIcon";
 import { IconProps } from "../../../types/icon";
 import CloudySunnyIcon from "./CloudySunnyIcon";
+import SunnyIcon from "./SunnyIcon";
+import SunnyLowIcon from "./SunnyLowIcon";
 
 const SvgIcon = ({ icon, ...rest }: IconProps) => {
   switch (icon) {
@@ -86,6 +88,10 @@ const SvgIcon = ({ icon, ...rest }: IconProps) => {
       return <MoonIcon {...rest} />;
     case "cloud-sunny":
       return <CloudySunnyIcon {...rest} />;
+    case "sunny":
+      return <SunnyIcon {...rest} />;
+    case "sunny-low":
+      return <SunnyLowIcon {...rest} />;
 
     default:
       return null;
