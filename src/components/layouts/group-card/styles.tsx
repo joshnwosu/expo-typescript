@@ -61,6 +61,7 @@ export const getStyle = () => {
       marginLeft: 15,
       height: "100%",
       marginVertical: 2,
+      // backgroundColor: "red",
     },
     item_text_container: {
       flex: 1,
@@ -99,13 +100,13 @@ export const getStyle = () => {
       opacity: 0.7,
       backgroundColor: colors.border,
     },
-    item_top_seperator: {
-      backgroundColor: colors.topSeperator,
-    },
-    item_bottom_seperator: {
-      bottom: 1,
-      backgroundColor: colors.bottomSeperator,
-    },
+    // item_top_seperator: {
+    //   backgroundColor: colors.topSeperator,
+    // },
+    // item_bottom_seperator: {
+    //   top: 1,
+    //   backgroundColor: colors.bottomSeperator,
+    // },
   });
 
   return styles;

@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
-import React, { useState } from "react";
+import { StyleSheet, Text, View, Dimensions, Alert } from "react-native";
+import React, { useContext, useState, useEffect } from "react";
 import GroupCardList from "../../../../layouts/group-card/GroupCardList";
 import {
   GroupCardItemProps,
@@ -8,11 +8,19 @@ import {
 } from "../../../../../types";
 import CustomSwitch from "../../../../common/CustomSwitch";
 import { useAppDispatch, useAppSelector } from "../../../../../app/hooks";
-import { setDimMode } from "../../../../../features/theme/themeSlice";
+import {
+  setDimBrightness,
+  setDimMode,
+} from "../../../../../features/theme/themeSlice";
+import * as Brightness from "expo-brightness";
+import Slider from "@react-native-community/slider";
+import ThemeContext from "../../../../context/ThemeContext";
+
+const { width: SCREEN_WIDTH } = Dimensions.get("window");
 
 const NightMode = () => {
   const dispatch = useAppDispatch();
-  const { dimMode } = useAppSelector((state) => state.theme);
+  const { dimMode, dimBrightness } = useAppSelector((state) => state.theme);
   const [nightMode, setNightMode] = useState(false);
 
   const night: GroupCardListProps["data"] = [
@@ -31,18 +39,6 @@ const NightMode = () => {
             dispatch(setDimMode(!dimMode));
           }}
         />
-      ),
-      // description: "Applies a warmer color tone to the app interface.",
-    },
-    {
-      component: (
-        <View
-          style={{
-            padding: 20,
-          }}
-        >
-          <Text style={{ color: "blue" }}>Hello world</Text>
-        </View>
       ),
     },
   ];

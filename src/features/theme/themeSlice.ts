@@ -7,12 +7,14 @@ interface ThemeState {
   themeMode: LayoutProp["name"];
   accentMode: string;
   dimMode: boolean;
+  dimBrightness: number;
 }
 
 const initialState: ThemeState = {
   themeMode: "dark",
   accentMode: "#5d68f9",
   dimMode: false,
+  dimBrightness: 0,
 };
 
 export const themeSlice = createSlice({
@@ -28,10 +30,15 @@ export const themeSlice = createSlice({
     setDimMode: (state, action) => {
       state.dimMode = action.payload;
     },
+    setDimBrightness: (state, action) => {
+      state.dimBrightness = action.payload;
+      console.log("Payload: ", action.payload);
+    },
   },
 });
 
-export const { setThemeMode, setAccentMode, setDimMode } = themeSlice.actions;
+export const { setThemeMode, setAccentMode, setDimMode, setDimBrightness } =
+  themeSlice.actions;
 
 export const selectCount = (state: RootState) => state.counter.value;
 
