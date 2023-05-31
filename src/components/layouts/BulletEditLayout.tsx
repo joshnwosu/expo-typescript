@@ -294,6 +294,7 @@ const BulletLayout = () => {
             blurOnSubmit={true}
             scrollEnabled={false}
             selectionColor={colors.primary}
+            autoFocus
           />
         </View>
 
@@ -305,7 +306,7 @@ const BulletLayout = () => {
           scrollEnabled={false}
         /> */}
 
-        {/* <FlatList
+        <FlatList
           data={checklist}
           renderItem={renderItem}
           keyExtractor={(item, index) => index.toString()}
@@ -313,11 +314,7 @@ const BulletLayout = () => {
           keyboardShouldPersistTaps="always"
           contentInsetAdjustmentBehavior="never"
           scrollEnabled={false}
-        /> */}
-
-        <View style={styles.checklistContainer}>
-          {checklist.map((item, index) => renderItem({ item, index }))}
-        </View>
+        />
       </View>
     </View>
   );

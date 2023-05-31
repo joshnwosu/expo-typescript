@@ -1,11 +1,11 @@
 import { View, Text, StyleSheet, SafeAreaView, ScrollView } from "react-native";
 import React, { useContext } from "react";
-import ListLayout from "../components/layouts/ListLayout";
-import ScreenLayout from "../components/layouts/ScreenLayout";
-import BulletEditLayout from "../components/layouts/BulletEditLayout";
-import { GroupCardListProps, GroupCardProps } from "../types";
-import GroupCardList from "../components/layouts/group-card/GroupCardList";
-import ThemeContext from "../components/context/ThemeContext";
+import ListLayout from "../../components/layouts/ListLayout";
+import ScreenLayout from "../../components/layouts/ScreenLayout";
+import BulletEditLayout from "../../components/layouts/BulletEditLayout";
+import { GroupCardListProps, GroupCardProps } from "../../types";
+import GroupCardList from "../../components/layouts/group-card/GroupCardList";
+import ThemeContext from "../../components/context/ThemeContext";
 
 export default function SettingsScreen() {
   const { theme } = useContext(ThemeContext);
