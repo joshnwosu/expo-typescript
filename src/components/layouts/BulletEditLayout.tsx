@@ -216,7 +216,7 @@ const BulletLayout = () => {
         />
         <TextInput
           ref={(ref) => (textInputsRefs.current[index] = ref)}
-          value={item.text}
+          defaultValue={item.text}
           onChangeText={(newText) => {
             handleEditItem(newText, index);
             setEditingValue(newText);
@@ -240,7 +240,7 @@ const BulletLayout = () => {
             handleKeyPress(event, index);
           }}
           blurOnSubmit={true}
-          enablesReturnKeyAutomatically={true}
+          // enablesReturnKeyAutomatically={true}
           onSubmitEditing={() => {
             handleAddItem();
           }}
@@ -262,21 +262,11 @@ const BulletLayout = () => {
   };
 
   return (
-    <KeyboardAvoidingView
+    <View
       style={{ flex: 1, flexGrow: 1 }}
-      contentContainerStyle={{ flex: 1 }}
-      behavior="padding"
+      // contentContainerStyle={{ flex: 1 }}
+      // behavior="padding"
     >
-      {/*  <KeyboardAwareScrollView
-       extraHeight={135}
-       extraScrollHeight={70}
-       automaticallyAdjustContentInsets={true}
-       enableOnAndroid={true}
-       keyboardShouldPersistTaps="handled"
-       scrollEnabled={true}
-       contentInsetAdjustmentBehavior="automatic"
-       automaticallyAdjustKeyboardInsets
-     > */}
       <View style={styles.container}>
         {/* <TouchableOpacity
           style={styles.insertListButton}
@@ -285,42 +275,51 @@ const BulletLayout = () => {
           <Ionicons name={"list-outline"} size={24} color={colors.primary} />
         </TouchableOpacity> */}
 
-        <FlatList
+        <View>
+          <TextInput
+            ref={titleRef}
+            value={title}
+            multiline
+            onChangeText={setTitle}
+            placeholder="Title"
+            style={styles.titleInput}
+            onSubmitEditing={() => {
+              if (checklist.length > 0) {
+                textInputsRefs.current[0].focus();
+              } else {
+                handleAddItem();
+              }
+            }}
+            placeholderTextColor={colors.inactive}
+            blurOnSubmit={true}
+            scrollEnabled={false}
+            selectionColor={colors.primary}
+          />
+        </View>
+
+        {/* <DraggableFlatlist
           data={checklist}
           renderItem={renderItem}
-          // onDragEnd={({ data }) => setChecklist(data)}
+          keyExtractor={(item) => item.key}
+          onDragEnd={({ data }) => console.log(data)}
+          scrollEnabled={false}
+        /> */}
+
+        {/* <FlatList
+          data={checklist}
+          renderItem={renderItem}
           keyExtractor={(item, index) => index.toString()}
           contentContainerStyle={styles.checklistContainer}
-          keyboardShouldPersistTaps="handled"
+          keyboardShouldPersistTaps="always"
           contentInsetAdjustmentBehavior="never"
-          ListHeaderComponent={
-            <View>
-              <TextInput
-                ref={titleRef}
-                value={title}
-                multiline
-                onChangeText={setTitle}
-                placeholder="Title"
-                style={styles.titleInput}
-                onSubmitEditing={() => {
-                  if (checklist.length > 0) {
-                    textInputsRefs.current[0].focus();
-                  } else {
-                    handleAddItem();
-                  }
-                }}
-                placeholderTextColor={colors.inactive}
-                blurOnSubmit={true}
-                scrollEnabled={false}
-                selectionColor={colors.primary}
-                autoFocus
-              />
-            </View>
-          }
-        />
+          scrollEnabled={false}
+        /> */}
+
+        <View style={styles.checklistContainer}>
+          {checklist.map((item, index) => renderItem({ item, index }))}
+        </View>
       </View>
-      {/* </KeyboardAwareScrollView> */}
-    </KeyboardAvoidingView>
+    </View>
   );
 };
 

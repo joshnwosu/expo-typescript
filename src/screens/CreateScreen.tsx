@@ -8,6 +8,7 @@ import ThemeContext from "../components/context/ThemeContext";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import SvgIcon from "../components/common/icons";
+import Examples from "../components/layouts/Examples";
 
 export default function CreateScreen({ navigation }) {
   const {
@@ -34,9 +35,12 @@ export default function CreateScreen({ navigation }) {
           onPress={() => navigation.goBack()}
         />
       </View>
-      {/* <KeyboardAvoidingView style={{ flex: 1}} > */}
-      <BulletLayout />
-      {/* </KeyboardAvoidingView> */}
+      <View style={{ flex: 1 }}>
+        {/* <KeyboardAvoidingView style={{ flex: 1 }}> */}
+        <BulletLayout />
+        {/* <Examples /> */}
+        {/* </KeyboardAvoidingView> */}
+      </View>
       <KeyboardAvoidingView
         behavior="padding"
         keyboardVerticalOffset={-insets.bottom}
@@ -55,13 +59,13 @@ export default function CreateScreen({ navigation }) {
           }}
         >
           <Ionicons name="text-outline" color={colors.text} size={25} />
-          <Ionicons name="list-outline" color={colors.text} size={25} />
           <Ionicons
-            name="color-palette-outline"
+            name="checkmark-circle-outline"
             color={colors.text}
             size={25}
           />
-          <Ionicons name="bookmark-outline" color={colors.text} size={25} />
+          <Ionicons name="color-filter-outline" color={colors.text} size={25} />
+          <Ionicons name="pricetag-outline" color={colors.text} size={25} />
           <Ionicons
             name="ellipsis-vertical-outline"
             color={colors.text}
