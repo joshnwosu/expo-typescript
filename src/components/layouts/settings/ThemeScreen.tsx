@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import React from "react";
-import AccentColor from "../../widgets/settings/appearance/theme/AccentColor";
+import AccentColorMode from "../../widgets/settings/appearance/theme/AccentColorMode";
 import LayoutColor from "../../widgets/settings/appearance/theme/LayoutColor";
 import NightMode from "../../widgets/settings/appearance/theme/NightMode";
 import DisplayView from "../../widgets/settings/appearance/theme/DisplayView";
@@ -9,7 +9,7 @@ import BrightnessMode from "../../widgets/settings/appearance/theme/BrightnessMo
 const ThemeScreen = () => {
   return (
     <ScrollView style={{ padding: 15 }}>
-      <AccentColor />
+      <AccentColorMode />
       <LayoutColor />
       <NightMode />
       <BrightnessMode />

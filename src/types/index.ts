@@ -56,8 +56,17 @@ export interface GroupCardItemProps {
   length?: number;
 }
 
-export interface LayoutProp {
+export interface BackgroundProps {
   name: "system" | "light" | "dark";
   backgroundColor: "automatic" | "#FFFFFF" | "#000000";
   options?: ["#FFFFFF", "#000000"];
 }
+
+export type AccentColor =
+  | "#ff6347"
+  | "#5d68f9"
+  | "#3269FF"
+  | "#FFD947"
+  | "#AE3B76"
+  | "#0BEAAF"
+  | "#FE7745";

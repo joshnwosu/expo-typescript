@@ -32,7 +32,7 @@ const BrightnessMode = () => {
       const { status } = await Brightness.requestPermissionsAsync();
       if (status === "granted") {
         const b = await Brightness.getBrightnessAsync();
-        Brightness.setSystemBrightnessAsync(5);
+        Brightness.setSystemBrightnessAsync(0);
         setSliderValue(b);
       }
     })();

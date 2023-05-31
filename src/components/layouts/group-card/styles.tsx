@@ -75,9 +75,9 @@ export const getStyle = () => {
     },
     item_text_description: {
       color: colors.text,
-      fontSize: 13,
+      fontSize: 12,
       fontWeight: "400",
-      marginTop: 3,
+      marginTop: 2,
       opacity: 0.5,
     },
     item_clickable_container: {
@@ -100,13 +100,6 @@ export const getStyle = () => {
       opacity: 0.7,
       backgroundColor: colors.border,
     },
-    // item_top_seperator: {
-    //   backgroundColor: colors.topSeperator,
-    // },
-    // item_bottom_seperator: {
-    //   top: 1,
-    //   backgroundColor: colors.bottomSeperator,
-    // },
   });
 
   return styles;
