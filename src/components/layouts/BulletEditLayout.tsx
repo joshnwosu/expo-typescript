@@ -294,6 +294,7 @@ const BulletLayout = () => {
             blurOnSubmit={true}
             scrollEnabled={false}
             selectionColor={colors.primary}
+            autoFocus
           />
         </View>
 
