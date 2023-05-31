@@ -1,4 +1,11 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ScrollView,
+  Dimensions,
+} from "react-native";
 import React, { useContext, useState } from "react";
 import ThemeContext from "../../../../context/ThemeContext";
 import { Ionicons } from "@expo/vector-icons";
@@ -17,8 +24,16 @@ const AccentColorMode = () => {
     theme: { colors },
   } = useContext(ThemeContext);
 
-  const handleAccentModeChange = async (accent: AccentColor) => {
+  const handleAccentModeChange = async (accent: AccentColor, index: number) => {
     await dispatch(setAccentModeAsync(accent));
+    scrollToActiveIndex(index);
+  };
+
+  const scrollViewRef = React.useRef<any>(null);
+
+  const scrollToActiveIndex = (index: number) => {
+    const xOffset = index * 40;
+    scrollViewRef.current.scrollTo({ x: xOffset, animated: true });
   };
 
   return (
@@ -26,11 +41,14 @@ const AccentColorMode = () => {
       title="Accent color"
       description="Change the main accent of the app. This will not change the color of existing tasks."
     >
-      <View
-        style={{
+      <ScrollView
+        ref={scrollViewRef}
+        horizontal
+        // showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{
           flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-around",
+          // alignItems: "center",
+          // justifyContent: "space-around",
           padding: 20,
         }}
       >
@@ -46,8 +64,9 @@ const AccentColorMode = () => {
                 backgroundColor: color,
                 justifyContent: "center",
                 alignItems: "center",
+                marginRight: index === accents.length - 1 ? 0 : 10,
               }}
-              onPress={() => handleAccentModeChange(color)}
+              onPress={() => handleAccentModeChange(color, index)}
             >
               {accentMode === color && (
                 <>
@@ -73,7 +92,7 @@ const AccentColorMode = () => {
             </HapticTouch>
           );
         })}
-      </View>
+      </ScrollView>
     </GroupCard>
   );
 };
