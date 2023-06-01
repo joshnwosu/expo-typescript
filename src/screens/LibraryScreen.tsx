@@ -14,6 +14,13 @@ const NOTES: GroupCardListProps["data"] = [
     clickable: true,
   },
   {
+    name: "Folders",
+    message: 2,
+    icon: "folder",
+    icon_color: "#FFC04D",
+    clickable: true,
+  },
+  {
     name: "Starred",
     message: 5,
     icon: "star",
