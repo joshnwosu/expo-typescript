@@ -39,7 +39,8 @@ export interface GroupCardListProps {
   title?: string;
   description?: string;
   data?: GroupCardItemProps["item"][];
-  primary_color?: string;
+  list_color?: string;
+  list_clickable?: boolean;
 }
 
 export interface GroupCardItemProps {
@@ -51,7 +52,7 @@ export interface GroupCardItemProps {
     message?: any;
     component?: JSX.Element;
     icon_color?: string;
-    count?: number;
+    onPress?: () => void;
   };
   index?: string | number;
   length?: number;
