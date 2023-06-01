@@ -5,6 +5,7 @@ import ThemeContext from "../context/ThemeContext";
 import AppNavigator from "../../navigation/AppNavigator";
 import Dim from "./Dim";
 import { useAppSelector } from "../../app/hooks";
+import PushNotification from "./PushNotification";
 
 export default function Root() {
   const { dimMode } = useAppSelector((state) => state.theme);
@@ -14,6 +15,7 @@ export default function Root() {
       <View style={styles.container}>
         <StatusBar style={mode === "dark" ? "light" : "dark"} />
         <AppNavigator theme={theme} />
+        <PushNotification />
         {dimMode && <Dim />}
       </View>
     </>
