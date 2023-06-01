@@ -55,7 +55,7 @@ const LABELS: GroupCardListProps["data"] = [
 ];
 
 export default function LibraryScreen() {
-  const navigation = useNavigation();
+  const navigation = useNavigation<any>();
   const dispatch = useAppDispatch();
   const {
     theme: { colors },
@@ -85,11 +85,16 @@ export default function LibraryScreen() {
               alignItems: "center",
             }}
           >
-            <Ionicons name="add-outline" color={colors.text} size={24} />
+            <Ionicons
+              name="add-outline"
+              color={colors.text}
+              size={24}
+              onPress={() => navigation.navigate("Folders")}
+            />
             <Ionicons
               name="chevron-down-outline"
               color={colors.text}
-              size={24}
+              size={20}
               style={{ marginLeft: 20 }}
             />
           </View>
@@ -106,11 +111,16 @@ export default function LibraryScreen() {
               alignItems: "center",
             }}
           >
-            <Ionicons name="add-outline" color={colors.text} size={24} />
+            <Ionicons
+              name="add-outline"
+              color={colors.text}
+              size={24}
+              onPress={() => navigation.navigate("Labels")}
+            />
             <Ionicons
               name="chevron-down-outline"
               color={colors.text}
-              size={24}
+              size={20}
               style={{ marginLeft: 20 }}
             />
           </View>
