@@ -33,7 +33,11 @@ export default function SettingsScreen() {
       clickable: true,
       message: "On",
     },
-    { name: "Sync", icon: "sync", description: "Last successful synced: " },
+    {
+      name: "Sync",
+      icon: "sync",
+      description: "Last successful synced: 24 seconds ago ",
+    },
   ];
 
   const APPEARANCE: GroupCardItemProps["item"][] = [

@@ -42,6 +42,8 @@ const NOTES: GroupCardListProps["data"] = [
     icon: "trash",
     icon_color: "#DE6058",
     clickable: true,
+    description:
+      "Items in here are permanently deleted after 30 days. Change In settings",
   },
 ];
 
