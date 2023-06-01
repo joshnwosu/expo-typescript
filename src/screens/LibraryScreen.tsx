@@ -17,7 +17,7 @@ const NOTES: GroupCardListProps["data"] = [
     name: "Folders",
     message: 2,
     icon: "folder",
-    icon_color: "#FFC04D",
+    icon_color: "#A450A6",
     clickable: true,
   },
   {
