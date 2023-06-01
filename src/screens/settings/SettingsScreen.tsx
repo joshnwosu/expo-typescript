@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import ListLayout from "../../components/layouts/ListLayout";
 import ScreenLayout from "../../components/layouts/ScreenLayout";
 import BulletEditLayout from "../../components/layouts/BulletEditLayout";
-import { GroupCardListProps, GroupCardProps } from "../../types";
+import { GroupCardItemProps, GroupCardListProps } from "../../types";
 import GroupCardList from "../../components/layouts/group-card/GroupCardList";
 import ThemeContext from "../../components/context/ThemeContext";
 
@@ -25,7 +25,7 @@ export default function SettingsScreen() {
     "Share Memora": "Share the app with others",
   };
 
-  const GENERAL = [
+  const GENERAL: GroupCardItemProps["item"][] = [
     { name: "Account", icon: "profile", clickable: true },
     {
       name: "Notifications",
@@ -36,7 +36,7 @@ export default function SettingsScreen() {
     { name: "Sync", icon: "sync", description: "Last successful synced: " },
   ];
 
-  const APPEARANCE = [
+  const APPEARANCE: GroupCardItemProps["item"][] = [
     {
       name: "Theme",
       icon: "theme",
@@ -56,12 +56,12 @@ export default function SettingsScreen() {
     { name: "Quick Actions", icon: "quick-action", clickable: true },
   ];
 
-  const SECURITY = [
+  const SECURITY: GroupCardItemProps["item"][] = [
     { name: "Locked Notes", icon: "notes", clickable: true },
     { name: "Passcode", icon: "lock", clickable: true },
   ];
 
-  const SUPPORT = [
+  const SUPPORT: GroupCardItemProps["item"][] = [
     { name: "Help & Feedback", icon: "feedback", clickable: true },
     { name: "About Us", icon: "information", clickable: true },
     { name: "What's New", icon: "whats-new", clickable: true },
@@ -82,7 +82,7 @@ export default function SettingsScreen() {
   const SUPPORT_WITH_DESCRIPTIONS = addDescriptions(SUPPORT);
   return (
     <ScrollView
-      contentContainerStyle={{ padding: 15 }}
+      contentContainerStyle={{ padding: 20 }}
       showsVerticalScrollIndicator={false}
     >
       {/* <ListLayout /> */}

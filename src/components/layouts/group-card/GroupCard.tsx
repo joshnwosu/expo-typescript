@@ -9,6 +9,16 @@ export default function GroupCard({
   children,
 }: GroupCardProps) {
   const styles = getStyle();
+  const renderGroupTitle = () => {
+    if (title) {
+      return (
+        <View style={styles.group_card_title_container}>
+          <Text style={styles.group_card_title}>{title}</Text>
+        </View>
+      );
+    }
+    return null;
+  };
   const renderGroupDescription = () => {
     if (description) {
       return (
@@ -21,9 +31,7 @@ export default function GroupCard({
   };
   return (
     <View style={styles.group_card_container}>
-      <View style={styles.group_card_title_container}>
-        <Text style={styles.group_card_title}>{title}</Text>
-      </View>
+      {renderGroupTitle()}
       <View style={styles.group_card}>{children}</View>
       {renderGroupDescription()}
     </View>

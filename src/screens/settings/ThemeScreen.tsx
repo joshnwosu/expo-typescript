@@ -8,12 +8,12 @@ import BrightnessMode from "../../components/widgets/settings/appearance/theme/B
 
 const ThemeScreen = () => {
   return (
-    <ScrollView style={{ padding: 15 }}>
+    <ScrollView style={{ padding: 20 }}>
       <AccentColorMode />
       <LayoutColor />
       <NightMode />
       <BrightnessMode />
-      {/* <DisplayView /> // ToDo */}
+      {/* <DisplayView /> */}
     </ScrollView>
   );
 };

@@ -10,7 +10,7 @@ const SettingsNavigator = () => {
     <Stack.Navigator
       screenOptions={{
         headerShown: true,
-        presentation: "formSheet",
+        // presentation: "formSheet",
         headerRight: () => null,
       }}
     >

@@ -21,8 +21,6 @@ export interface ThemeProps {
     notification: string;
     border: string;
     inactive: string;
-    topSeperator: string;
-    bottomSeperator: string;
   };
 }
 
@@ -41,6 +39,8 @@ export interface GroupCardListProps {
   title?: string;
   description?: string;
   data?: GroupCardItemProps["item"][];
+  list_color?: string;
+  list_clickable?: boolean;
 }
 
 export interface GroupCardItemProps {
@@ -51,6 +51,8 @@ export interface GroupCardItemProps {
     description?: string;
     message?: any;
     component?: JSX.Element;
+    icon_color?: string;
+    onPress?: () => void;
   };
   index?: string | number;
   length?: number;

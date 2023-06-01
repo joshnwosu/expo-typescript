@@ -80,6 +80,12 @@ export const getStyle = () => {
       marginTop: 2,
       opacity: 0.5,
     },
+    item_message_text: {
+      color: colors.text,
+      fontSize: 14,
+      fontWeight: "500",
+      opacity: 0.5,
+    },
     item_clickable_container: {
       flexDirection: "row",
       alignItems: "center",

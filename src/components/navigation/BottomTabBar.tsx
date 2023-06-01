@@ -33,7 +33,7 @@ export default function BottomTabBar({
     <View
       style={{
         flexDirection: "row",
-        backgroundColor: colors.background,
+        backgroundColor: colors.card,
         ...tabBarStyle,
       }}
     >
@@ -90,16 +90,16 @@ export default function BottomTabBar({
           >
             <SvgIcon
               icon={label.toLowerCase()}
-              width={26}
-              height={26}
+              width={24}
+              height={24}
               fill={isFocused ? colors.primary : colors.inactive}
             />
             <Text
               style={{
                 color: isFocused ? colors.primary : colors.inactive,
-                fontWeight: "500",
+                fontWeight: "400",
                 fontSize: 12,
-                marginTop: 8,
+                marginTop: 5,
               }}
             >
               {label === "Edit" ? "Create" : label}
