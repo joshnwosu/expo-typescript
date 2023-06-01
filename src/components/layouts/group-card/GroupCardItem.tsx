@@ -62,8 +62,8 @@ export default function GroupCardItem({
   };
 
   const renderMessage = () => {
-    if (typeof message === "string") {
-      return <Text style={styles.item_text}>{message}</Text>;
+    if (typeof message === "string" || typeof message === "number") {
+      return <Text style={styles.item_message_text}>{message}</Text>;
     }
     return message;
   };
