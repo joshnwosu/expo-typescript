@@ -21,8 +21,6 @@ export interface ThemeProps {
     notification: string;
     border: string;
     inactive: string;
-    topSeperator: string;
-    bottomSeperator: string;
   };
 }
 
