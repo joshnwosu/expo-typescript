@@ -7,14 +7,21 @@ import GroupCard from "./GroupCard";
 
 export default function GroupCardList({
   title,
+  titleButton,
   description,
   data,
   list_color,
   list_clickable,
+  titleButtonPostition,
 }: GroupCardListProps) {
   const styles = getStyle();
   return (
-    <GroupCard title={title} description={description}>
+    <GroupCard
+      title={title}
+      titleButton={titleButton}
+      titleButtonPostition={titleButtonPostition}
+      description={description}
+    >
       {data?.map((item: GroupCardItemProps["item"], index) => {
         return (
           <GroupCardItem

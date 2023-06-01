@@ -29,15 +29,18 @@ export interface ThemeObject {
   dark: ThemeProps;
 }
 
-export interface GroupCardProps {
+interface GropCardSharedProps {
   title?: string;
-  children: JSX.Element | React.ReactNode;
+  titleButton?: JSX.Element;
+  titleButtonPostition?: "right" | "left";
   description?: string;
 }
 
-export interface GroupCardListProps {
-  title?: string;
-  description?: string;
+export interface GroupCardProps extends GropCardSharedProps {
+  children: JSX.Element | React.ReactNode;
+}
+
+export interface GroupCardListProps extends GropCardSharedProps {
   data?: GroupCardItemProps["item"][];
   list_color?: string;
   list_clickable?: boolean;

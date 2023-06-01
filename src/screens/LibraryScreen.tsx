@@ -1,9 +1,11 @@
-import { ScrollView } from "react-native";
-import React from "react";
+import { ScrollView, View, Text } from "react-native";
+import React, { useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useAppDispatch } from "../app/hooks";
 import GroupCardList from "../components/layouts/group-card/GroupCardList";
 import { GroupCardListProps } from "../types";
+import { Ionicons } from "@expo/vector-icons";
+import ThemeContext from "../components/context/ThemeContext";
 
 const NOTES: GroupCardListProps["data"] = [
   {
@@ -55,6 +57,9 @@ const LABELS: GroupCardListProps["data"] = [
 export default function LibraryScreen() {
   const navigation = useNavigation();
   const dispatch = useAppDispatch();
+  const {
+    theme: { colors },
+  } = useContext(ThemeContext);
 
   return (
     <ScrollView
@@ -71,9 +76,45 @@ export default function LibraryScreen() {
         data={FOLDERS}
         list_color="#FFC04D"
         list_clickable={true}
+        titleButtonPostition="left"
+        titleButton={
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Ionicons name="add-outline" color={colors.text} size={24} />
+            <Ionicons
+              name="chevron-down-outline"
+              color={colors.text}
+              size={24}
+              style={{ marginLeft: 20 }}
+            />
+          </View>
+        }
       />
       <GroupCardList
         title="Labels"
+        titleButtonPostition="right"
+        titleButton={
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Ionicons name="add-outline" color={colors.text} size={24} />
+            <Ionicons
+              name="chevron-down-outline"
+              color={colors.text}
+              size={24}
+              style={{ marginLeft: 20 }}
+            />
+          </View>
+        }
         data={LABELS}
         list_color="#6d6f7a"
         list_clickable

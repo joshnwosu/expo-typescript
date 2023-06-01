@@ -19,6 +19,8 @@ export const getStyle = () => {
     group_card_title_container: {
       paddingVertical: 5,
       paddingHorizontal: 15,
+      flexDirection: "row",
+      alignItems: "center",
     },
     group_card_title: {
       color: colors.text,
@@ -26,6 +28,7 @@ export const getStyle = () => {
       fontWeight: "500",
       textTransform: "uppercase",
       opacity: 0.5,
+      marginRight: 20,
     },
     group_card_description_container: {
       paddingVertical: 5,
