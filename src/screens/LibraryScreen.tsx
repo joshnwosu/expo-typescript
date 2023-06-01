@@ -1,21 +1,9 @@
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  ScrollView,
-  Animated,
-  SafeAreaView,
-} from "react-native";
-import React, { useEffect, useContext } from "react";
-import { useNavigation, useTheme } from "@react-navigation/native";
-import SvgIcon from "../components/common/icons";
-import { Ionicons } from "@expo/vector-icons";
-import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { increment, incrementByAmount } from "../features/counter/counterSlice";
-import ThemeContext from "../components/context/ThemeContext";
-import { IconName } from "../types/icon";
+import { ScrollView } from "react-native";
+import React from "react";
+import { useNavigation } from "@react-navigation/native";
+import { useAppDispatch } from "../app/hooks";
 import GroupCardList from "../components/layouts/group-card/GroupCardList";
-import { GroupCardItemProps, GroupCardListProps } from "../types";
+import { GroupCardListProps } from "../types";
 
 const NOTES: GroupCardListProps["data"] = [
   {
