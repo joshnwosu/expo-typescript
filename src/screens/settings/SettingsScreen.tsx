@@ -82,7 +82,7 @@ export default function SettingsScreen() {
   const SUPPORT_WITH_DESCRIPTIONS = addDescriptions(SUPPORT);
   return (
     <ScrollView
-      contentContainerStyle={{ padding: 15 }}
+      contentContainerStyle={{ padding: 20 }}
       showsVerticalScrollIndicator={false}
     >
       {/* <ListLayout /> */}

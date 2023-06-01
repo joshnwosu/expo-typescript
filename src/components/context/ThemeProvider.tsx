@@ -43,7 +43,7 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
       dark: true,
       colors: {
         background: "#171717",
-        border: "#212121",
+        border: "#2F2F2F",
         card: "#1F1F1F",
         notification: "#ff453a",
         primary: accentMode,
