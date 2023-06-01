@@ -10,6 +10,7 @@ const SearchNavigator = () => {
     <Stack.Navigator
       screenOptions={{
         headerShown: true,
+        headerShadowVisible: false,
         headerRight: () => <RightHeaderIcon />,
       }}
     >
