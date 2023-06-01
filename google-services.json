@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "479709788703",
+    "project_id": "memora-app-push-noti",
+    "storage_bucket": "memora-app-push-noti.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:479709788703:android:d68a678fb4e2f45518732a",
+        "android_client_info": {
+          "package_name": "com.memoraPushNoti.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClr3BonOj9ktx4eYdAtZj7jBWmi2IvTl8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
