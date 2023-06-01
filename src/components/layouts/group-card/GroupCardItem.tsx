@@ -15,7 +15,8 @@ export default function GroupCardItem({
 }: GroupCardItemProps) {
   const { mode } = useContext(ThemeContext);
   const navigation = useNavigation<any>();
-  const { clickable, component, description, icon, message, name } = item;
+  const { clickable, component, description, icon, message, name, icon_color } =
+    item;
   const styles = getStyle();
 
   const renderIcon = () => {
@@ -24,7 +25,7 @@ export default function GroupCardItem({
         <View style={styles.item_icon_container}>
           <SvgIcon
             icon={icon as IconName}
-            fill={styles.item_icon.color}
+            fill={icon_color || styles.item_icon.color}
             width={styles.item_icon.width}
             height={styles.item_icon.height}
           />

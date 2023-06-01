@@ -9,6 +9,7 @@ export default function GroupCardList({
   title,
   description,
   data,
+  primary_color,
 }: GroupCardListProps) {
   const styles = getStyle();
   return (
@@ -17,7 +18,7 @@ export default function GroupCardList({
         return (
           <GroupCardItem
             key={index.toString()}
-            item={item}
+            item={{ ...item, icon_color: item.icon_color || primary_color }}
             index={index}
             length={data?.length}
           />
