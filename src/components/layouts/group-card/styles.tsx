@@ -32,7 +32,7 @@ export const getStyle = () => {
       fontSize: 12,
       fontWeight: "500",
       textTransform: "uppercase",
-      opacity: 0.5,
+      // opacity: 0.5,
       marginRight: 20,
     },
     group_card_description_container: {
@@ -44,7 +44,7 @@ export const getStyle = () => {
       fontSize: 13,
       fontWeight: "400",
       lineHeight: 20,
-      opacity: 0.4,
+      opacity: 0.7,
     },
 
     // Item style
