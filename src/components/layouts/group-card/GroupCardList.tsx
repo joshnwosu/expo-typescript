@@ -13,6 +13,7 @@ export default function GroupCardList({
   list_color,
   list_clickable,
   titleButtonPostition,
+  onPress,
 }: GroupCardListProps) {
   const styles = getStyle();
   return (
@@ -30,6 +31,7 @@ export default function GroupCardList({
               ...item,
               icon_color: item.icon_color || list_color,
               clickable: item.clickable || list_clickable,
+              onPress: item.onPress || onPress,
             }}
             index={index}
             length={data?.length}

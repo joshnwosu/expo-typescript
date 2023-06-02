@@ -7,7 +7,7 @@ import { GroupCardItemProps, GroupCardListProps } from "../../types";
 import GroupCardList from "../../components/layouts/group-card/GroupCardList";
 import ThemeContext from "../../components/context/ThemeContext";
 
-export default function SettingsScreen() {
+export default function SettingsScreen({ navigation }) {
   const { theme } = useContext(ThemeContext);
   const { colors } = theme;
   const descriptions = {
@@ -26,7 +26,12 @@ export default function SettingsScreen() {
   };
 
   const GENERAL: GroupCardItemProps["item"][] = [
-    { name: "Account", icon: "profile", clickable: true },
+    {
+      name: "Account",
+      icon: "profile",
+      clickable: true,
+      onPress: (screen) => navigation.navigate("Screen Detail", { screen }),
+    },
     {
       name: "Notifications",
       icon: "notification",
@@ -94,7 +99,11 @@ export default function SettingsScreen() {
       {/* <BulletEditLayout /> */}
 
       <GroupCardList title="General" data={GENERAL} />
-      <GroupCardList title="Appearance" data={APPEARANCE} />
+      <GroupCardList
+        title="Appearance"
+        data={APPEARANCE}
+        onPress={(screen) => navigation.navigate("Screen Detail", { screen })}
+      />
       <GroupCardList title="Privacy" data={SECURITY} />
       <GroupCardList title="Support" data={SUPPORT} />
     </ScrollView>

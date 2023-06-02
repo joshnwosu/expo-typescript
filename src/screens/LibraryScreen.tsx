@@ -52,6 +52,12 @@ const NOTES: GroupCardListProps["data"] = [
     // description:
     //   "Items in here are permanently deleted after 30 days. Change In settings",
   },
+  {
+    name: "Rentify Test",
+    icon: "home",
+    icon_color: "gold",
+    clickable: true,
+  },
 ];
 
 const FOLDERS: GroupCardListProps["data"] = [
@@ -79,7 +85,12 @@ export default function LibraryScreen() {
       }}
       showsVerticalScrollIndicator={false}
     >
-      <GroupCardList data={NOTES} />
+      <GroupCardList
+        data={NOTES}
+        onPress={(screen: string) =>
+          navigation.navigate("Screen Detail", { screen })
+        }
+      />
       <GroupCardList
         title="Folders"
         data={FOLDERS}

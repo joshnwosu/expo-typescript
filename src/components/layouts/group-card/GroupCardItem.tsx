@@ -15,8 +15,16 @@ export default function GroupCardItem({
 }: GroupCardItemProps) {
   const { mode } = useContext(ThemeContext);
   const navigation = useNavigation<any>();
-  const { clickable, component, description, icon, message, name, icon_color } =
-    item;
+  const {
+    clickable,
+    component,
+    description,
+    icon,
+    message,
+    name,
+    icon_color,
+    onPress,
+  } = item;
   const styles = getStyle();
 
   const renderIcon = () => {
@@ -104,17 +112,10 @@ export default function GroupCardItem({
       activeOpacity={0.7}
       style={styles.item}
       onPress={() => {
-        if (clickable) navigation.navigate("Settings Detail", { name: name });
+        if (clickable && onPress) onPress(name);
       }}
     >
       <>
-        {/* {component ? (
-          <View style={styles.item_content}>
-            {component}
-            {renderSeperator()}
-          </View>
-        ) : (
-          <> */}
         {renderIcon()}
         <View style={styles.item_content}>
           {renderContent()}
@@ -122,8 +123,6 @@ export default function GroupCardItem({
           {component}
           {renderSeperator()}
         </View>
-        {/* </>
-        )} */}
       </>
     </TouchableOpacity>
   );

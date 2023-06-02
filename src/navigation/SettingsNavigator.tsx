@@ -1,7 +1,7 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import SettingsScreen from "../screens/settings/SettingsScreen";
-import SettingsDetails from "../screens/settings/SettingsDetails";
+import ScreenDetail from "../screens/ScreenDetail";
 
 const Stack = createNativeStackNavigator();
 
@@ -19,7 +19,7 @@ const SettingsNavigator = () => {
         options={{ title: "Settings" }}
         component={SettingsScreen}
       />
-      <Stack.Screen name="Settings Detail" component={SettingsDetails} />
+      <Stack.Screen name="Screen Detail" component={ScreenDetail} />
     </Stack.Navigator>
   );
 };

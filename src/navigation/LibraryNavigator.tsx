@@ -3,8 +3,8 @@ import LibraryScreen from "../screens/LibraryScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import FoldersScreen from "../screens/FoldersScreen";
 import LabelScreen from "../screens/LabelScreen";
-import NoteScreen from "../screens/NoteScreen";
 import RightHeaderIcon from "../components/layouts/RightHeaderIcon";
+import ScreenDetail from "../screens/ScreenDetail";
 
 const Stack = createNativeStackNavigator();
 
@@ -24,7 +24,6 @@ const LibraryNavigator = () => {
         }}
         component={LibraryScreen}
       />
-      <Stack.Screen name="Notes" component={NoteScreen} />
       <Stack.Screen name="Folders" component={FoldersScreen} />
       <Stack.Screen
         name="Labels"
@@ -34,6 +33,7 @@ const LibraryNavigator = () => {
           headerRight: () => null,
         }}
       />
+      <Stack.Screen name="Screen Detail" component={ScreenDetail} />
     </Stack.Navigator>
   );
 };

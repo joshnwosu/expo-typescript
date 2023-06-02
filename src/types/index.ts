@@ -34,6 +34,7 @@ interface GropCardSharedProps {
   titleButton?: JSX.Element;
   titleButtonPostition?: "right" | "left";
   description?: string;
+  onPress?: (v: string) => void;
 }
 
 export interface GroupCardProps extends GropCardSharedProps {
@@ -55,7 +56,7 @@ export interface GroupCardItemProps {
     message?: any;
     component?: JSX.Element;
     icon_color?: string;
-    onPress?: () => void;
+    onPress?: (v: string) => void;
   };
   index?: string | number;
   length?: number;
