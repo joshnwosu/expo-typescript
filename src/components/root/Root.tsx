@@ -15,7 +15,7 @@ export default function Root() {
       <View style={styles.container}>
         <StatusBar style={mode === "dark" ? "light" : "dark"} />
         <AppNavigator theme={theme} />
-        <PushNotification />
+        {/* <PushNotification /> */}
         {dimMode && <Dim />}
       </View>
     </>
