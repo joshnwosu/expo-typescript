@@ -2,6 +2,7 @@ import { View, Text } from "react-native";
 import React, { useLayoutEffect } from "react";
 import ThemeScreen from "./settings/ThemeScreen";
 import MasonryLayout from "../components/layouts/MasonryLayout";
+import FoldersScreen from "./Library/FoldersScreen";
 
 const RentifyTest = () => {
   return (
@@ -24,6 +25,9 @@ export default function ScreenDetail({ navigation, route }) {
   switch (screen) {
     case "Notes":
       componentToRender = <MasonryLayout />;
+      break;
+    case "Folders":
+      componentToRender = <FoldersScreen />;
       break;
     case "Rentify Test":
       componentToRender = <RentifyTest />;

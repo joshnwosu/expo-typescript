@@ -1,11 +1,12 @@
-import { ScrollView, View, Text } from "react-native";
+import { ScrollView, View, Text, TouchableOpacity } from "react-native";
 import React, { useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { useAppDispatch } from "../app/hooks";
-import GroupCardList from "../components/layouts/group-card/GroupCardList";
-import { GroupCardListProps } from "../types";
+import { useAppDispatch } from "../../app/hooks";
+import GroupCardList from "../../components/layouts/group-card/GroupCardList";
+import { GroupCardListProps } from "../../types";
 import { Ionicons } from "@expo/vector-icons";
-import ThemeContext from "../components/context/ThemeContext";
+import ThemeContext from "../../components/context/ThemeContext";
+import HapticTouch from "../../components/common/HapticTouch";
 
 const NOTES: GroupCardListProps["data"] = [
   {
@@ -105,18 +106,17 @@ export default function LibraryScreen() {
               alignItems: "center",
             }}
           >
-            <Ionicons
-              name="add-outline"
-              color={colors.text}
-              size={24}
-              onPress={() => navigation.navigate("Folders")}
-            />
-            <Ionicons
-              name="chevron-down-outline"
-              color={colors.text}
-              size={20}
-              style={{ marginLeft: 20 }}
-            />
+            <HapticTouch onPress={() => console.log("Add Folder")}>
+              <Ionicons name="add-outline" color={colors.text} size={24} />
+            </HapticTouch>
+            <HapticTouch onPress={() => console.log("Collapse Folders")}>
+              <Ionicons
+                name="chevron-down-outline"
+                color={colors.text}
+                size={20}
+                style={{ marginLeft: 20 }}
+              />
+            </HapticTouch>
           </View>
         }
       />
@@ -131,18 +131,17 @@ export default function LibraryScreen() {
               alignItems: "center",
             }}
           >
-            <Ionicons
-              name="add-outline"
-              color={colors.text}
-              size={24}
-              onPress={() => navigation.navigate("Labels")}
-            />
-            <Ionicons
-              name="chevron-down-outline"
-              color={colors.text}
-              size={20}
-              style={{ marginLeft: 20 }}
-            />
+            <HapticTouch onPress={() => navigation.navigate("Labels")}>
+              <Ionicons name="add-outline" color={colors.text} size={24} />
+            </HapticTouch>
+            <HapticTouch onPress={() => navigation.navigate("Collapse Labels")}>
+              <Ionicons
+                name="chevron-down-outline"
+                color={colors.text}
+                size={20}
+                style={{ marginLeft: 20 }}
+              />
+            </HapticTouch>
           </View>
         }
         data={LABELS}
