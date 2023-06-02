@@ -23,6 +23,13 @@ const NOTES: GroupCardListProps["data"] = [
     clickable: true,
   },
   {
+    name: "Labels",
+    message: 1,
+    icon: "tag",
+    icon_color: "#8C8C8C",
+    clickable: true,
+  },
+  {
     name: "Starred",
     message: 5,
     icon: "star",
