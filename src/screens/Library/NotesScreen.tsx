@@ -1,13 +1,12 @@
 import { View, Text } from "react-native";
-import React from "react";
-import SharedElementLayout from "../../components/layouts/SharedElementLayout";
+import React, { useEffect, useLayoutEffect } from "react";
 import MasonryLayout from "../../components/layouts/MasonryLayout";
+import { useNavigation } from "@react-navigation/native";
 
 const NotesScreen = () => {
   return (
     <View style={{ flex: 1 }}>
-      <SharedElementLayout />
-      {/* <MasonryLayout />; */}
+      <MasonryLayout />
     </View>
   );
 };

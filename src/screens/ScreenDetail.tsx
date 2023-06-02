@@ -3,13 +3,14 @@ import React, { useLayoutEffect } from "react";
 import ThemeScreen from "./settings/ThemeScreen";
 import FoldersScreen from "./Library/FoldersScreen";
 import NotesScreen from "./Library/NotesScreen";
+import LabelScreen from "./Library/LabelScreen";
 
 export default function ScreenDetail({ navigation, route }) {
   const { screen } = route?.params;
   useLayoutEffect(() => {
     navigation.setOptions({
       title: screen,
-      headerShown: false,
+      headerShown: true,
     });
   }, []);
 
@@ -21,6 +22,9 @@ export default function ScreenDetail({ navigation, route }) {
       break;
     case "Folders":
       componentToRender = <FoldersScreen />;
+      break;
+    case "Labels":
+      componentToRender = <LabelScreen />;
       break;
     case "Theme":
       componentToRender = <ThemeScreen />;

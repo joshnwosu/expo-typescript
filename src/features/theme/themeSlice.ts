@@ -47,14 +47,15 @@ export const setAccentModeAsync = createAsyncThunk(
 export const getStoredTheme = createAsyncThunk(
   "theme/getStoredTheme",
   async () => {
+    // await AsyncStorage.clear();
     try {
       const storedTheme = await AsyncStorage.getItem("theme");
       const storedAccent = await AsyncStorage.getItem("accent");
 
       return {
-        themeMode: (storedTheme as BackgroundProps["name"]) || "dark",
-        accentMode: (storedAccent as AccentColor) || "#5d68f9",
-      }; // Return the stored theme if it exists, otherwise use a default value
+        themeMode: storedTheme || "dark",
+        accentMode: storedAccent || "#5d68f9",
+      };
     } catch (error) {
       console.error("Error while retrieving stored theme:", error);
       throw error;
@@ -82,8 +83,8 @@ export const themeSlice = createSlice({
         state.accentMode = action.payload;
       })
       .addCase(getStoredTheme.fulfilled, (state, action) => {
-        state.themeMode = action.payload.themeMode;
-        state.accentMode = action.payload.accentMode;
+        state.themeMode = action.payload.themeMode as BackgroundProps["name"];
+        state.accentMode = action.payload.accentMode as AccentColor;
       });
   },
 });
