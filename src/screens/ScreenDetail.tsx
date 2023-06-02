@@ -3,14 +3,7 @@ import React, { useLayoutEffect } from "react";
 import ThemeScreen from "./settings/ThemeScreen";
 import MasonryLayout from "../components/layouts/MasonryLayout";
 import FoldersScreen from "./Library/FoldersScreen";
-
-const RentifyTest = () => {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text style={{ color: "#ffffff" }}>Rentify App</Text>
-    </View>
-  );
-};
+import RentifyTestScreen from "./RentifyTest/RentifyTestScreen";
 
 export default function ScreenDetail({ navigation, route }) {
   const { screen } = route?.params;
@@ -30,7 +23,7 @@ export default function ScreenDetail({ navigation, route }) {
       componentToRender = <FoldersScreen />;
       break;
     case "Rentify Test":
-      componentToRender = <RentifyTest />;
+      componentToRender = <RentifyTestScreen navigation={navigation} />;
       break;
     case "Theme":
       componentToRender = <ThemeScreen />;
