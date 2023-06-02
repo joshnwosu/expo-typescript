@@ -5,6 +5,8 @@ import { GroupCardProps } from "../../../types";
 
 export default function GroupCard({
   title,
+  titleButton,
+  titleButtonPostition,
   description,
   children,
 }: GroupCardProps) {
@@ -12,8 +14,19 @@ export default function GroupCard({
   const renderGroupTitle = () => {
     if (title) {
       return (
-        <View style={styles.group_card_title_container}>
+        <View
+          style={[
+            styles.group_card_title_container,
+            {
+              justifyContent:
+                titleButtonPostition === "left"
+                  ? "flex-start"
+                  : "space-between",
+            },
+          ]}
+        >
           <Text style={styles.group_card_title}>{title}</Text>
+          {titleButton ? <>{titleButton}</> : null}
         </View>
       );
     }

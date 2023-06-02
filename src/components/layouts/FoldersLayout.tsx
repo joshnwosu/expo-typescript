@@ -67,7 +67,12 @@ export default function FoldersLayout() {
           {item.name.toLowerCase() == "add folder" ? (
             <SvgIcon icon="add" width={60} height={60} fill={colors.border} />
           ) : (
-            <SvgIcon icon="folder" width={60} height={60} fill="#FFC04D" />
+            <SvgIcon
+              icon="folder"
+              width={60}
+              height={60}
+              fill={colors.primary}
+            />
           )}
           <Text
             style={{

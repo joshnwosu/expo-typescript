@@ -9,16 +9,23 @@ export const getStyle = () => {
   const styles = StyleSheet.create({
     // GroupCard style
     group_card_container: {
-      marginBottom: 10,
+      marginBottom: 20,
     },
     group_card: {
       backgroundColor: colors.card,
       borderRadius: 10,
       // padding: 10,
+      shadowColor: "#000",
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.01,
+      shadowRadius: 4,
+      elevation: 4, // Required for shadow on Android
     },
     group_card_title_container: {
       paddingVertical: 5,
       paddingHorizontal: 15,
+      flexDirection: "row",
+      alignItems: "center",
     },
     group_card_title: {
       color: colors.text,
@@ -26,6 +33,7 @@ export const getStyle = () => {
       fontWeight: "500",
       textTransform: "uppercase",
       opacity: 0.5,
+      marginRight: 20,
     },
     group_card_description_container: {
       paddingVertical: 5,
@@ -60,7 +68,7 @@ export const getStyle = () => {
       alignItems: "center",
       marginLeft: 15,
       height: "100%",
-      marginVertical: 2,
+      // marginVertical: 2,
       // backgroundColor: "red",
     },
     item_text_container: {

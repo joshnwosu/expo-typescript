@@ -1,21 +1,11 @@
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  ScrollView,
-  Animated,
-  SafeAreaView,
-} from "react-native";
-import React, { useEffect, useContext } from "react";
-import { useNavigation, useTheme } from "@react-navigation/native";
-import SvgIcon from "../components/common/icons";
-import { Ionicons } from "@expo/vector-icons";
-import { useAppDispatch, useAppSelector } from "../app/hooks";
-import { increment, incrementByAmount } from "../features/counter/counterSlice";
-import ThemeContext from "../components/context/ThemeContext";
-import { IconName } from "../types/icon";
+import { ScrollView, View, Text } from "react-native";
+import React, { useContext } from "react";
+import { useNavigation } from "@react-navigation/native";
+import { useAppDispatch } from "../app/hooks";
 import GroupCardList from "../components/layouts/group-card/GroupCardList";
-import { GroupCardItemProps, GroupCardListProps } from "../types";
+import { GroupCardListProps } from "../types";
+import { Ionicons } from "@expo/vector-icons";
+import ThemeContext from "../components/context/ThemeContext";
 
 const NOTES: GroupCardListProps["data"] = [
   {
@@ -23,6 +13,20 @@ const NOTES: GroupCardListProps["data"] = [
     message: 14,
     icon: "notes",
     icon_color: "#3F7DE8",
+    clickable: true,
+  },
+  {
+    name: "Folders",
+    message: 2,
+    icon: "folder",
+    icon_color: "#A450A6",
+    clickable: true,
+  },
+  {
+    name: "Labels",
+    message: 1,
+    icon: "tag",
+    icon_color: "#8C8C8C",
     clickable: true,
   },
   {
@@ -45,6 +49,8 @@ const NOTES: GroupCardListProps["data"] = [
     icon: "trash",
     icon_color: "#DE6058",
     clickable: true,
+    // description:
+    //   "Items in here are permanently deleted after 30 days. Change In settings",
   },
 ];
 
@@ -58,8 +64,11 @@ const LABELS: GroupCardListProps["data"] = [
 ];
 
 export default function LibraryScreen() {
-  const navigation = useNavigation();
+  const navigation = useNavigation<any>();
   const dispatch = useAppDispatch();
+  const {
+    theme: { colors },
+  } = useContext(ThemeContext);
 
   return (
     <ScrollView
@@ -76,9 +85,55 @@ export default function LibraryScreen() {
         data={FOLDERS}
         list_color="#FFC04D"
         list_clickable={true}
+        titleButtonPostition="left"
+        titleButton={
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Ionicons
+              name="add-outline"
+              color={colors.text}
+              size={24}
+              onPress={() => navigation.navigate("Folders")}
+            />
+            <Ionicons
+              name="chevron-down-outline"
+              color={colors.text}
+              size={20}
+              style={{ marginLeft: 20 }}
+            />
+          </View>
+        }
       />
       <GroupCardList
         title="Labels"
+        titleButtonPostition="right"
+        titleButton={
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Ionicons
+              name="add-outline"
+              color={colors.text}
+              size={24}
+              onPress={() => navigation.navigate("Labels")}
+            />
+            <Ionicons
+              name="chevron-down-outline"
+              color={colors.text}
+              size={20}
+              style={{ marginLeft: 20 }}
+            />
+          </View>
+        }
         data={LABELS}
         list_color="#6d6f7a"
         list_clickable
