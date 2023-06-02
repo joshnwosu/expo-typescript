@@ -1,15 +1,15 @@
 import { View, Text } from "react-native";
 import React, { useLayoutEffect } from "react";
 import ThemeScreen from "./settings/ThemeScreen";
-import MasonryLayout from "../components/layouts/MasonryLayout";
 import FoldersScreen from "./Library/FoldersScreen";
-import RentifyTestScreen from "./RentifyTest/RentifyTestScreen";
+import NotesScreen from "./Library/NotesScreen";
 
 export default function ScreenDetail({ navigation, route }) {
   const { screen } = route?.params;
   useLayoutEffect(() => {
     navigation.setOptions({
       title: screen,
+      headerShown: false,
     });
   }, []);
 
@@ -17,13 +17,10 @@ export default function ScreenDetail({ navigation, route }) {
 
   switch (screen) {
     case "Notes":
-      componentToRender = <MasonryLayout />;
+      componentToRender = <NotesScreen />;
       break;
     case "Folders":
       componentToRender = <FoldersScreen />;
-      break;
-    case "Rentify Test":
-      componentToRender = <RentifyTestScreen navigation={navigation} />;
       break;
     case "Theme":
       componentToRender = <ThemeScreen />;

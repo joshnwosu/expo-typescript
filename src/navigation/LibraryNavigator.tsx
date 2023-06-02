@@ -4,9 +4,11 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import FoldersScreen from "../screens/Library/FoldersScreen";
 import LabelScreen from "../screens/LabelScreen";
 import RightHeaderIcon from "../components/layouts/RightHeaderIcon";
+import { createSharedElementStackNavigator } from "react-navigation-shared-element";
 import ScreenDetail from "../screens/ScreenDetail";
 
-const Stack = createNativeStackNavigator();
+const Stack = createSharedElementStackNavigator();
+// const Stack = createNativeStackNavigator();
 
 const LibraryNavigator = () => {
   return (
@@ -29,7 +31,7 @@ const LibraryNavigator = () => {
         name="Labels"
         component={LabelScreen}
         options={{
-          presentation: "formSheet",
+          // presentation: "",
           headerRight: () => null,
         }}
       />

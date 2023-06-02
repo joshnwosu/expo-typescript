@@ -11,6 +11,21 @@ import CreateScreen from "../screens/CreateScreen";
 const Stack = createSharedElementStackNavigator();
 // const Stack = createStackNavigator();
 
+const listOpions = {
+  cardStyleInterpolator: ({ current: { progress } }) => {
+    const opacity = progress.interpolate({
+      inputRange: [0, 1],
+      outputRange: [0, 1],
+      extrapolate: "clamp",
+    });
+    return { cardStyle: { opacity } };
+  },
+  gestureEnabled: false,
+  cardStyle: {
+    backgroundColor: "transparent",
+  },
+};
+
 const options = {
   headerBackTitleVisible: false,
   headerShown: false,
@@ -31,6 +46,7 @@ const AppNavigator = ({ theme }: any) => {
           name="AppNavigator"
           options={{
             headerShadowVisible: false,
+            title: "Home",
           }}
           component={BottomNavigator}
         />
